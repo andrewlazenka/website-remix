@@ -115,7 +115,6 @@ function Document({
                 window.__onThemeChange = function() {};
 
                 function setAppTheme(newTheme) {
-                  console.log('call 1')
                   window.__theme = newTheme;
                   preferredTheme = newTheme;
                   document.documentElement.className = newTheme
@@ -129,8 +128,6 @@ function Document({
                 } catch (err) { }
 
                 window.__setPreferredTheme = function(newTheme) {
-
-                  console.log('call 3')
                   setAppTheme(newTheme);
                   try {
                     localStorage.setItem('theme', newTheme);
@@ -139,7 +136,6 @@ function Document({
 
                 var darkQuery = window.matchMedia('(prefers-color-scheme: dark)');
                 darkQuery.addListener(function(e) {
-                  console.log('call 3')
                   window.__setPreferredTheme(e.matches ? 'dark' : 'light')
                 });
 

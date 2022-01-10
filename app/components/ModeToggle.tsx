@@ -1,7 +1,7 @@
 import React from 'react'
 
-import SunIcon from '~/components/svg/icons/sun'
-import MoonIcon from '~/components/svg/icons/moon'
+import SunIcon from '~/components/svg/icons/Sun'
+import MoonIcon from '~/components/svg/icons/Moon'
 
 const baseIconStyle =
   'absolute cursor-pointer transition duration-300 ease-in-out hover:text-indigo-300 text-gray-50'
