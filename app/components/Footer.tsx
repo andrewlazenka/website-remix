@@ -9,10 +9,11 @@ import type { SocialLinks as TSocialLinks } from '~/types/links'
 const year = new Date().getFullYear()
 const copyright = `© ${year} Andrew Lazenka. All Rights Reserved.`
 
-const Footer = () => {
+function Footer() {
   const { socialLinks } = useLoaderData<{ socialLinks: TSocialLinks }>()
+
   return (
-    <footer className="flex items-center w-full min-h-[300px] bg-gradient-to-b from-gray-50 via-grey-300 to-indigo-500 dark:from-gray-900 dark:to-gray-600 transition-all duration-300 ease-in-out">
+    <footer className="flex items-center w-full min-h-[300px] bg-gradient-to-b from-gray-50 via-grey-300 to-blue-500 dark:from-gray-900 dark:to-gray-600 transition-all duration-300 ease-in-out">
       <div className="flex justify-between flex-col md:flex-row px-5 w-3/4 max-w-5xl mx-auto">
         <div>
           <div className="flex justify-center pb-6 md:p-0">
