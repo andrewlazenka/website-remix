@@ -1,0 +1,142 @@
+a {
+  color: inherit;
+  text-decoration: inherit;
+}
+
+body {
+  font-family: Roboto, sans-serif;
+  font-weight: 400;
+  line-height: 1.75;
+  margin: 0;
+}
+
+h1 {
+  margin-left: 0;
+  margin-right: 0;
+  margin-top: 0;
+  padding-bottom: 0;
+  padding-left: 0;
+  padding-right: 0;
+  padding-top: 0;
+  margin-bottom: 1.75rem;
+  font-weight: 900;
+  text-rendering: optimizeLegibility;
+  font-size: 2.5rem;
+  line-height: 1.1;
+}
+
+h2, h3 {
+  margin: 0;
+  padding: 0;
+  font-weight: 900;
+  text-rendering: optimizeLegibility;
+  font-size: 1.4427rem;
+  line-height: 2.625rem;
+}
+
+h4 {
+  margin: 0;
+  padding: 0;
+  text-rendering: optimizeLegibility;
+}
+
+.snippets-input {
+  box-sizing: border-box;
+  height: 32px;
+  width: 100%;
+  border: 1px solid #dee3e5;
+  border-radius: 4px;
+  background-color: #f5f6f9;
+  color: #000;
+  font-size: 16px;
+  line-height: 22px;
+  padding: 8px;
+  margin: 5px 0;
+}
+
+.snippets-input::placeholder {
+  color: #999;
+}
+
+.snippets-input:hover {
+  background-color: #f7f8fb;
+}
+
+.snippets-input:focus {
+  box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.14);
+  background-color: #f7f8fb;
+}
+
+.snippets-dropdown {
+  overflow: hidden;
+  height: 32px;
+  width: auto;
+  display: inline-block;
+  border-radius: 4px;
+  border: 1px solid #eee;
+  cursor: pointer;
+  position: relative;
+  min-width: 100px;
+  margin: 5px 0;
+  box-sizing: border-box;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.25);
+}
+
+.snippets-dropdown select {
+  font-size: 14px;
+  border: 1px solid #ccc;
+  height: 32px;
+  border: 0;
+  padding-left: 7px;
+  transition: color 0.3s ease-in-out;
+  width: auto;
+  min-width: 100px;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* https://ianlunn.github.io/Hover */
+/* Float Shadow */
+.hvr-float-shadow {
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  position: relative;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-property: transform;
+  transition-property: transform;
+}
+
+.hvr-float-shadow:before {
+  pointer-events: none;
+  position: absolute;
+  z-index: -1;
+  content: '';
+  top: 100%;
+  left: 5%;
+  height: 10px;
+  width: 90%;
+  opacity: 0;
+  background: -webkit-radial-gradient(center, ellipse, rgba(0, 0, 0, 0.35) 0%, rgba(0, 0, 0, 0) 80%);
+  background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.35) 0%, rgba(0, 0, 0, 0) 80%);
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-property: transform, opacity;
+  transition-property: transform, opacity;
+}
+
+.hvr-float-shadow:hover, .hvr-float-shadow:focus, .hvr-float-shadow:active {
+  -webkit-transform: translateY(-5px);
+  transform: translateY(-5px);
+}
+
+.hvr-float-shadow:hover:before, .hvr-float-shadow:focus:before, .hvr-float-shadow:active:before {
+  opacity: 1;
+  -webkit-transform: translateY(5px);
+  transform: translateY(5px);
+}

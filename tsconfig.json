@@ -1,0 +1,11 @@
+{
+  "files": [],
+  "exclude": ["node_modules"],
+  "extends": "./config/tsconfig.json",
+  "references": [
+    {"path": "app"},
+    {"path": "content"},
+    {"path": "styles"},
+    {"path": "types"},
+  ]
+}

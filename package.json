@@ -1,0 +1,45 @@
+{
+  "private": true,
+  "name": "remix-app-template",
+  "description": "",
+  "license": "",
+  "scripts": {
+    "build": "npm run build:css && remix build",
+    "build:css": "tailwindcss -o ./app/styles/tailwind.css",
+    "build:svg": "npx @svgr/cli --out-dir ./app/components/svg ./app/assets/svg",
+    "dev": "concurrently \"npm run dev:css\" \"remix dev\"",
+    "dev:css": "tailwindcss -o ./app/styles/tailwind.css --watch",
+    "postinstall": "remix setup node"
+  },
+  "dependencies": {
+    "@remix-run/react": "^1.0.6",
+    "@remix-run/serve": "^1.0.6",
+    "@remix-run/vercel": "^1.0.6",
+    "@supabase/supabase-js": "^1.29.1",
+    "classnames": "^2.3.1",
+    "concurrently": "^6.4.0",
+    "date-fns": "^2.27.0",
+    "dotenv": "^10.0.0",
+    "marked": "^4.0.9",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-intersection-observer": "^8.32.5",
+    "remix": "^1.0.6"
+  },
+  "devDependencies": {
+    "@remix-run/dev": "^1.0.6",
+    "@svgr/cli": "^6.1.2",
+    "@types/classnames": "^2.3.1",
+    "@types/marked": "^4.0.1",
+    "@types/react": "^17.0.24",
+    "@types/react-dom": "^17.0.9",
+    "autoprefixer": "^10.4.0",
+    "postcss": "^8.4.4",
+    "tailwindcss": "^3.0.0",
+    "typescript": "^4.1.2"
+  },
+  "engines": {
+    "node": ">=14"
+  },
+  "sideEffects": false
+}
