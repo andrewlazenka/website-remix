@@ -7,8 +7,7 @@ export async function getJourneyMeta() {
     'start_date',
     'end_date',
     'position',
-    'languages',
-    'technologies',
+    'image_url',
     'is_active'
   ].join(', ')
 
