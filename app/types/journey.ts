@@ -8,5 +8,6 @@ export type Journey = {
   technologies: string[]
   is_active: boolean
   content: string
+  slug: string
 }
 export type JourneyMeta = Omit<Journey, 'content'>

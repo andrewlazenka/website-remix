@@ -475,6 +475,10 @@
   padding-bottom: 1rem
 }
 
+.pt-6 {
+  padding-top: 1.5rem
+}
+
 .text-center {
   text-align: center
 }
@@ -510,6 +514,10 @@
 
 .font-semibold {
   font-weight: 600
+}
+
+.font-medium {
+  font-weight: 500
 }
 
 .uppercase {
