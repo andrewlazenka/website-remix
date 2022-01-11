@@ -413,6 +413,10 @@
   padding: 1.75rem
 }
 
+.p-4 {
+  padding: 1rem
+}
+
 .py-1 {
   padding-top: 0.25rem;
   padding-bottom: 0.25rem
@@ -478,6 +482,16 @@
   padding-bottom: 2.25rem
 }
 
+.px-7 {
+  padding-left: 1.75rem;
+  padding-right: 1.75rem
+}
+
+.py-7 {
+  padding-top: 1.75rem;
+  padding-bottom: 1.75rem
+}
+
 .pb-6 {
   padding-bottom: 1.5rem
 }
@@ -508,6 +522,10 @@
 
 .pt-6 {
   padding-top: 1.5rem
+}
+
+.pt-8 {
+  padding-top: 2rem
 }
 
 .text-center {
@@ -793,6 +811,10 @@
 }
 
 @media (min-width: 640px) {
+  .sm\:hidden {
+    display: none
+  }
+
   .sm\:h-\[200px\] {
     height: 200px
   }

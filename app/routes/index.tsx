@@ -46,8 +46,8 @@ export default function Home() {
         <HeroBanner />
         <Header />
         <div className="flex justify-between w-3/4 max-w-screen-md mx-auto my-0 flex-col lg:flex-row items-center">
-          <div className="flex flex-col text-xl py-8 lg:py-0 lg:max-w-md max-w-lg">
-            <h1 className="text-gray-50 z-0 font-bold text-center text-5xl">
+          <div className="flex flex-col text-xl pt-8 pb-6 lg:py-0 lg:max-w-md max-w-lg">
+            <h1 className="text-gray-50 z-0 m-0 font-bold text-center text-5xl">
               Hey! I'm Andrew 👋🏻
             </h1>
           </div>

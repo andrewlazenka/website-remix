@@ -24,10 +24,10 @@ export default () => {
     <div className="absolute z-10 top-0 left-0 w-full">
       <nav className="flex sm:flex-row justify-end mx-auto max-w-5xl w-3/4">
         <div className="flex">
-          <div className="flex items-center p-7">
+          <div className="flex items-center px-4 py-7">
             <ModeToggle />
           </div>
-          <div className="flex items-center p-7 cursor-default md:hidden">
+          <div className="flex items-center px-4 py-7 cursor-default sm:hidden">
             <HamburgerMenu
               active={menuModalOpen}
               onClick={() => setMenuModalOpen(!menuModalOpen)}
