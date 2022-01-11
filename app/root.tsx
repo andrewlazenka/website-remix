@@ -23,9 +23,6 @@ declare global {
     __theme: string
   }
 }
-{/* <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100&display=swap" rel="stylesheet"></link> */}
 
 // https://remix.run/api/app#links
 export let links: LinksFunction = () => [
@@ -34,7 +31,11 @@ export let links: LinksFunction = () => [
   { rel: 'stylesheet', href: hamburgerMenuStyles },
   { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
   { rel: 'preconnect', href: 'https://fonts.gstatic.com' },
-  { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Raleway:wght@100,200,300,400,500,600,700,800,900&display=swap' },
+  {
+    rel: 'stylesheet',
+    href: 'https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap',
+    crossOrigin: 'anonymous',
+  },
 ]
 
 // https://remix.run/api/conventions#default-export
@@ -57,8 +58,8 @@ export function ErrorBoundary({ error }: { error: Error }) {
         <p>{error.message}</p>
         <hr />
         <p>
-          Hey, developer, you should replace this with what you want your
-          users to see.
+          Hey, developer, you should replace this with what you want your users
+          to see.
         </p>
       </div>
     </Document>
@@ -115,8 +116,8 @@ function Document({
         <Meta />
         <Links />
         <script
-          dangerouslySetInnerHTML={{ __html:
-            `
+          dangerouslySetInnerHTML={{
+            __html: `
               (function() {
                 window.__onThemeChange = function() {};
 
@@ -147,7 +148,7 @@ function Document({
 
                 setAppTheme(preferredTheme || (darkQuery.matches ? 'dark' : 'light'));
               })();
-            `
+            `,
           }}
         />
       </head>
