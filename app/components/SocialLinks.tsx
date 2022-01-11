@@ -11,8 +11,6 @@ import ResumeLogo from '~/components/svg/icons/Resume'
 import TikTokLogo from '~/components/svg/icons/Tiktok'
 import TwitterLogo from '~/components/svg/icons/Twitter'
 
-const linkStyle = 'h-6 w-6 p-2 hvr-float-shadow text-gray-50 hover:text-orange-500'
-
 type SocialLinksProps = {
   twitter?: string
   tiktok?: string
@@ -22,6 +20,7 @@ type SocialLinksProps = {
   github?: string
   resume?: string
   iconClassName?: string
+  linkClassName?: string
 }
 
 const SocialLinks = ({
@@ -33,10 +32,15 @@ const SocialLinks = ({
   github = '',
   resume = '',
   iconClassName,
+  linkClassName,
 }: SocialLinksProps) => {
   const iconStyle = clsx(
     'transition-colors duration-300 ease-in-out h-6 w-6',
     iconClassName
+  )
+  const linkStyle = clsx(
+    'h-6 w-6 p-2 hvr-float-shadow text-gray-50 hover:text-orange-500',
+    linkClassName
   )
 
   return (

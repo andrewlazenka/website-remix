@@ -32,22 +32,19 @@ function Links() {
     delay: 1000,
     fadeFrom: 'right',
   })
-  const { customLinks, socialLinks } =
-    useLoaderData<{
-      customLinks: Link[]
-      socialLinks: { [key: string]: string }
-    }>()
+  const { customLinks, socialLinks } = useLoaderData<{
+    customLinks: Link[]
+    socialLinks: { [key: string]: string }
+  }>()
 
   return (
     <Theme>
       <div className="relative w-full h-[100vh]">
         <HeroBanner fullHeight />
         <main className="relative max-w-screen-md m-auto">
-          <div className="absolute z-10 top-0 left-0 w-full">
-            <div className="flex flex-row-reverse">
-              <div className="flex items-center p-7">
-                <ModeToggle />
-              </div>
+          <div className="absolute flex flex-row-reverse z-10 top-0 left-0 w-full">
+            <div className="flex justify-end w-4/5 max-w-[525px] m-auto py-9">
+              <ModeToggle />
             </div>
           </div>
           <div
@@ -69,20 +66,21 @@ function Links() {
             <h2 className="text-gray-50 tracking-widest">Andrew Lazenka</h2>
           </div>
           <div
-            className="flex flex-wrap w-4/5 justify-around m-auto py-6 max-w-[50%]"
+            className="flex flex-wrap w-4/5 max-w-[450px] justify-around m-auto py-6"
             style={socialsAnimation}
             ref={socialsRef}
           >
-            <SocialLinks {...socialLinks} iconClassName="text-gray-50" />
+            <SocialLinks {...socialLinks} iconClassName="text-gray-50 hover:text-orange-500" />
           </div>
           <div style={linksAnimation} ref={linksRef}>
             {customLinks.map((l) => (
               <>
                 {l.url.charAt(0) === '/' ? (
-                  <div className="flex justify-center m-auto">
+                  <div className="flex justify-center m-auto text-gray-50">
                     <InternalLink
                       className="block relative w-4/5 my-4 py-4 hover:bg-orange-500 text-gray-50 border-solid border-2 border-gray-50 rounded-full m-auto text-center uppercase font-semibold tracking-[0.2em]"
                       to={l.url}
+                      textColour="text-gray-50"
                     >
                       {l.content}
                     </InternalLink>
@@ -92,6 +90,7 @@ function Links() {
                     <ExternalLink
                       className="block relative w-4/5 my-4 py-4 hover:bg-orange-500 text-gray-50 border-solid border-2 border-gray-50 rounded-full m-auto text-center uppercase font-semibold tracking-[0.2em]"
                       to={l.url}
+                      textColour="text-gray-50"
                     >
                       {l.content}
                     </ExternalLink>

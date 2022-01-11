@@ -3,9 +3,6 @@ import React from 'react'
 import SunIcon from '~/components/svg/icons/Sun'
 import MoonIcon from '~/components/svg/icons/Moon'
 
-const baseIconStyle =
-  'absolute cursor-pointer transition duration-300 ease-in-out hover:text-indigo-300 text-gray-50'
-
 type Themes = 'dark' | 'light'
 
 function ModeToggle() {
@@ -35,7 +32,7 @@ function ModeToggle() {
   return (
     <span className="relative w-6 h-6 leading-[0px]">
       <ToggleIcon
-        className={baseIconStyle}
+        className='absolute cursor-pointer transition duration-300 ease-in-out hover:text-orange-500 text-gray-50'
         onClick={changeTheme}
       />
     </span>

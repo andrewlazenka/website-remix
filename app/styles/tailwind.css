@@ -248,6 +248,22 @@
   max-width: 50%
 }
 
+.max-w-\[450px\] {
+  max-width: 450px
+}
+
+.max-w-\[432px\] {
+  max-width: 432px
+}
+
+.max-w-\[500px\] {
+  max-width: 500px
+}
+
+.max-w-\[525px\] {
+  max-width: 525px
+}
+
 .transform {
   transform: var(--tw-transform)
 }
@@ -355,6 +371,11 @@
   background-color: rgb(249 115 22 / var(--tw-bg-opacity))
 }
 
+.bg-orange-400 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(251 146 60 / var(--tw-bg-opacity))
+}
+
 .bg-gradient-to-b {
   background-image: linear-gradient(to bottom, var(--tw-gradient-stops))
 }
@@ -445,6 +466,16 @@
 .py-4 {
   padding-top: 1rem;
   padding-bottom: 1rem
+}
+
+.px-10 {
+  padding-left: 2.5rem;
+  padding-right: 2.5rem
+}
+
+.py-9 {
+  padding-top: 2.25rem;
+  padding-bottom: 2.25rem
 }
 
 .pb-6 {
@@ -708,9 +739,24 @@
   color: rgb(249 115 22 / var(--tw-text-opacity))
 }
 
+.hover\:text-orange-300:hover {
+  --tw-text-opacity: 1;
+  color: rgb(253 186 116 / var(--tw-text-opacity))
+}
+
+.hover\:text-orange-400:hover {
+  --tw-text-opacity: 1;
+  color: rgb(251 146 60 / var(--tw-text-opacity))
+}
+
 .dark .dark\:bg-gray-900 {
   --tw-bg-opacity: 1;
   background-color: rgb(17 24 39 / var(--tw-bg-opacity))
+}
+
+.dark .dark\:bg-orange-500 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(249 115 22 / var(--tw-bg-opacity))
 }
 
 .dark .dark\:from-gray-900 {

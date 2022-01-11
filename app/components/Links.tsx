@@ -6,22 +6,25 @@ interface LinkProps {
   className?: string
   to: string
   children: React.ReactNode
+  textColour?: string
 }
 
-export const InternalLink = ({ className, ...props }: LinkProps) => (
+export const InternalLink = ({ className, textColour, ...props }: LinkProps) => (
   <Link
     className={clsx(
-      'text-base cursor-pointer text-blue-500 transition-colors duration-300 ease-in-out hover:text-blue-300',
+      textColour || 'text-blue-500 hover:text-blue-300',
+      'text-base cursor-pointer transition-colors duration-300 ease-in-out',
       className
     )}
     {...props}
   />
 )
 
-export const ExternalLink = ({ to, className, ...props }: LinkProps) => (
+export const ExternalLink = ({ to, className, textColour, ...props }: LinkProps) => (
   <a
     className={clsx(
-      'cursor-pointer text-blue-500 dark:hover:text-blue-300 transition-colors duration-300 ease-in-out',
+      textColour || 'text-blue-500 dark:hover:text-blue-300',
+      'cursor-pointer transition-colors duration-300 ease-in-out',
       className
     )}
     href={to}
