@@ -23,12 +23,18 @@ declare global {
     __theme: string
   }
 }
+{/* <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100&display=swap" rel="stylesheet"></link> */}
 
 // https://remix.run/api/app#links
 export let links: LinksFunction = () => [
   { rel: 'stylesheet', href: tailwindStyles },
   { rel: 'stylesheet', href: globalStyles },
   { rel: 'stylesheet', href: hamburgerMenuStyles },
+  { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
+  { rel: 'preconnect', href: 'https://fonts.gstatic.com' },
+  { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Raleway:wght@100,200,300,400,500,600,700,800,900&display=swap' },
 ]
 
 // https://remix.run/api/conventions#default-export

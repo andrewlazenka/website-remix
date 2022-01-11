@@ -368,6 +368,10 @@
   --tw-gradient-to: #6366f1
 }
 
+.to-blue-500 {
+  --tw-gradient-to: #3b82f6
+}
+
 .bg-cover {
   background-size: cover
 }
@@ -518,6 +522,10 @@
 
 .font-medium {
   font-weight: 500
+}
+
+.font-bold {
+  font-weight: 700
 }
 
 .uppercase {

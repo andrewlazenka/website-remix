@@ -10,4 +10,5 @@ export type Journey = {
   content: string
   slug: string
 }
+
 export type JourneyMeta = Omit<Journey, 'content'>
