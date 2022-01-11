@@ -12,7 +12,7 @@ const MobileMenu = () => {
   return (
     <div className="flex flex-col items-center">
       <div className="flex justify-around items-center w-4/5 py-6">
-        <SocialLinks {...socialLinks} />
+        <SocialLinks {...socialLinks} iconClassName='dark:text-gray-50 dark:hover:text-orange-500' />
       </div>
     </div>
   )
