@@ -46,7 +46,7 @@ export default function Home() {
       <div className="relative w-full pt-24">
         <HeroBanner />
         <Header />
-        <div className="flex justify-between w-3/4 max-w-screen-md mx-auto my-0 flex-col lg:flex-row items-center">
+        <div className="flex justify-between w-3/4 max-w-4xl mx-auto my-0 flex-col lg:flex-row items-center">
           <div className="flex flex-col text-xl pt-8 pb-6 lg:py-0 lg:max-w-md max-w-lg">
             <h1 className="text-gray-50 z-0 m-0 font-bold text-center text-5xl">
               Hey! I'm Andrew 👋🏻
@@ -55,7 +55,7 @@ export default function Home() {
           <img
             src="/assets/png/AndrewCandid.png"
             alt="Candid headshot of Andrew"
-            className="h-[400px] w-[400px] relative overflow-hidden"
+            className="relative h-[475px] w-[475px]"
           />
         </div>
         <div className="overflow-hidden block absolute inset-x-0 bottom-0 w-full h-16">
@@ -80,7 +80,7 @@ export default function Home() {
             )
           })}
         </section>
-        <section className="py-16">
+        <section className="py-16 text-lg">
           <h2 className="py-8 text-4xl" id="about">
             Welcome to my corner of the metaverse!
           </h2>

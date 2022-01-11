@@ -572,8 +572,8 @@
   height: 175px;
 }
 
-.h-\[400px\] {
-  height: 400px;
+.h-\[475px\] {
+  height: 475px;
 }
 
 .h-16 {
@@ -620,8 +620,8 @@
   width: 250px;
 }
 
-.w-\[400px\] {
-  width: 400px;
+.w-\[475px\] {
+  width: 475px;
 }
 
 .w-\[106\%\] {
@@ -644,12 +644,12 @@
   max-width: 48rem;
 }
 
-.max-w-screen-md {
-  max-width: 768px;
-}
-
 .max-w-lg {
   max-width: 32rem;
+}
+
+.max-w-screen-md {
+  max-width: 768px;
 }
 
 .max-w-\[525px\] {
@@ -658,6 +658,10 @@
 
 .max-w-\[450px\] {
   max-width: 450px;
+}
+
+.max-w-4xl {
+  max-width: 56rem;
 }
 
 .transform {
@@ -932,6 +936,11 @@
 .text-4xl {
   font-size: 2.25rem;
   line-height: 2.5rem;
+}
+
+.text-lg {
+  font-size: 1.125rem;
+  line-height: 1.75rem;
 }
 
 .font-bold {
