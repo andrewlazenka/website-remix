@@ -767,6 +767,10 @@
   background-color: rgb(249 115 22 / var(--tw-bg-opacity));
 }
 
+.bg-pattern-triangles {
+  background-image: url('/assets/svg/patterns/triangles.svg');
+}
+
 .bg-gradient-to-b {
   background-image: linear-gradient(to bottom, var(--tw-gradient-stops));
 }

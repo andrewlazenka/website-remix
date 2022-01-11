@@ -1,5 +1,3 @@
-const colors = require('tailwindcss/colors')
-
 module.exports = {
   content: ['./app/**/*.{js,jsx,ts,tsx}'],
   darkMode: 'class',
@@ -12,6 +10,10 @@ module.exports = {
       animation: {
         wave: 'wave 0.5s infinite',
         funBounce: 'funBounce 750ms',
+      },
+      backgroundImage: {
+        'pattern-triangles': `url('/assets/svg/patterns/triangles.svg')`,
+        'divider-wave': `url('/assets/svg/dividers/wave.svg')`,
       },
       fill: ['hover'],
       keyframes: {
