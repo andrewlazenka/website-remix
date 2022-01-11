@@ -16,6 +16,8 @@
     "@remix-run/serve": "^1.0.6",
     "@remix-run/vercel": "^1.0.6",
     "@supabase/supabase-js": "^1.29.1",
+    "@tiptap/react": "^2.0.0-beta.105",
+    "@tiptap/starter-kit": "^2.0.0-beta.170",
     "classnames": "^2.3.1",
     "concurrently": "^6.4.0",
     "date-fns": "^2.27.0",
@@ -29,6 +31,7 @@
   "devDependencies": {
     "@remix-run/dev": "^1.0.6",
     "@svgr/cli": "^6.1.2",
+    "@tailwindcss/typography": "^0.5.0",
     "@types/classnames": "^2.3.1",
     "@types/marked": "^4.0.1",
     "@types/react": "^17.0.24",
