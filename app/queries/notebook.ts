@@ -38,6 +38,6 @@ export async function getAllNotebookEntry() {
     'slug',
     'created_at'
   ].join(',')
-  const { data } = await supabase.from<NotebookEntry>(table).select(cols)
+  const { data } = await supabase.from<NotebookEntry>(table).select(cols).order('created_at', { ascending: false })
   return data
 }
