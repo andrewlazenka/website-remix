@@ -44,7 +44,7 @@ export default function Home() {
   return (
     <Theme>
       <HeroBanner>
-        <div className="w-3/4 max-w-4xl mx-auto my-0 py-16 sm:py-24 lg:py-0">
+        <div className="w-3/4 max-w-4xl mx-auto my-0 py-16 sm:py-24">
           <h1 className="text-gray-50 z-0 m-0 font-bold text-center text-5xl">
             Hey! I'm Andrew{' '}
             <span className="inline-block hover:animate-wave">👋🏻</span>
