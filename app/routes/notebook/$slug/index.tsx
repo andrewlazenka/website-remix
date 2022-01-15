@@ -25,7 +25,6 @@ export const loader: LoaderFunction = async ({ params }) => {
 
   const links = (await getLinks()) || []
   const notebookEntry = await getNotebookEntryBySlug(params.slug)
-  console.log("🚀 ~ file: index.tsx ~ line 28 ~ constloader:LoaderFunction= ~ notebookEntry", notebookEntry)
 
   if (!notebookEntry) {
     throw new Response('Notebook entry not found', { status: 404 })
