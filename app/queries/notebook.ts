@@ -15,7 +15,7 @@ export async function createNotebookEntry({ date_published, title, content }: Pi
 }
 
 export async function getNotebookEntryById(id: number) {
-  const { data } = await supabase.from<NotebookEntry>(table).select().eq('id', id)
+  const { data } = await supabase.from<NotebookEntry>(table).select().eq('id', id).eq('is_published', true)
 
   if (data) return data[0]
 
@@ -23,7 +23,7 @@ export async function getNotebookEntryById(id: number) {
 }
 
 export async function getNotebookEntryBySlug(slug: string) {
-  const { data } = await supabase.from<NotebookEntry>(table).select().eq('slug', slug)
+  const { data } = await supabase.from<NotebookEntry>(table).select().eq('slug', slug).eq('is_published', true)
 
   if (data) return data[0]
 
@@ -37,6 +37,6 @@ export async function getAllNotebookEntry() {
     'slug',
     'created_at'
   ].join(',')
-  const { data } = await supabase.from<NotebookEntry>(table).select(cols).order('created_at', { ascending: false })
+  const { data } = await supabase.from<NotebookEntry>(table).select(cols).eq('is_published', true).order('created_at', { ascending: false })
   return data
 }

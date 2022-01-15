@@ -4,6 +4,7 @@ export type NotebookEntry = {
   slug: string
   content: string
   date_published: Date
+  is_published: boolean
   created_at: Date
   updated_at: Date
 }

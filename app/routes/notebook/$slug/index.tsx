@@ -25,9 +25,10 @@ export const loader: LoaderFunction = async ({ params }) => {
 
   const links = (await getLinks()) || []
   const notebookEntry = await getNotebookEntryBySlug(params.slug)
+  console.log("🚀 ~ file: index.tsx ~ line 28 ~ constloader:LoaderFunction= ~ notebookEntry", notebookEntry)
 
   if (!notebookEntry) {
-    return json('Notebook entry not found', { status: 404 })
+    throw new Response('Notebook entry not found', { status: 404 })
   }
 
   return {
@@ -37,6 +38,12 @@ export const loader: LoaderFunction = async ({ params }) => {
 }
 
 export const meta: MetaFunction = ({ data }: { data: LoaderResponse }) => {
+  if (!data?.notebookEntry) {
+    return {
+      title: "Page Not Found - Andrew Lazena"
+    }
+  }
+
   const { title } = data.notebookEntry
   return {
     title: `${title} - Andrew Lazenka`,
