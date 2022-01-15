@@ -26,6 +26,10 @@ export const loader: LoaderFunction = async ({ params }) => {
   const links = (await getLinks()) || []
   const notebookEntry = await getNotebookEntryBySlug(params.slug)
 
+  if (!notebookEntry) {
+    return json('Notebook entry not found', { status: 404 })
+  }
+
   return {
     notebookEntry,
     ...formatLinks(links),
@@ -39,7 +43,7 @@ export const meta: MetaFunction = ({ data }: { data: LoaderResponse }) => {
   }
 }
 
-export default function JourneyTemplate() {
+function NotebookEntry() {
   const { notebookEntry } = useLoaderData<LoaderResponse>()
   const { title, content, created_at } = notebookEntry
 
@@ -60,3 +64,5 @@ export default function JourneyTemplate() {
     </Theme>
   )
 }
+
+export default NotebookEntry
