@@ -3,6 +3,7 @@ export type NotebookEntry = {
   title: string
   slug: string
   content: string
+  date_published: Date
   created_at: Date
   updated_at: Date
 }

@@ -4,13 +4,12 @@ import type { NotebookEntry } from '~/types/notebook'
 
 const table = 'notebook'
 
-export async function createNotebookEntry({ created_at, title, content }: Pick<NotebookEntry, 'title' | 'content' | 'created_at'>) {
+export async function createNotebookEntry({ date_published, title, content }: Pick<NotebookEntry, 'title' | 'content' | 'date_published'>) {
   const { data } = await supabase.from<NotebookEntry>(table).insert({
     title,
     slug: kebabCase(title.toLowerCase()),
     content,
-    created_at,
-    updated_at: new Date()
+    date_published
   })
   return data
 }
