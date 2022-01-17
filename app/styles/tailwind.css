@@ -611,6 +611,10 @@
   height: 150px;
 }
 
+.max-h-\[700px\] {
+  max-height: 700px;
+}
+
 .min-h-\[300px\] {
   min-height: 300px;
 }
