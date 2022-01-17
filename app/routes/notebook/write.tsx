@@ -1,4 +1,5 @@
 import React from 'react'
+import type { LoaderFunction } from 'remix'
 import { format } from 'date-fns'
 import { useEditor, EditorContent } from '@tiptap/react'
 import Document from '@tiptap/extension-document'
@@ -6,13 +7,19 @@ import Paragraph from '@tiptap/extension-paragraph'
 import Text from '@tiptap/extension-text'
 import Heading from '@tiptap/extension-heading'
 
-// export const loader: LoaderFunction = async () => {
-  // TODO: implement auth strategy, throw error if not authenticated & has
-  // valid permissions
-  // if (!params.auth) {
-  //   throw new Response('Unauthorized to view this page', { status: 401 })
-  // }
-// }
+import { getSession } from '~/session'
+
+export const loader: LoaderFunction = async ({ request }) => {
+  const session = await getSession(
+    request.headers.get("Cookie")
+  );
+
+  if (!session.get('userId')) {
+    throw new Response('Unauthorized to view this page', { status: 401 })
+  }
+
+  return null
+}
 
 const NotebookWrite = () => {
   const editor = useEditor({
