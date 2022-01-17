@@ -27,6 +27,7 @@
     "date-fns": "^2.27.0",
     "dotenv": "^10.0.0",
     "front-matter": "^4.0.2",
+    "history": "^5.2.0",
     "lodash": "^4.17.21",
     "marked": "^4.0.9",
     "react": "^17.0.2",

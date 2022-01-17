@@ -1,4 +1,4 @@
-import supabase from './client'
+import supabase from '~/supabase-client'
 import type { Link } from '~/types/links'
 
 export async function getLinks() {

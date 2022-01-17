@@ -1,5 +1,11 @@
 import React from 'react'
-import { LoaderFunction, MetaFunction, useLoaderData } from 'remix'
+import {
+  LoaderFunction,
+  MetaFunction,
+  useNavigate,
+  useLoaderData,
+  useLocation,
+} from 'remix'
 import { isBefore } from 'date-fns'
 
 import Footer from '~/components/Footer'
@@ -14,6 +20,7 @@ import { getLinks } from '~/queries/links'
 import { formatLinks } from '~/util/links'
 
 import type { JourneyMeta } from '~/types/journey'
+import type { Location } from 'history'
 
 export let meta: MetaFunction = () => {
   return {
@@ -22,6 +29,7 @@ export let meta: MetaFunction = () => {
 }
 
 export const loader: LoaderFunction = async () => {
+
   const journey = (await getJourneyMeta()) || []
   const links = (await getLinks()) || []
 
@@ -38,8 +46,42 @@ function sortFilterWork(ex1: JourneyMeta, ex2: JourneyMeta) {
   return isBefore(date1, date2) ? 1 : -1
 }
 
+function getResetPasswordRoute(location: Location) {
+  if (location.hash && location.hash.substr(0, 1) === '#') {
+    const tokens = location.hash.substr(1).split('&')
+    const entryPayload: { [key: string]: string } = {}
+    tokens.map((token) => {
+      const pair = (token + '=').split('=')
+      entryPayload[pair[0]] = pair[1]
+    })
+    if (entryPayload?.type === 'recovery') {
+      return `/reset-password/?token=${entryPayload.access_token}`
+    }
+  }
+  let path = location.pathname.replace(/\//, '')
+  // remove querystring from path
+  if (path.indexOf('?') > -1) {
+    path = path.substr(0, path.indexOf('?'))
+  }
+  return path
+}
+
+function useResetPassword() {
+  const location = useLocation()
+  const navigate = useNavigate()
+
+  React.useEffect(() => {
+    const path = getResetPasswordRoute(location)
+
+    if (path) {
+      navigate(path, { replace: true })
+    }
+  }, [])
+}
+
 export default function Home() {
   const { journey } = useLoaderData<{ journey: JourneyMeta[] }>()
+  useResetPassword()
 
   return (
     <Theme>
