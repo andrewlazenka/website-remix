@@ -1505,9 +1505,4 @@
   .lg\:w-3\/5 {
     width: 60%;
   }
-
-  .lg\:py-0 {
-    padding-top: 0px;
-    padding-bottom: 0px;
-  }
 }
