@@ -1,5 +1,6 @@
-import supabase from './client'
 import { kebabCase } from 'lodash'
+import supabase from '~/supabase-client'
+
 import type { NotebookEntry } from '~/types/notebook'
 
 const table = 'notebook'
