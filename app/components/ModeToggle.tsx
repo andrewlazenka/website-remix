@@ -5,7 +5,11 @@ import MoonIcon from '~/components/svg/icons/Moon'
 
 type Themes = 'dark' | 'light'
 
-function ModeToggle() {
+interface ModeToggleProps {
+  className?: string
+}
+
+function ModeToggle(props: ModeToggleProps) {
   // fix for SSR when window is not yet defined
   let initialTheme = null
   if (typeof window !== `undefined`) {
@@ -30,9 +34,9 @@ function ModeToggle() {
   const ToggleIcon = isDarkTheme ? MoonIcon : SunIcon
 
   return (
-    <span className="relative w-6 h-6 leading-[0px]">
+    <span className="relative z-50 w-6 h-6 leading-[0px]">
       <ToggleIcon
-        className='absolute cursor-pointer transition duration-300 ease-in-out hover:text-orange-500 text-gray-50'
+        className='absolute cursor-pointer transition duration-300 ease-in-out hover:text-orange-500'
         onClick={changeTheme}
       />
     </span>

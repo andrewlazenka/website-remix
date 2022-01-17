@@ -43,27 +43,27 @@ export default function Home() {
 
   return (
     <Theme>
-      <div className="relative w-full pt-24">
-        <HeroBanner />
-        <Header />
-        <div className="flex justify-between w-3/4 max-w-4xl mx-auto my-0 flex-col lg:flex-row items-center">
-          <div className="flex flex-col text-xl pt-8 pb-6 lg:py-0 lg:max-w-md max-w-lg">
-            <h1 className="text-gray-50 z-0 m-0 font-bold text-center text-5xl">
-              Hey! I'm Andrew 👋🏻
-            </h1>
-          </div>
+      <HeroBanner>
+        <div className="w-3/4 max-w-4xl mx-auto my-0 py-16 sm:py-24">
+          <h1 className="text-gray-50 z-0 m-0 font-bold text-center text-5xl">
+            Hey! I'm Andrew{' '}
+            <span className="inline-block hover:animate-wave">👋🏻</span>
+          </h1>
+        </div>
+        <div className="absolute w-full flex justify-center bottom-0">
           <img
             src="/assets/png/AndrewCandid.png"
             alt="Candid headshot of Andrew"
-            className="relative h-[475px] w-[475px]"
+            className="h-[475px] w-[475px]"
           />
         </div>
-        <div className="overflow-hidden block absolute inset-x-0 bottom-0 w-full h-16">
+        <div className="absolute block overflow-hidden inset-x-0 bottom-0 w-full h-16">
           <WaveDivider className="left-[-3px] right-[-3px] min-w-[600px] w-[106%] transition-colors duration-300 ease-in-out absolute fill-grayLight dark:fill-grayDark" />
         </div>
-      </div>
+      </HeroBanner>
+      <Header />
       <main className="mx-auto my-0 py-12 px-6 max-w-5xl w-3/4">
-        <section className="mt-8 py-16">
+        <section className="py-8">
           <h2 id="journey" className="text-4xl text-center">
             My Journey
           </h2>
@@ -109,7 +109,8 @@ export default function Home() {
           <br />
           <br />I enjoy tinkering on side projects in my spare time, which you
           can find on{' '}
-          <ExternalLink to="https://github.com/ALazenka">GitHub</ExternalLink>.
+          <ExternalLink to="https://github.com/ALazenka">GitHub</ExternalLink>
+          .
           <br />
           <br />
           In another life I would totally be a musician. Writing, producing and

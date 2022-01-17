@@ -1,5 +1,5 @@
 import React, { CSSProperties } from 'react'
-import { useInView } from 'react-intersection-observer'
+import { IntersectionOptions, useInView } from 'react-intersection-observer'
 
 const fadeInVisibleStyle: CSSProperties = {
   opacity: 1,
@@ -8,20 +8,20 @@ const fadeInVisibleStyle: CSSProperties = {
 }
 
 interface UseFadeInProps {
-  delay?: number
+  observerProps?: IntersectionOptions
   duration?: number
   fadeFrom: 'top' | 'left' | 'right' | 'bottom' | null
 }
 
 function useFadeIn({
-  delay,
+  observerProps,
   duration = 1,
   fadeFrom,
 }: UseFadeInProps): [
   React.CSSProperties,
   (node?: Element | null | undefined) => void
 ] {
-  const { ref, inView } = useInView({ delay });
+  const { ref, inView } = useInView(observerProps);
 
   const fadeInBaseStyle: CSSProperties = {
     opacity: 0,
@@ -49,8 +49,8 @@ function useFadeIn({
       break
   }
 
-  if (delay) {
-    fadeInBaseStyle.transitionDelay = `${delay}ms`
+  if (observerProps?.delay) {
+    fadeInBaseStyle.transitionDelay = `${observerProps?.delay}ms`
   }
 
   const fadeCss = inView
