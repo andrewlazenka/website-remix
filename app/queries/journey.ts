@@ -1,5 +1,5 @@
 import type { JourneyMeta } from '~/types/journey'
-import supabase from './client'
+import supabase from '~/supabase-client'
 
 export async function getJourneyMeta() {
   const cols = [

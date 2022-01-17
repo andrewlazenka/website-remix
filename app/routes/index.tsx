@@ -29,6 +29,7 @@ export let meta: MetaFunction = () => {
 }
 
 export const loader: LoaderFunction = async () => {
+
   const journey = (await getJourneyMeta()) || []
   const links = (await getLinks()) || []
 
