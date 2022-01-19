@@ -8,5 +8,7 @@ node_modules
 
 public/build
 api/build
+build
+dist
 
 wrangler.toml
