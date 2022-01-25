@@ -9,6 +9,7 @@ const { getSession, commitSession, destroySession } =
       maxAge: 60,
       path: "/",
       sameSite: "strict",
+      secrets: [process.env.SESSION_SECRET || '']
     }
   })
 

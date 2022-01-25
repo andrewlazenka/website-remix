@@ -9,7 +9,8 @@
     "build:svg": "npx @svgr/cli --out-dir ./app/components/svg ./app/assets/svg",
     "dev": "concurrently \"npm run dev:css\" \"remix dev\"",
     "dev:css": "tailwindcss -o ./app/styles/tailwind.css --watch",
-    "postinstall": "remix setup node"
+    "postinstall": "remix setup node",
+    "start": "npm run dev"
   },
   "dependencies": {
     "@remix-run/react": "^1.1.1",
