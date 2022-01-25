@@ -8,8 +8,22 @@ endMonth: 4
 endYear: 2020
 position: 'Full-Stack Developer (Intern)'
 image: 'innoLogo'
-languages: ['JavaScript', 'HTML', 'CSS', 'Ruby', 'PHP', 'Python', 'SQL', 'NoSQL']
-technologies: ['React', 'Redux', 'GraphQL', 'Gatsby', 'NodeJS', 'Rails', 'Docker', 'MongoDB', 'Postgres', 'AWS', 'Git']
+languages:
+  ['JavaScript', 'HTML', 'CSS', 'Ruby', 'PHP', 'Python', 'SQL', 'NoSQL']
+technologies:
+  [
+    'React',
+    'Redux',
+    'GraphQL',
+    'Gatsby',
+    'NodeJS',
+    'Rails',
+    'Docker',
+    'MongoDB',
+    'Postgres',
+    'AWS',
+    'Git',
+  ]
 ---
 
 Upon completing my third year at Queen's University, I leveraged a valuable

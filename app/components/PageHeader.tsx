@@ -1,7 +1,7 @@
 import React from 'react'
 
 const PageHeader = (props: any) => (
-  <header className="flex justify-between items-center py-2" {...props} />
+  <header className="flex items-center justify-between py-2" {...props} />
 )
 
-export default PageHeader;
+export default PageHeader

@@ -4,7 +4,7 @@ import clsx from 'classnames'
 const HeroBanner = ({ fullHeight = false, ...props }) => (
   <div
     className={clsx(
-      'h-screen relative max-h-[700px] bg-cover transition-colors duration-300 ease-in-out bg-blue-500 dark:bg-gray-900 bg-pattern-triangles',
+      'relative h-screen max-h-[700px] bg-blue-500 bg-pattern-triangles bg-cover transition-colors duration-300 ease-in-out dark:bg-gray-900'
     )}
     {...props}
   />

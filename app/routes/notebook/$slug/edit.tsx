@@ -19,9 +19,7 @@ type LoaderResponse = {
 }
 
 export const loader: LoaderFunction = async ({ request, params }) => {
-  const session = await getSession(
-    request.headers.get("Cookie")
-  );
+  const session = await getSession(request.headers.get('Cookie'))
 
   if (!session.get('userId')) {
     throw new Response('Unauthorized to view this page', { status: 401 })
@@ -70,7 +68,7 @@ const NotebookEdit = () => {
   return (
     <main>
       <h1 className="text-center">Editor Page</h1>
-      <div className="flex flex-col max-w-2xl m-auto">
+      <div className="m-auto flex max-w-2xl flex-col">
         <input
           type="text"
           name="title"
@@ -85,12 +83,10 @@ const NotebookEdit = () => {
           className="my-4"
           defaultValue={initialDate}
         />
-        <section className="bg-gray-50 p-8 rounded-xl drop-shadow-lg my-4">
+        <section className="my-4 rounded-xl bg-gray-50 p-8 drop-shadow-lg">
           <EditorContent editor={editor} />
         </section>
-        <button className="my-4">
-          Save Content
-        </button>
+        <button className="my-4">Save Content</button>
       </div>
     </main>
   )

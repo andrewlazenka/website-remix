@@ -7,9 +7,7 @@ import { getSession, commitSession } from '~/session'
 import type { ActionFunction } from 'remix'
 
 export const action: ActionFunction = async ({ request }) => {
-  const remixSession = await getSession(
-    request.headers.get("Cookie")
-  );
+  const remixSession = await getSession(request.headers.get('Cookie'))
   const formData = await request.formData()
   const email = formData.get('email')
   const password = formData.get('password')
@@ -28,8 +26,8 @@ export const action: ActionFunction = async ({ request }) => {
 
   return redirect('/', {
     headers: {
-      "Set-Cookie": await commitSession(remixSession)
-    }
+      'Set-Cookie': await commitSession(remixSession),
+    },
   })
 }
 
@@ -46,7 +44,7 @@ const SignIn = () => {
           Password
           <input type="password" name="password" />
         </label>
-        <button type='submit'>Sign In</button>
+        <button type="submit">Sign In</button>
       </form>
     </main>
   )

@@ -56,31 +56,25 @@ const SocialLinks = ({
         </ExternalLink>
       )}
       {twitter && (
-        <ExternalLink
-          className={linkStyle}
-          to={twitter}
-        >
+        <ExternalLink className={linkStyle} to={twitter}>
           <TwitterLogo className={iconStyle} />
         </ExternalLink>
       )}
       {instagram && (
-        <ExternalLink
-          className={linkStyle}
-          to={instagram}
-        >
+        <ExternalLink className={linkStyle} to={instagram}>
           <InstaLogo className={iconStyle} />
         </ExternalLink>
       )}
       {linkedin && (
-        <ExternalLink
-          className={linkStyle}
-          to={linkedin}
-        >
+        <ExternalLink className={linkStyle} to={linkedin}>
           <LinkedInLogo className={iconStyle} />
         </ExternalLink>
       )}
       {email && (
-        <ExternalLink className={linkStyle} to={typeof email === 'string' ? `mailto:${email}` : ''}>
+        <ExternalLink
+          className={linkStyle}
+          to={typeof email === 'string' ? `mailto:${email}` : ''}
+        >
           <EmailLogo className={iconStyle} />
         </ExternalLink>
       )}

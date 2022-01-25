@@ -39,7 +39,7 @@ export const loader: LoaderFunction = async ({ params }) => {
 export const meta: MetaFunction = ({ data }: { data: LoaderResponse }) => {
   if (!data?.notebookEntry) {
     return {
-      title: "Page Not Found - Andrew Lazena"
+      title: 'Page Not Found - Andrew Lazena',
     }
   }
 

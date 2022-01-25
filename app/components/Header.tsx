@@ -12,7 +12,7 @@ const MobileMenu = () => {
     useLoaderData<{ socialLinks: { [key: string]: string } }>()
   return (
     <div className="flex flex-col items-center">
-      <div className="flex justify-around items-center w-4/5 py-6">
+      <div className="flex w-4/5 items-center justify-around py-6">
         <SocialLinks
           {...socialLinks}
           iconClassName="dark:text-gray-50 dark:hover:text-orange-500"
@@ -35,16 +35,16 @@ function Header({
 
   return (
     <div
-      className={clsx('sticky z-10 top-0 left-0 w-full', {
+      className={clsx('sticky top-0 left-0 z-10 w-full', {
         ['bg-opacity-70 backdrop-blur-md']: !disableTransparency,
       })}
     >
-      <nav className="flex sm:flex-row justify-end mx-auto max-w-5xl w-3/4">
+      <nav className="mx-auto flex w-3/4 max-w-5xl justify-end sm:flex-row">
         <div className="flex">
           <div className="flex items-center px-4 py-7">
             <ModeToggle className={modeToggleClassName} />
           </div>
-          <div className="flex items-center px-4 py-7 cursor-default sm:hidden">
+          <div className="flex cursor-default items-center px-4 py-7 sm:hidden">
             <HamburgerMenu
               active={menuModalOpen}
               onClick={() => setMenuModalOpen(!menuModalOpen)}

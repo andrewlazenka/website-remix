@@ -41,10 +41,10 @@ function Links() {
   }>()
 
   return (
-    <div className="relative w-full h-[100vh]">
-      <main className="relative max-w-screen-md m-auto">
-        <div className="absolute flex flex-row-reverse z-10 top-0 left-0 w-full">
-          <div className="flex justify-end w-4/5 max-w-[525px] m-auto py-9 text-gray-50">
+    <div className="relative h-[100vh] w-full">
+      <main className="relative m-auto max-w-screen-md">
+        <div className="absolute top-0 left-0 z-10 flex w-full flex-row-reverse">
+          <div className="m-auto flex w-4/5 max-w-[525px] justify-end py-9 text-gray-50">
             <ModeToggle />
           </div>
         </div>
@@ -55,19 +55,19 @@ function Links() {
         >
           <img
             src="/assets/png/AndrewCandid.png"
-            className="h-[150px] w-[150px] border-solid border-4 bg-orange-500 border-gray-50 rounded-full hvr-float-shadow"
+            className="hvr-float-shadow h-[150px] w-[150px] rounded-full border-4 border-solid border-gray-50 bg-orange-500"
             alt="Candid headshot of Andrew"
           />
         </div>
         <div
-          className="z-10 flex justify-center m-auto relative"
+          className="relative z-10 m-auto flex justify-center"
           style={imageAnimation}
           ref={imageRef}
         >
-          <h2 className="text-gray-50 tracking-widest">Andrew Lazenka</h2>
+          <h2 className="tracking-widest text-gray-50">Andrew Lazenka</h2>
         </div>
         <div
-          className="flex flex-wrap w-4/5 max-w-[450px] justify-around m-auto py-6"
+          className="m-auto flex w-4/5 max-w-[450px] flex-wrap justify-around py-6"
           style={socialsAnimation}
           ref={socialsRef}
         >
@@ -80,9 +80,9 @@ function Links() {
           {customLinks.map((l) => (
             <>
               {l.url.charAt(0) === '/' ? (
-                <div className="flex justify-center m-auto text-gray-50">
+                <div className="m-auto flex justify-center text-gray-50">
                   <InternalLink
-                    className="block relative w-4/5 my-4 py-4 hover:bg-orange-500 text-gray-50 border-solid border-2 border-gray-50 rounded-full m-auto text-center uppercase font-semibold tracking-[0.2em]"
+                    className="relative m-auto my-4 block w-4/5 rounded-full border-2 border-solid border-gray-50 py-4 text-center font-semibold uppercase tracking-[0.2em] text-gray-50 hover:bg-orange-500"
                     to={l.url}
                     textColour="text-gray-50"
                   >
@@ -90,9 +90,9 @@ function Links() {
                   </InternalLink>
                 </div>
               ) : (
-                <div className="flex justify-center m-auto">
+                <div className="m-auto flex justify-center">
                   <ExternalLink
-                    className="block relative w-4/5 my-4 py-4 hover:bg-orange-500 text-gray-50 border-solid border-2 border-gray-50 rounded-full m-auto text-center uppercase font-semibold tracking-[0.2em]"
+                    className="relative m-auto my-4 block w-4/5 rounded-full border-2 border-solid border-gray-50 py-4 text-center font-semibold uppercase tracking-[0.2em] text-gray-50 hover:bg-orange-500"
                     to={l.url}
                     textColour="text-gray-50"
                   >

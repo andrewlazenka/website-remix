@@ -3,7 +3,7 @@ import React from 'react'
 const Badge = (props: any) => (
   <span
     {...props}
-    className="rounded-full text-white text-xs py-1 px-3 mb-2 mr-2 hover:animate-funBounce"
+    className="mb-2 mr-2 rounded-full py-1 px-3 text-xs text-white hover:animate-funBounce"
   />
 )
 

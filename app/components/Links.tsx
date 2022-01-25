@@ -9,18 +9,27 @@ interface LinkProps {
   textColour?: string
 }
 
-export const InternalLink = ({ className, textColour, ...props }: LinkProps) => (
+export const InternalLink = ({
+  className,
+  textColour,
+  ...props
+}: LinkProps) => (
   <Link
     className={clsx(
       textColour || 'text-blue-500 hover:text-blue-300',
-      'text-base cursor-pointer transition-colors duration-300 ease-in-out',
+      'cursor-pointer text-base transition-colors duration-300 ease-in-out',
       className
     )}
     {...props}
   />
 )
 
-export const ExternalLink = ({ to, className, textColour, ...props }: LinkProps) => (
+export const ExternalLink = ({
+  to,
+  className,
+  textColour,
+  ...props
+}: LinkProps) => (
   <a
     className={clsx(
       textColour || 'text-blue-500 dark:hover:text-blue-300',
@@ -45,7 +54,7 @@ export const LocationAwareLink = (props: LinkProps) => {
   return (
     <Link
       className={clsx(
-        'uppercase text-base cursor-pointer transition-colors duration-300 ease-in-out hover:text-blue-300',
+        'cursor-pointer text-base uppercase transition-colors duration-300 ease-in-out hover:text-blue-300',
         isActiveRoute ? 'text-blue-500' : 'text-gray-900 dark:text-gray-50'
       )}
       {...props}

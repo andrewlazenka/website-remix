@@ -69,7 +69,7 @@ function ResetPassword() {
           <input type="password" name="confirm-password" />
         </label>
         <input type="hidden" name="token" value={token} />
-        <button type='submit'>Reset Password</button>
+        <button type="submit">Reset Password</button>
       </form>
     </main>
   )

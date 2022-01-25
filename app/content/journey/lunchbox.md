@@ -10,5 +10,6 @@ endYear: 0
 isActive: true
 image: 'lunchboxLogo'
 languages: ['JavaScript', 'NoSQL', 'SQL']
-technologies: ['NodeJS', "NestJS", 'Docker', 'MongoDB', 'Postgres', 'AWS', 'Git']
+technologies:
+  ['NodeJS', 'NestJS', 'Docker', 'MongoDB', 'Postgres', 'AWS', 'Git']
 ---

@@ -43,14 +43,16 @@ export default function NotebookPage() {
       <Header />
       <Layout>
         <h1>Notebook</h1>
-        {notebookEntries.length > 0 ? notebookEntries.map(entry => (
-          <InternalLink to={`/notebook/${entry.slug}`}>
-            <article className="py-6">
-              <h3>{entry.title}</h3>
-              <h4>{format(new Date(entry.created_at), 'MMMM dd, yyyy')}</h4>
-            </article>
-          </InternalLink>
-        )) : (
+        {notebookEntries.length > 0 ? (
+          notebookEntries.map((entry) => (
+            <InternalLink to={`/notebook/${entry.slug}`}>
+              <article className="py-6">
+                <h3>{entry.title}</h3>
+                <h4>{format(new Date(entry.created_at), 'MMMM dd, yyyy')}</h4>
+              </article>
+            </InternalLink>
+          ))
+        ) : (
           <h3>Notebook is empty</h3>
         )}
       </Layout>

@@ -34,9 +34,9 @@ function ModeToggle(props: ModeToggleProps) {
   const ToggleIcon = isDarkTheme ? MoonIcon : SunIcon
 
   return (
-    <span className="relative z-50 w-6 h-6 leading-[0px]">
+    <span className="relative z-50 h-6 w-6 leading-[0px]">
       <ToggleIcon
-        className='absolute cursor-pointer transition duration-300 ease-in-out hover:text-orange-500'
+        className="absolute cursor-pointer transition duration-300 ease-in-out hover:text-orange-500"
         onClick={changeTheme}
       />
     </span>

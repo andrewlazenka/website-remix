@@ -8,8 +8,8 @@ function calculateLinesToHighlight(meta) {
   if (RE.test(meta)) {
     const lineNumbers = RE.exec(meta)[1]
       .split(',')
-      .map(v => v.split('-').map(y => parseInt(y, 10)))
-    return index => {
+      .map((v) => v.split('-').map((y) => parseInt(y, 10)))
+    return (index) => {
       const lineNumber = index + 1
       const inRange = lineNumbers.some(([start, end]) =>
         end ? lineNumber >= start && lineNumber <= end : lineNumber === start
@@ -31,9 +31,9 @@ function Code({ codeString, language, metastring }) {
       theme={theme}
     >
       {({ className, style, tokens, getLineProps, getTokenProps }) => (
-        <div className="text-xl rounded-lg overflow-auto">
+        <div className="overflow-auto rounded-lg text-xl">
           <pre
-            className={clsx('p-2 rounded-lg overflow-auto', className)}
+            className={clsx('overflow-auto rounded-lg p-2', className)}
             style={style}
           >
             {tokens.map((line, i) => (
@@ -45,9 +45,7 @@ function Code({ codeString, language, metastring }) {
                   className: shouldHighlightLine(i) ? 'highlight-line' : '',
                 })}
               >
-                <span
-                  className="inline-block w-8 opacity-30 select-none"
-                >
+                <span className="inline-block w-8 select-none opacity-30">
                   {i + 1}
                 </span>
                 {line.map((token, key) => (

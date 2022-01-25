@@ -10,9 +10,7 @@ import Heading from '@tiptap/extension-heading'
 import { getSession } from '~/session'
 
 export const loader: LoaderFunction = async ({ request }) => {
-  const session = await getSession(
-    request.headers.get("Cookie")
-  );
+  const session = await getSession(request.headers.get('Cookie'))
 
   if (!session.get('userId')) {
     throw new Response('Unauthorized to view this page', { status: 401 })
@@ -44,7 +42,7 @@ const NotebookWrite = () => {
   return (
     <main>
       <h1 className="text-center">New Notebook Entry</h1>
-      <div className="flex flex-col max-w-2xl m-auto">
+      <div className="m-auto flex max-w-2xl flex-col">
         <input
           type="text"
           name="title"
@@ -58,19 +56,13 @@ const NotebookWrite = () => {
           className="my-4"
           defaultValue={initialDate}
         />
-        <section className="bg-gray-50 p-8 rounded-xl drop-shadow-lg my-4">
+        <section className="my-4 rounded-xl bg-gray-50 p-8 drop-shadow-lg">
           <EditorContent editor={editor} />
         </section>
         <div className="flex w-full justify-around">
-          <button className="my-4">
-            Toggle Preview
-          </button>
-          <button className="my-4">
-            Save Draft
-          </button>
-          <button className="my-4">
-            Publish
-          </button>
+          <button className="my-4">Toggle Preview</button>
+          <button className="my-4">Save Draft</button>
+          <button className="my-4">Publish</button>
         </div>
       </div>
     </main>

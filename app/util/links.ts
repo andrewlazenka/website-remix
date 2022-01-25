@@ -1,4 +1,4 @@
-import type { Link } from "~/types/links"
+import type { Link } from '~/types/links'
 
 export function formatLinks(links: Link[]) {
   const socialLinks: { [key: string]: string } = {}

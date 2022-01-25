@@ -2,7 +2,7 @@ module.exports = {
   content: ['./app/**/*.{js,jsx,ts,tsx}'],
   darkMode: 'class',
   theme: {
-    fill: theme => ({
+    fill: (theme) => ({
       grayLight: theme('colors.gray.50'),
       grayDark: theme('colors.gray.900'),
     }),
@@ -49,9 +49,7 @@ module.exports = {
       },
     },
   },
-  plugins: [
-    require('@tailwindcss/typography')
-  ],
+  plugins: [require('@tailwindcss/typography')],
   corePlugins: {
     preflight: false,
   },

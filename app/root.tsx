@@ -137,9 +137,7 @@ function Document({
           }}
         />
       </head>
-      <body
-        className="bg-cover transition-colors duration-300 ease-in-out bg-blue-500 dark:bg-gray-900 bg-pattern-triangles"
-      >
+      <body className="bg-blue-500 bg-pattern-triangles bg-cover transition-colors duration-300 ease-in-out dark:bg-gray-900">
         {children}
         <ScrollRestoration />
         <Scripts />

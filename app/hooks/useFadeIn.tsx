@@ -21,7 +21,7 @@ function useFadeIn({
   React.CSSProperties,
   (node?: Element | null | undefined) => void
 ] {
-  const { ref, inView } = useInView(observerProps);
+  const { ref, inView } = useInView(observerProps)
 
   const fadeInBaseStyle: CSSProperties = {
     opacity: 0,

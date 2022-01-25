@@ -13,18 +13,24 @@ const HamburgerMenu = ({
   onClick: () => void
 }) => (
   <button
-    className={clsx('bg-transparent border-none cursor-pointer flex p-0 hover:text-orange-500', {
-      opened: active,
-      'z-50': active,
-    })}
+    className={clsx(
+      'flex cursor-pointer border-none bg-transparent p-0 hover:text-orange-500',
+      {
+        opened: active,
+        'z-50': active,
+      }
+    )}
     onClick={onClick}
     aria-label="Mobile Menu"
     aria-expanded={active ? 'true' : 'false'}
   >
     <svg
-      className={clsx("stroke-current transition-colors duration-300 ease-in-out dark:text-gray-50 hover:text-orange-500", {
-        // "text-blue-500": active
-      })}
+      className={clsx(
+        'stroke-current transition-colors duration-300 ease-in-out hover:text-orange-500 dark:text-gray-50',
+        {
+          // "text-blue-500": active
+        }
+      )}
       width="32"
       height="32"
       viewBox="0 0 100 100"

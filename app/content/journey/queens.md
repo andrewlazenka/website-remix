@@ -8,5 +8,17 @@ endMonth: 4
 endYear: 2020
 position: 'Bachelor of Computing (Honours)'
 image: 'queens'
-languages: ['HTML', 'CSS', 'PHP', 'Python', 'SQL', 'Java', 'C', 'C++', 'Haskell', 'Prolog']
+languages:
+  [
+    'HTML',
+    'CSS',
+    'PHP',
+    'Python',
+    'SQL',
+    'Java',
+    'C',
+    'C++',
+    'Haskell',
+    'Prolog',
+  ]
 ---
