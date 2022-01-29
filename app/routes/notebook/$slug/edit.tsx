@@ -8,9 +8,7 @@ import Text from '@tiptap/extension-text'
 import Heading from '@tiptap/extension-heading'
 
 import { getSession } from '~/session'
-import { getLinks } from '~/queries/links'
 import { getNotebookEntryBySlug } from '~/queries/notebook'
-import { formatLinks } from '~/util/links'
 
 import type { NotebookEntry } from '~/types/notebook'
 
@@ -29,17 +27,13 @@ export const loader: LoaderFunction = async ({ request, params }) => {
     throw new Response('Notebook entry not found', { status: 404 })
   }
 
-  const links = (await getLinks()) || []
   const notebookEntry = await getNotebookEntryBySlug(params.slug)
 
   if (!notebookEntry) {
     throw new Response('Notebook entry not found', { status: 404 })
   }
 
-  return {
-    notebookEntry,
-    ...formatLinks(links),
-  }
+  return { notebookEntry }
 }
 
 const NotebookEdit = () => {

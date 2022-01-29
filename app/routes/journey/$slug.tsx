@@ -4,8 +4,6 @@ import { json, useLoaderData } from 'remix'
 import { marked } from 'marked'
 
 import { getJourneyBySlug } from '~/queries/journey'
-import { getLinks } from '~/queries/links'
-import { formatLinks } from '~/util/links'
 
 import Header from '~/components/Header'
 import Footer from '~/components/Footer'
@@ -27,13 +25,9 @@ export const loader: LoaderFunction = async ({ params }) => {
     return json('Journey not found', { status: 404 })
   }
 
-  const links = (await getLinks()) || []
   const journey = await getJourneyBySlug(params.slug)
 
-  return {
-    journey,
-    ...formatLinks(links),
-  }
+  return { journey }
 }
 
 export default function JourneyTemplate() {

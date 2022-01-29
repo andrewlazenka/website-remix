@@ -3,8 +3,6 @@ import { format } from 'date-fns'
 import { json, MetaFunction, useLoaderData } from 'remix'
 
 import { getNotebookEntryBySlug } from '~/queries/notebook'
-import { getLinks } from '~/queries/links'
-import { formatLinks } from '~/util/links'
 
 import Badge from '~/components/Badge'
 import Header from '~/components/Header'
@@ -27,17 +25,13 @@ export const loader: LoaderFunction = async ({ params }) => {
     return json('Notebook entry not found', { status: 404 })
   }
 
-  const links = (await getLinks()) || []
   const notebookEntry = await getNotebookEntryBySlug(params.slug)
 
   if (!notebookEntry) {
     throw new Response('Notebook entry not found', { status: 404 })
   }
 
-  return {
-    notebookEntry,
-    ...formatLinks(links),
-  }
+  return { notebookEntry }
 }
 
 export const meta: MetaFunction = ({ data }: { data: LoaderResponse }) => {

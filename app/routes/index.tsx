@@ -16,8 +16,6 @@ import Theme from '~/components/Theme'
 import WorkExperience from '~/components/WorkExperience'
 import WaveDivider from '~/components/svg/dividers/Wave'
 import { getJourneyMeta } from '~/queries/journey'
-import { getLinks } from '~/queries/links'
-import { formatLinks } from '~/util/links'
 
 import type { JourneyMeta } from '~/types/journey'
 import type { Location } from 'history'
@@ -30,11 +28,9 @@ export let meta: MetaFunction = () => {
 
 export const loader: LoaderFunction = async () => {
   const journey = (await getJourneyMeta()) || []
-  const links = (await getLinks()) || []
 
   return {
     journey,
-    ...formatLinks(links),
   }
 }
 

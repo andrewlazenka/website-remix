@@ -1,16 +1,14 @@
 import React from 'react'
-import { useLoaderData } from 'remix'
 
 import SocialLinks from '~/components/SocialLinks'
 import { LocationAwareLink } from '~/components/Links'
-
-import type { SocialLinks as TSocialLinks } from '~/types/links'
+import useLinksData from '~/hooks/useLinkData'
 
 const year = new Date().getFullYear()
 const copyright = `© ${year} Andrew Lazenka. All Rights Reserved.`
 
 function Footer() {
-  const { socialLinks } = useLoaderData<{ socialLinks: TSocialLinks }>()
+  const { socialLinks } = useLinksData()
 
   return (
     <footer className="via-grey-300 flex min-h-[300px] w-full items-center bg-gradient-to-b from-gray-50 to-blue-500 transition-all duration-300 ease-in-out dark:from-gray-900 dark:to-gray-600">

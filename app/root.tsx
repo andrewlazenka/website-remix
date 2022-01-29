@@ -8,7 +8,10 @@ import {
   ScrollRestoration,
   useCatch,
 } from 'remix'
-import type { LinksFunction } from 'remix'
+import type { LinksFunction, LoaderFunction } from 'remix'
+
+import { getLinks } from '~/queries/links'
+import { formatLinks } from '~/util/links'
 
 import hamburgerMenuStyles from '~/styles/hamburger-menu.css'
 import globalStyles from '~/styles/global.css'
@@ -26,6 +29,14 @@ export let links: LinksFunction = () => [
     crossOrigin: 'anonymous',
   },
 ]
+
+export const loader: LoaderFunction = async () => {
+  const links = await getLinks()
+
+  return {
+    ...formatLinks(links || []),
+  }
+}
 
 export default function App() {
   return (
