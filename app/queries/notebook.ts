@@ -44,11 +44,19 @@ export async function getNotebookEntryBySlug(slug: string) {
 }
 
 export async function getAllNotebookEntry() {
-  const cols = ['id', 'title', 'slug', 'created_at'].join(',')
+  const cols = ['id', 'title', 'slug', 'content', 'date_published'].join(',')
   const { data } = await supabase
     .from<NotebookEntry>(table)
     .select(cols)
     .eq('is_published', true)
-    .order('created_at', { ascending: false })
-  return data
+    .order('date_published', { ascending: false })
+
+  return data?.map(({ content, ...d }) => {
+    const word_count = content.replace(/<[^>]*>?/gm, '').replace("\\n", " ").split(" ").length
+    return {
+      ...d,
+      word_count,
+      read_time: Math.ceil(word_count / 200)
+    }
+  })
 }
