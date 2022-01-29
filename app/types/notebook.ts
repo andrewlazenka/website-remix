@@ -5,6 +5,7 @@ export type NotebookEntry = {
   content: string
   date_published: Date
   is_published: boolean
+  tags: string[] | null
   created_at: Date
   updated_at: Date
 }

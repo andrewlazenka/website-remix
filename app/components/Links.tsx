@@ -16,7 +16,7 @@ export const InternalLink = ({
 }: LinkProps) => (
   <Link
     className={clsx(
-      textColour || 'text-blue-500 hover:text-blue-300',
+      textColour || 'text-blue-500 hover:text-orange-500',
       'cursor-pointer text-base transition-colors duration-300 ease-in-out',
       className
     )}

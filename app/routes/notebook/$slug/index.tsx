@@ -6,6 +6,7 @@ import { getNotebookEntryBySlug } from '~/queries/notebook'
 import { getLinks } from '~/queries/links'
 import { formatLinks } from '~/util/links'
 
+import Badge from '~/components/Badge'
 import Header from '~/components/Header'
 import Footer from '~/components/Footer'
 import Layout from '~/components/Layout'
@@ -17,6 +18,9 @@ import type { NotebookEntry } from '~/types/notebook'
 type LoaderResponse = {
   notebookEntry: NotebookEntry
 }
+
+const blueVioletGradient =
+  'conic-gradient(from -90deg at 50% -25%, blue, blueviolet)'
 
 export const loader: LoaderFunction = async ({ params }) => {
   if (!params.slug) {
@@ -51,7 +55,8 @@ export const meta: MetaFunction = ({ data }: { data: LoaderResponse }) => {
 
 function NotebookEntry() {
   const { notebookEntry } = useLoaderData<LoaderResponse>()
-  const { title, content, created_at } = notebookEntry
+
+  const { content, created_at, tags, title } = notebookEntry
 
   const createdAtDate = format(new Date(created_at), 'MMMM dd, yyyy')
 
@@ -59,10 +64,24 @@ function NotebookEntry() {
     <Theme>
       <Header />
       <Layout>
+        <h4 className="py-4 font-medium">Published {createdAtDate}</h4>
         <h1>{title}</h1>
-        <h4 className="font-medium">{createdAtDate}</h4>
-        <div
-          className="prose lg:prose-xl"
+        {tags && (
+          <div className="flex flex-wrap">
+            {tags.map((t) => (
+              <Badge
+                key={t}
+                style={{
+                  background: blueVioletGradient,
+                }}
+              >
+                {t}
+              </Badge>
+            ))}
+          </div>
+        )}
+        <article
+          className="prose lg:prose-xl dark:prose-invert pt-6"
           dangerouslySetInnerHTML={{ __html: content }}
         />
       </Layout>
