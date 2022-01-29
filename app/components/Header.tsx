@@ -6,16 +6,35 @@ import HamburgerMenu from '~/components/HamburgerMenu'
 import ModalMenu from '~/components/ModalMenu'
 import ModeToggle from '~/components/ModeToggle'
 import SocialLinks from '~/components/SocialLinks'
+import { InternalLink } from '~/components/Links'
+
+const menuItems = [
+  // {
+  //   name: 'Journey',
+  //   to: '/journey',
+  // },
+  {
+    name: 'Notebook',
+    to: '/notebook',
+  },
+]
 
 const MobileMenu = () => {
   const { socialLinks } =
     useLoaderData<{ socialLinks: { [key: string]: string } }>()
   return (
     <div className="flex flex-col items-center">
+      {menuItems.map(({ name, to }, index) => (
+        <div className="flex py-6 items-center" key={`${name}-${index}`}>
+          <InternalLink to={to}>
+            <h3>{name}</h3>
+          </InternalLink>
+        </div>
+      ))}
       <div className="flex w-4/5 items-center justify-around py-6">
         <SocialLinks
           {...socialLinks}
-          iconClassName="dark:text-gray-50 dark:hover:text-orange-500"
+          iconColour="text-gray-900 dark:text-gray-50 dark:hover:text-orange-500"
         />
       </div>
     </div>

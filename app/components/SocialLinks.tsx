@@ -19,6 +19,8 @@ type SocialLinksProps = {
   email?: string
   github?: string
   resume?: string
+  iconColour?: string
+  linkColour?: string
   iconClassName?: string
   linkClassName?: string
 }
@@ -31,16 +33,20 @@ const SocialLinks = ({
   email = '',
   github = '',
   resume = '',
+  iconColour = '',
+  linkColour,
   iconClassName,
   linkClassName,
 }: SocialLinksProps) => {
   const iconStyle = clsx(
     'transition-colors duration-300 ease-in-out h-6 w-6',
-    iconClassName
+    iconClassName,
+    iconColour,
   )
   const linkStyle = clsx(
-    'h-6 w-6 p-2 hvr-float-shadow text-gray-50 hover:text-orange-500',
-    linkClassName
+    'h-6 w-6 p-2 hvr-float-shadow',
+    linkClassName,
+    'text-gray-50 hover:text-orange-500' || linkColour,
   )
 
   return (

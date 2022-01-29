@@ -46,7 +46,7 @@ export default function NotebookPage() {
         {notebookEntries.length > 0 ? (
           notebookEntries.map((entry) => (
             <InternalLink to={`/notebook/${entry.slug}`} textColour="text-gray-900 dark:text-gray-50" >
-              <article className="p-6 my-4 border-solid border-gray-50 dark:border-gray-900 hover:border-orange-500 dark:hover:border-orange-500 rounded-xl transition-all duration-300 ease-in-out hover:translate-y-[-3px] hover:drop-shadow-xl">
+              <article className="p-6 my-4 border-solid border-gray-50 dark:border-gray-900 hover:border-orange-500 dark:hover:border-orange-500 rounded-xl transition-all duration-300 ease-in-out hover:translate-y-[-4px] hover:drop-shadow-xl">
                 <p className="m-0">{format(new Date(entry.created_at), 'MMMM dd, yyyy')}</p>
                 <h3>{entry.title}</h3>
               </article>
