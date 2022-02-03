@@ -9,6 +9,7 @@ import Header from '~/components/Header'
 import Footer from '~/components/Footer'
 import Layout from '~/components/Layout'
 import Theme from '~/components/Theme'
+import { getSession } from '~/session'
 
 import type { LoaderFunction } from 'remix'
 import type { NotebookEntry } from '~/types/notebook'
@@ -20,12 +21,13 @@ type LoaderResponse = {
 const blueVioletGradient =
   'conic-gradient(from -90deg at 50% -25%, blue, blueviolet)'
 
-export const loader: LoaderFunction = async ({ params }) => {
+export const loader: LoaderFunction = async ({ request, params }) => {
   if (!params.slug) {
     return json('Notebook entry not found', { status: 404 })
   }
 
-  const notebookEntry = await getNotebookEntryBySlug(params.slug)
+  const session = await getSession(request.headers.get('Cookie'))
+  const notebookEntry = await getNotebookEntryBySlug(params.slug, Boolean(session.get('userId')))
 
   if (!notebookEntry) {
     throw new Response('Notebook entry not found', { status: 404 })
@@ -50,15 +52,15 @@ export const meta: MetaFunction = ({ data }: { data: LoaderResponse }) => {
 function NotebookEntry() {
   const { notebookEntry } = useLoaderData<LoaderResponse>()
 
-  const { content, created_at, tags, title } = notebookEntry
+  const { content, date_published, read_time, read_time_minutes, tags, title } = notebookEntry
 
-  const createdAtDate = format(new Date(created_at), 'MMMM dd, yyyy')
+  const publishedDate = format(new Date(date_published), 'MMMM dd, yyyy')
 
   return (
     <Theme>
       <Header />
       <Layout>
-        <h4 className="py-4 font-medium">Published {createdAtDate}</h4>
+        <h4 className="py-4 font-medium">Published {publishedDate} - {read_time_minutes || read_time} min read</h4>
         <h1>{title}</h1>
         {tags && (
           <div className="flex flex-wrap">

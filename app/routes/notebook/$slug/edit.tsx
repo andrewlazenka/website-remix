@@ -1,6 +1,6 @@
 import React from 'react'
-import { LoaderFunction, useLoaderData } from 'remix'
-import { format } from 'date-fns'
+import { ActionFunction, Form, LoaderFunction, redirect, useLoaderData } from 'remix'
+import { format, parseISO } from 'date-fns'
 import { useEditor, EditorContent } from '@tiptap/react'
 import Document from '@tiptap/extension-document'
 import Paragraph from '@tiptap/extension-paragraph'
@@ -8,7 +8,7 @@ import Text from '@tiptap/extension-text'
 import Heading from '@tiptap/extension-heading'
 
 import { getSession } from '~/session'
-import { getNotebookEntryBySlug } from '~/queries/notebook'
+import { getNotebookEntryBySlug, updateNotebookEntry } from '~/queries/notebook'
 
 import type { NotebookEntry } from '~/types/notebook'
 
@@ -20,7 +20,7 @@ export const loader: LoaderFunction = async ({ request, params }) => {
   const session = await getSession(request.headers.get('Cookie'))
 
   if (!session.get('userId')) {
-    throw new Response('Unauthorized to view this page', { status: 401 })
+    return redirect('/sign-in')
   }
 
   if (!params.slug) {
@@ -36,9 +36,34 @@ export const loader: LoaderFunction = async ({ request, params }) => {
   return { notebookEntry }
 }
 
+export const action: ActionFunction = async ({ request }) => {
+  const remixSession = await getSession(request.headers.get('Cookie'))
+  const formData = await request.formData()
+  const id = Number(formData.get('id'))
+  const title = String(formData.get('title'))
+  const date_published = parseISO(`${String(formData.get('date_published'))}T04:00:00.000Z`)
+  const content = String(formData.get('content'))
+
+  const result = await updateNotebookEntry({
+    id,
+    title,
+    date_published,
+    content
+  },
+  {
+    auth: remixSession.get('refresh_token')
+  })
+
+  if (result.status !== 200) {
+    throw new Response(result.statusText, { status: result.status })
+  }
+
+  return redirect(`/notebook/${result.data?.[0]?.slug}`)
+}
+
 const NotebookEdit = () => {
   const { notebookEntry } = useLoaderData<LoaderResponse>()
-  const { date_published, content, title } = notebookEntry
+  const { content, date_published, id, title } = notebookEntry
 
   const editor = useEditor({
     content,
@@ -53,8 +78,8 @@ const NotebookEdit = () => {
     editorProps: {
       attributes: {
         class: 'prose lg:prose-xl',
-      },
-    },
+      }
+    }
   })
 
   const initialDate = format(new Date(date_published), 'yyyy-MM-dd')
@@ -63,24 +88,28 @@ const NotebookEdit = () => {
     <main>
       <h1 className="text-center">Editor Page</h1>
       <div className="m-auto flex max-w-2xl flex-col">
-        <input
-          type="text"
-          name="title"
-          placeholder="Title"
-          required
-          className="my-4"
-          defaultValue={title}
-        />
-        <input
-          type="date"
-          name="created_at"
-          className="my-4"
-          defaultValue={initialDate}
-        />
-        <section className="my-4 rounded-xl bg-gray-50 p-8 drop-shadow-lg">
-          <EditorContent editor={editor} />
-        </section>
-        <button className="my-4">Save Content</button>
+        <Form method="post">
+          <input
+            type="text"
+            name="title"
+            placeholder="Title"
+            required
+            className="my-4"
+            defaultValue={title}
+          />
+          <input
+            type="date"
+            name="date_published"
+            className="my-4"
+            defaultValue={initialDate}
+          />
+          <section className="my-4 rounded-xl bg-gray-50 p-8 drop-shadow-lg">
+            <EditorContent editor={editor} />
+          </section>
+          <input type="hidden" name="content" value={editor?.getHTML()} />
+          <input type="hidden" name="id" value={id} />
+          <button className="my-4">Save Content</button>
+        </Form>
       </div>
     </main>
   )
