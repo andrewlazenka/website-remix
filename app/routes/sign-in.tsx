@@ -21,7 +21,8 @@ export const action: ActionFunction = async ({ request }) => {
   }
 
   const { session } = await signIn(email.toString(), password.toString())
-  remixSession.set('auth', session?.access_token)
+  remixSession.set('access_token', session?.access_token)
+  remixSession.set('refresh_token', session?.refresh_token)
   remixSession.set('userId', session?.user?.id)
 
   return redirect('/', {
