@@ -1,12 +1,14 @@
 import { createCookieSessionStorage } from 'remix'
 
+const sixHoursMs = 1000 * 60 * 60 * 6
+
 const { getSession, commitSession, destroySession } =
   createCookieSessionStorage({
     cookie: {
       name: '__session',
-      expires: new Date(Date.now() + 60),
+      expires: new Date(Date.now() + sixHoursMs),
       httpOnly: true,
-      maxAge: 60,
+      maxAge: sixHoursMs,
       path: '/',
       sameSite: 'strict',
       secrets: [process.env.SESSION_SECRET || ''],
