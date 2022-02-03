@@ -13,6 +13,7 @@ module.exports = {
       },
       backgroundImage: {
         'pattern-triangles': `url('/assets/svg/patterns/triangles.svg')`,
+        'pattern-wavey': `url('/assets/svg/patterns/wavey.svg')`,
         'divider-wave': `url('/assets/svg/dividers/wave.svg')`,
       },
       fill: ['hover'],
