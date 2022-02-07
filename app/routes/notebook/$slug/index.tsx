@@ -60,7 +60,6 @@ function NotebookEntry() {
     <Theme>
       <Header />
       <Layout>
-        <h4 className="py-4 font-medium">Published {publishedDate} - {read_time_minutes || read_time} min read</h4>
         <h1>{title}</h1>
         {tags && (
           <div className="flex flex-wrap">
@@ -76,6 +75,7 @@ function NotebookEntry() {
             ))}
           </div>
         )}
+        <h4 className="py-4 font-medium">{publishedDate} • {read_time_minutes || read_time} min read</h4>
         <article
           className="prose lg:prose-xl dark:prose-invert pt-6"
           dangerouslySetInnerHTML={{ __html: content }}
