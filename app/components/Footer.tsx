@@ -35,7 +35,7 @@ function Footer() {
           <div className="mx-auto flex w-full justify-between pb-6 sm:w-3/4 md:m-0 md:w-1/2 md:p-0">
             <SocialLinks
               {...socialLinks}
-              iconColour="text-gray-900 hover:text-orange-500 dark:hover:text-orange-500"
+              iconColour="text-white dark:text-gray-900 hover:text-orange-500 dark:hover:text-orange-500"
             />
           </div>
           <div className="block text-center text-xs dark:text-gray-900 opacity-50 md:hidden">

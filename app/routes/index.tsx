@@ -100,11 +100,11 @@ export default function Home() {
           <img
             src="/assets/png/AndrewCandid.png"
             alt="Candid headshot of Andrew"
-            className="h-[400px] w-[400px]"
+            className="h-[250px] w-[250px] md:h-[400px] md:w-[400px]"
           />
         </animated.div>
       </HeroBanner>
-      <main className="mx-auto my-0 w-3/4 max-w-5xl p-6">
+      <main className="mx-auto my-0 w-3/4 max-w-5xl md:p-6">
         <section>
           <h2 id="journey" className="text-center text-4xl font-semibold py-8">
             My Journey
