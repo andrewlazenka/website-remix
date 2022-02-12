@@ -495,10 +495,6 @@
   top: 0px;
 }
 
-.bottom-1 {
-  bottom: 0.25rem;
-}
-
 .z-50 {
   z-index: 50;
 }
@@ -608,10 +604,6 @@
 
 .h-\[150px\] {
   height: 150px;
-}
-
-.h-\[4px\] {
-  height: 4px;
 }
 
 .min-h-\[250px\] {
@@ -1102,11 +1094,6 @@
   transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
 }
 
-.content-\[\"\"\] {
-  --tw-content: "";
-  content: var(--tw-content);
-}
-
 .selection\:bg-orange-500 *::-moz-selection {
   --tw-bg-opacity: 1;
   background-color: rgb(249 115 22 / var(--tw-bg-opacity));
@@ -1125,52 +1112,6 @@
 .selection\:bg-orange-500::selection {
   --tw-bg-opacity: 1;
   background-color: rgb(249 115 22 / var(--tw-bg-opacity));
-}
-
-.before\:absolute::before {
-  content: var(--tw-content);
-  position: absolute;
-}
-
-.before\:bottom-1::before {
-  content: var(--tw-content);
-  bottom: 0.25rem;
-}
-
-.before\:left-\[-2px\]::before {
-  content: var(--tw-content);
-  left: -2px;
-}
-
-.before\:right-\[51px\]::before {
-  content: var(--tw-content);
-  right: 51px;
-}
-
-.before\:block::before {
-  content: var(--tw-content);
-  display: block;
-}
-
-.before\:h-\[4px\]::before {
-  content: var(--tw-content);
-  height: 4px;
-}
-
-.before\:bg-orange-500::before {
-  content: var(--tw-content);
-  --tw-bg-opacity: 1;
-  background-color: rgb(249 115 22 / var(--tw-bg-opacity));
-}
-
-.before\:content-\[\'\'\]::before {
-  --tw-content: '';
-  content: var(--tw-content);
-}
-
-.before\:content-\[\"\"\]::before {
-  --tw-content: "";
-  content: var(--tw-content);
 }
 
 .hover\:translate-y-\[-4px\]:hover {
