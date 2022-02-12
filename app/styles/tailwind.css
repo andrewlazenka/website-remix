@@ -483,12 +483,16 @@
   left: 0px;
 }
 
-.top-0 {
-  top: 0px;
-}
-
 .left-0 {
   left: 0px;
+}
+
+.bottom-0 {
+  bottom: 0px;
+}
+
+.top-0 {
+  top: 0px;
 }
 
 .z-50 {
@@ -602,8 +606,8 @@
   height: 150px;
 }
 
-.min-h-\[300px\] {
-  min-height: 300px;
+.min-h-\[250px\] {
+  min-height: 250px;
 }
 
 .min-h-screen {
@@ -678,6 +682,11 @@
   max-width: 42rem;
 }
 
+.rotate-180 {
+  --tw-rotate: 180deg;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+
 .transform {
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
@@ -733,6 +742,10 @@
   overflow: auto;
 }
 
+.overflow-hidden {
+  overflow: hidden;
+}
+
 .rounded-full {
   border-radius: 9999px;
 }
@@ -779,9 +792,9 @@
   background-color: transparent;
 }
 
-.bg-gray-50 {
+.bg-white {
   --tw-bg-opacity: 1;
-  background-color: rgb(249 250 251 / var(--tw-bg-opacity));
+  background-color: rgb(255 255 255 / var(--tw-bg-opacity));
 }
 
 .bg-orange-500 {
@@ -797,25 +810,16 @@
   background-image: url('/assets/svg/patterns/triangles.svg');
 }
 
-.bg-gradient-to-b {
-  background-image: linear-gradient(to bottom, var(--tw-gradient-stops));
-}
-
 .bg-pattern-wavey {
   background-image: url('/assets/svg/patterns/wavey.svg');
 }
 
-.from-gray-50 {
-  --tw-gradient-from: #f9fafb;
-  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgb(249 250 251 / 0));
-}
-
-.to-blue-500 {
-  --tw-gradient-to: #3b82f6;
-}
-
 .bg-cover {
   background-size: cover;
+}
+
+.fill-blue-500 {
+  fill: #3b82f6;
 }
 
 .stroke-current {
@@ -891,6 +895,10 @@
 .py-4 {
   padding-top: 1rem;
   padding-bottom: 1rem;
+}
+
+.pt-12 {
+  padding-top: 3rem;
 }
 
 .pb-6 {
@@ -1278,18 +1286,13 @@
   background-color: rgb(17 24 39 / var(--tw-bg-opacity));
 }
 
-.dark .dark\:bg-sky-50 {
+.dark .dark\:bg-white {
   --tw-bg-opacity: 1;
-  background-color: rgb(240 249 255 / var(--tw-bg-opacity));
+  background-color: rgb(255 255 255 / var(--tw-bg-opacity));
 }
 
-.dark .dark\:from-gray-900 {
-  --tw-gradient-from: #111827;
-  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgb(17 24 39 / 0));
-}
-
-.dark .dark\:to-gray-600 {
-  --tw-gradient-to: #4b5563;
+.dark .dark\:fill-gray-900 {
+  fill: #111827;
 }
 
 .dark .dark\:text-gray-50 {
