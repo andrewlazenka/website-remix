@@ -9,7 +9,9 @@ import {
 } from '~/queries/notebook'
 
 import Badge from '~/components/Badge'
+import EmojiWiggle from '~/components/EmojiWiggle'
 import Header from '~/components/Header'
+import HeroBanner from '~/components/HeroBanner'
 import Footer from '~/components/Footer'
 import Layout from '~/components/Layout'
 import { InternalLink } from '~/components/Links'
@@ -62,9 +64,16 @@ export default function NotebookPage() {
   return (
     <Theme>
       <Header />
+      <HeroBanner>
+        <h1 className="py-8 text-center font-bold">
+          <EmojiWiggle>📝</EmojiWiggle> Notebook
+        </h1>
+        <h3 className="text-center font-normal">
+          Here's where my thoughts go. Software, productivity, and more!
+        </h3>
+      </HeroBanner>
       <animated.div style={fade}>
         <Layout>
-          <h1 className="font-bold">Notebook</h1>
           {notebookEntries.length > 0 ? (
             notebookEntries.map((entry) => (
               <InternalLink

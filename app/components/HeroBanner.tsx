@@ -1,10 +1,11 @@
 import React from 'react'
 import clsx from 'classnames'
 
-const HeroBanner = ({ fullHeight = false, ...props }) => (
+const HeroBanner = ({ slim = false, ...props }) => (
   <div
     className={clsx(
-      'relative h-screen max-h-[700px] bg-blue-500 bg-pattern-triangles bg-cover transition-colors duration-300 ease-in-out dark:bg-gray-900'
+      'relative mx-auto w-10/12 mb-24 bg-blue-500 bg-pattern-wavey rounded-md transition-colors duration-300 ease-in-out dark:bg-sky-50 dark:text-gray-900 text-gray-50',
+      { 'pb-24 pt-32 px-12': slim === false }
     )}
     {...props}
   />

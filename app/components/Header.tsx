@@ -58,7 +58,7 @@ function Header({
         ['bg-opacity-70 backdrop-blur-md']: !disableTransparency,
       })}
     >
-      <nav className="mx-auto flex w-3/4 max-w-5xl justify-end sm:flex-row">
+      <nav className="mx-auto flex w-11/12 max-w-5xl justify-end sm:flex-row">
         <div className="flex">
           <div className="flex items-center p-6">
             <ModeToggle className={modeToggleClassName} />
