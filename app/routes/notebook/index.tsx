@@ -21,12 +21,6 @@ import { getSession } from '~/session'
 import type { LoaderFunction } from 'remix'
 import type { NotebookEntry } from '~/types/notebook'
 
-// https://www.conic.style/
-const redBlueGradient =
-  'conic-gradient(from -90deg at 25% 115%, #ff0000, #ff0066, #ff00cc, #cc00ff, #6600ff, #0000ff, #0000ff, #0000ff, #0000ff)'
-const blueVioletGradient =
-  'conic-gradient(from -90deg at 50% -25%, blue, blueviolet)'
-
 type LoaderResponse = {
   notebookEntries: NotebookEntry[]
 }
@@ -69,7 +63,7 @@ export default function NotebookPage() {
           <EmojiWiggle>📝</EmojiWiggle> Notebook
         </h1>
         <h3 className="text-center font-normal">
-          Here's where my thoughts go. Software, productivity, and more!
+          Here's where my thoughts go! Software, crypto, productivity, and more.
         </h3>
       </HeroBanner>
       <animated.div style={fade}>
@@ -89,13 +83,7 @@ export default function NotebookPage() {
                     </p>
                     <h3 className="font-semibold">{entry.title}</h3>
                   </div>
-                  <div>
-                    {!entry.is_published && (
-                      <Badge style={{ background: blueVioletGradient }}>
-                        Draft
-                      </Badge>
-                    )}
-                  </div>
+                  <div>{!entry.is_published && <Badge>Draft</Badge>}</div>
                 </article>
               </InternalLink>
             ))
