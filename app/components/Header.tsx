@@ -7,6 +7,7 @@ import ModeToggle from '~/components/ModeToggle'
 import SocialLinks from '~/components/SocialLinks'
 import { InternalLink } from '~/components/Links'
 import useLinksData from '~/hooks/useLinkData'
+import { useLocation } from 'remix'
 
 const menuItems = [
   {
@@ -24,7 +25,7 @@ const MobileMenu = () => {
   return (
     <div className="flex flex-col items-center">
       {menuItems.map(({ name, ...linkProps }, index) => (
-        <div className="flex py-6 items-center" key={`${name}-${index}`}>
+        <div className="flex items-center py-6" key={`${name}-${index}`}>
           <InternalLink {...linkProps}>
             <h3 className="font-normal">{name}</h3>
           </InternalLink>
@@ -50,6 +51,13 @@ function Header({
   modeToggleClassName,
   disableTransparency = false,
 }: HeaderProps) {
+  const location = useLocation()
+  const splitPath = location.pathname.split('/')
+  let basePath = ''
+
+  if (splitPath.length > 2) {
+    basePath = String(splitPath[1])
+  }
   const [menuModalOpen, setMenuModalOpen] = React.useState<boolean>(false)
 
   return (
@@ -58,7 +66,17 @@ function Header({
         ['bg-opacity-70 backdrop-blur-md']: !disableTransparency,
       })}
     >
-      <nav className="mx-auto flex w-11/12 max-w-5xl justify-end sm:flex-row">
+      <nav className="mx-auto flex w-11/12 max-w-5xl justify-between sm:flex-row">
+        {basePath ? (
+          <InternalLink
+            to={`/${basePath}`}
+            className="flex items-center p-6 capitalize"
+          >
+            ← {basePath}
+          </InternalLink>
+        ) : (
+          <div />
+        )}
         <div className="flex">
           <div className="flex items-center p-6">
             <ModeToggle className={modeToggleClassName} />
