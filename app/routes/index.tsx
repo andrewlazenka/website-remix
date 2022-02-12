@@ -9,6 +9,7 @@ import {
 import { isBefore } from 'date-fns'
 import { animated, useSpring } from 'react-spring'
 
+import EmojiWiggle from '~/components/EmojiWiggle'
 import Footer from '~/components/Footer'
 import Header from '~/components/Header'
 import HeroBanner from '~/components/HeroBanner'
@@ -19,7 +20,6 @@ import { getJourneyMeta } from '~/queries/journey'
 
 import type { JourneyMeta } from '~/types/journey'
 import type { Location } from 'history'
-import EmojiWiggle from '~/components/EmojiWiggle'
 
 export let meta: MetaFunction = () => {
   return {
