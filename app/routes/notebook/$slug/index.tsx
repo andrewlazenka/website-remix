@@ -14,13 +14,11 @@ import { getSession } from '~/session'
 
 import type { LoaderFunction } from 'remix'
 import type { NotebookEntry } from '~/types/notebook'
+import HeroBanner from '~/components/HeroBanner'
 
 type LoaderResponse = {
   notebookEntry: NotebookEntry
 }
-
-const blueVioletGradient =
-  'conic-gradient(from -90deg at 50% -25%, blue, blueviolet)'
 
 export const loader: LoaderFunction = async ({ request, params }) => {
   if (!params.slug) {
@@ -28,7 +26,10 @@ export const loader: LoaderFunction = async ({ request, params }) => {
   }
 
   const session = await getSession(request.headers.get('Cookie'))
-  const notebookEntry = await getNotebookEntryBySlug(params.slug, Boolean(session.get('userId')))
+  const notebookEntry = await getNotebookEntryBySlug(
+    params.slug,
+    Boolean(session.get('userId'))
+  )
 
   if (!notebookEntry) {
     throw new Response('Notebook entry not found', { status: 404 })
@@ -56,38 +57,37 @@ function NotebookEntry() {
     to: { opacity: 1 },
     from: { opacity: 0 },
     config: {
-      duration: 750
+      duration: 750,
     },
   })
 
-  const { content, date_published, read_time, read_time_minutes, tags, title } = notebookEntry
+  const { content, date_published, read_time, read_time_minutes, tags, title } =
+    notebookEntry
 
   const publishedDate = format(new Date(date_published), 'MMMM dd, yyyy')
 
   return (
     <Theme>
       <Header />
-      <Layout>
-        <animated.div style={fade}>
+      <HeroBanner>
+        <div className="text-center">
+          <h4 className="py-4 font-normal">
+            {publishedDate} • {read_time_minutes || read_time} min read
+          </h4>
           <h1>{title}</h1>
           {tags && (
-            <div className="flex flex-wrap">
+            <div className="flex flex-wrap justify-center">
               {tags.map((t) => (
-                <Badge
-                  key={t}
-                  style={{
-                    background: blueVioletGradient,
-                  }}
-                >
-                  {t}
-                </Badge>
+                <Badge key={t}>{t}</Badge>
               ))}
             </div>
           )}
-          <h4 className="py-4 font-normal">{publishedDate} • {read_time_minutes || read_time} min read</h4>
-          <hr />
+        </div>
+      </HeroBanner>
+      <Layout>
+        <animated.div style={fade}>
           <article
-            className="prose lg:prose-xl dark:prose-invert pt-6"
+            className="prose pt-6 dark:prose-invert lg:prose-xl"
             dangerouslySetInnerHTML={{ __html: content }}
           />
         </animated.div>
