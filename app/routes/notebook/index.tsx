@@ -64,7 +64,7 @@ export default function NotebookPage() {
       <Header />
       <animated.div style={fade}>
         <Layout>
-          <h1>Notebook</h1>
+          <h1 className="font-bold">Notebook</h1>
           {notebookEntries.length > 0 ? (
             notebookEntries.map((entry) => (
               <InternalLink
@@ -78,7 +78,7 @@ export default function NotebookPage() {
                       {format(new Date(entry.date_published), 'MMMM dd, yyyy')}{' '}
                       • {entry.read_time} min read
                     </p>
-                    <h3>{entry.title}</h3>
+                    <h3 className="font-semibold">{entry.title}</h3>
                   </div>
                   <div>
                     {!entry.is_published && (

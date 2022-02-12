@@ -107,9 +107,9 @@ export default function Home() {
         </div>
       </HeroBanner>
       <Header />
-      <main className="mx-auto my-0 w-3/4 max-w-5xl py-12 px-6">
-        <section className="py-8">
-          <h2 id="journey" className="text-center text-4xl font-semibold">
+      <main className="mx-auto my-0 w-3/4 max-w-5xl p-6">
+        <section>
+          <h2 id="journey" className="text-center text-4xl font-semibold py-8">
             My Journey
           </h2>
           {journey.sort(sortFilterWork).map((entry: JourneyMeta) => {

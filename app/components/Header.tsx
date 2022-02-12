@@ -10,11 +10,11 @@ import useLinksData from '~/hooks/useLinkData'
 
 const menuItems = [
   {
-    name: 'Home',
+    name: '🏡 Home',
     to: '/',
   },
   {
-    name: 'Notebook',
+    name: '📝 Notebook',
     to: '/notebook',
   },
 ]
@@ -30,6 +30,7 @@ const MobileMenu = () => {
           </InternalLink>
         </div>
       ))}
+      <div className="h-[32px]" />
       <div className="flex w-4/5 items-center justify-around py-6">
         <SocialLinks
           {...socialLinks}
@@ -59,10 +60,10 @@ function Header({
     >
       <nav className="mx-auto flex w-3/4 max-w-5xl justify-end sm:flex-row">
         <div className="flex">
-          <div className="flex items-center px-4 py-7">
+          <div className="flex items-center p-6">
             <ModeToggle className={modeToggleClassName} />
           </div>
-          <div className="flex cursor-default items-center px-4 py-7">
+          <div className="flex cursor-default items-center py-8 px-6">
             <HamburgerMenu
               active={menuModalOpen}
               onClick={() => setMenuModalOpen(!menuModalOpen)}

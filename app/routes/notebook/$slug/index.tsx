@@ -84,7 +84,7 @@ function NotebookEntry() {
               ))}
             </div>
           )}
-          <h4 className="py-4 font-medium">{publishedDate} • {read_time_minutes || read_time} min read</h4>
+          <h4 className="py-4 font-normal">{publishedDate} • {read_time_minutes || read_time} min read</h4>
           <hr />
           <article
             className="prose lg:prose-xl dark:prose-invert pt-6"
