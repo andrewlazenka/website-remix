@@ -9,13 +9,13 @@ import {
 import { isBefore } from 'date-fns'
 import { animated, useSpring } from 'react-spring'
 
+import EmojiWiggle from '~/components/EmojiWiggle'
 import Footer from '~/components/Footer'
 import Header from '~/components/Header'
 import HeroBanner from '~/components/HeroBanner'
 import { ExternalLink } from '~/components/Links'
 import Theme from '~/components/Theme'
 import WorkExperience from '~/components/WorkExperience'
-import WaveDivider from '~/components/svg/dividers/Wave'
 import { getJourneyMeta } from '~/queries/journey'
 
 import type { JourneyMeta } from '~/types/journey'
@@ -88,28 +88,25 @@ export default function Home() {
 
   return (
     <Theme>
-      <HeroBanner>
-        <animated.div style={fade} className="mx-auto my-0 w-3/4 max-w-4xl py-16 sm:py-24">
-          <h1 className="z-0 m-0 text-center text-5xl font-semibold text-gray-50">
+      <Header />
+      <HeroBanner slim>
+        <animated.div style={fade} className="mx-auto my-0 w-3/4 max-w-4xl pt-16 pb-8">
+          <h1 className="z-0 m-0 text-center text-5xl font-semibold text-gray-50 dark:text-gray-900">
             Hey! I'm Andrew{' '}
-            <span className="inline-block hover:animate-wave">👋🏻</span>
+            <EmojiWiggle>👋🏻</EmojiWiggle>
           </h1>
         </animated.div>
-        <animated.div style={fade} className="absolute bottom-0 flex w-full justify-center">
+        <animated.div style={fade} className="flex w-full justify-center">
           <img
             src="/assets/png/AndrewCandid.png"
             alt="Candid headshot of Andrew"
-            className="h-[475px] w-[475px]"
+            className="h-[400px] w-[400px]"
           />
         </animated.div>
-        <div className="absolute inset-x-0 bottom-0 block h-16 w-full overflow-hidden">
-          <WaveDivider className="absolute left-[-3px] right-[-3px] w-[106%] min-w-[600px] fill-grayLight transition-colors duration-300 ease-in-out dark:fill-grayDark" />
-        </div>
       </HeroBanner>
-      <Header />
-      <main className="mx-auto my-0 w-3/4 max-w-5xl py-12 px-6">
-        <section className="py-8">
-          <h2 id="journey" className="text-center text-4xl font-semibold">
+      <main className="mx-auto my-0 w-3/4 max-w-5xl p-6">
+        <section>
+          <h2 id="journey" className="text-center text-4xl font-semibold py-8">
             My Journey
           </h2>
           {journey.sort(sortFilterWork).map((entry: JourneyMeta) => {

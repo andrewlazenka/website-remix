@@ -20,6 +20,7 @@ export const InternalLink = ({
       'cursor-pointer text-base transition-colors duration-300 ease-in-out',
       className
     )}
+    prefetch="intent"
     {...props}
   />
 )
@@ -32,8 +33,8 @@ export const ExternalLink = ({
 }: LinkProps) => (
   <a
     className={clsx(
-      textColour || 'text-blue-500 dark:hover:text-blue-300',
-      'cursor-pointer transition-colors duration-300 ease-in-out',
+      textColour || 'hover:text-orange-500',
+      'cursor-pointer transition-colors duration-300 ease-in-out underline',
       className
     )}
     href={to}

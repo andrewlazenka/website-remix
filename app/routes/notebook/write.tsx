@@ -90,7 +90,7 @@ const NotebookWrite = () => {
             className="my-4"
             defaultValue={initialDate}
           />
-          <section className="my-4 rounded-xl bg-gray-50 p-8 drop-shadow-lg">
+          <section className="my-4 rounded-xl bg-white p-8 drop-shadow-lg">
             <EditorContent editor={editor} />
           </section>
           <input type="hidden" name="content" value={editor?.getHTML()} />

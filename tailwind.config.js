@@ -2,10 +2,6 @@ module.exports = {
   content: ['./app/**/*.{js,jsx,ts,tsx}'],
   darkMode: 'class',
   theme: {
-    fill: (theme) => ({
-      grayLight: theme('colors.gray.50'),
-      grayDark: theme('colors.gray.900'),
-    }),
     extend: {
       animation: {
         wave: 'wave 0.5s infinite',

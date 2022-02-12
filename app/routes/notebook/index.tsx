@@ -9,7 +9,9 @@ import {
 } from '~/queries/notebook'
 
 import Badge from '~/components/Badge'
+import EmojiWiggle from '~/components/EmojiWiggle'
 import Header from '~/components/Header'
+import HeroBanner from '~/components/HeroBanner'
 import Footer from '~/components/Footer'
 import Layout from '~/components/Layout'
 import { InternalLink } from '~/components/Links'
@@ -18,12 +20,6 @@ import { getSession } from '~/session'
 
 import type { LoaderFunction } from 'remix'
 import type { NotebookEntry } from '~/types/notebook'
-
-// https://www.conic.style/
-const redBlueGradient =
-  'conic-gradient(from -90deg at 25% 115%, #ff0000, #ff0066, #ff00cc, #cc00ff, #6600ff, #0000ff, #0000ff, #0000ff, #0000ff)'
-const blueVioletGradient =
-  'conic-gradient(from -90deg at 50% -25%, blue, blueviolet)'
 
 type LoaderResponse = {
   notebookEntries: NotebookEntry[]
@@ -62,9 +58,16 @@ export default function NotebookPage() {
   return (
     <Theme>
       <Header />
+      <HeroBanner>
+        <h1 className="py-8 text-center font-bold">
+          <EmojiWiggle>📝</EmojiWiggle> Notebook
+        </h1>
+        <h3 className="text-center font-normal">
+          Here's where my thoughts go! Software, crypto, productivity, and more.
+        </h3>
+      </HeroBanner>
       <animated.div style={fade}>
         <Layout>
-          <h1>Notebook</h1>
           {notebookEntries.length > 0 ? (
             notebookEntries.map((entry) => (
               <InternalLink
@@ -72,21 +75,15 @@ export default function NotebookPage() {
                 textColour="text-gray-900 dark:text-gray-50"
                 key={entry.slug}
               >
-                <article className="my-4 flex items-center justify-between rounded-xl border-solid border-gray-50 p-6 transition-all duration-300 ease-in-out hover:translate-y-[-4px] hover:border-orange-500 hover:drop-shadow-xl dark:border-gray-900 dark:hover:border-orange-500">
+                <article className="my-4 flex items-center justify-between rounded-xl border-solid border-2 border-gray-100 p-6 transition-all duration-300 ease-in-out hover:translate-y-[-4px] hover:border-orange-500 hover:drop-shadow-xl dark:border-gray-900 dark:hover:border-orange-500">
                   <div>
                     <p className="m-0">
                       {format(new Date(entry.date_published), 'MMMM dd, yyyy')}{' '}
                       • {entry.read_time} min read
                     </p>
-                    <h3>{entry.title}</h3>
+                    <h3 className="font-semibold">{entry.title}</h3>
                   </div>
-                  <div>
-                    {!entry.is_published && (
-                      <Badge style={{ background: blueVioletGradient }}>
-                        Draft
-                      </Badge>
-                    )}
-                  </div>
+                  <div>{!entry.is_published && <Badge>Draft</Badge>}</div>
                 </article>
               </InternalLink>
             ))
