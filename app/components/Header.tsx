@@ -52,13 +52,20 @@ function Header({
   disableTransparency = false,
 }: HeaderProps) {
   const location = useLocation()
+  const [menuModalOpen, setMenuModalOpen] = React.useState<boolean>(false)
+
   const splitPath = location.pathname.split('/')
-  let basePath = ''
+  let backLinkTo = ''
+  let backLinkContent = ''
 
   if (splitPath.length > 2) {
-    basePath = String(splitPath[1])
+    const route = String(splitPath[1])
+    backLinkTo = `/${route}`
+    backLinkContent = `← ${route}`
+  } else if (splitPath.length === 2 && Boolean(splitPath[1])) {
+    backLinkTo = '/'
+    backLinkContent = `← Home`
   }
-  const [menuModalOpen, setMenuModalOpen] = React.useState<boolean>(false)
 
   return (
     <div
@@ -67,12 +74,12 @@ function Header({
       })}
     >
       <nav className="mx-auto flex w-11/12 max-w-5xl justify-between sm:flex-row">
-        {basePath ? (
+        {backLinkTo ? (
           <InternalLink
-            to={`/${basePath}`}
+            to={backLinkTo}
             className="flex items-center p-6 capitalize"
           >
-            ← {basePath}
+            {backLinkContent}
           </InternalLink>
         ) : (
           <div />
