@@ -1,7 +1,6 @@
 import React from 'react'
 import { format } from 'date-fns'
 
-// import { InternalLink } from '../components/Links'
 import type { JourneyMeta } from '~/types/journey'
 
 function WorkExperience({
@@ -24,10 +23,8 @@ function WorkExperience({
           className="h-[175px] w-[250px] rounded-full sm:h-[200px] sm:w-[275px]"
         />
       </div>
-      <div className="align-center flex flex-col justify-center text-center md:w-2/5 md:text-left lg:w-3/5">
-        {/* <InternalLink to='/'> */}
+      <div className="align-center flex flex-col justify-center text-center mt-6 md:mt-0 md:w-2/5 md:text-left lg:w-3/5">
         <h3 className="text-blue-500 font-medium">{position}</h3>
-        {/* </InternalLink> */}
         <p className="m-0 text-orange-500">{company}</p>
         <p className="m-0">{`${startDate} - ${jobEnd}`}</p>
       </div>

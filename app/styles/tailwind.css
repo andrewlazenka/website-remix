@@ -546,6 +546,10 @@
   margin-bottom: 6rem;
 }
 
+.mt-6 {
+  margin-top: 1.5rem;
+}
+
 .block {
   display: block;
 }
@@ -1376,12 +1380,24 @@
     margin: 0px;
   }
 
+  .md\:mt-6 {
+    margin-top: 1.5rem;
+  }
+
+  .md\:mt-0 {
+    margin-top: 0px;
+  }
+
   .md\:block {
     display: block;
   }
 
   .md\:hidden {
     display: none;
+  }
+
+  .md\:h-\[16px\] {
+    height: 16px;
   }
 
   .md\:w-1\/2 {
@@ -1398,6 +1414,10 @@
 
   .md\:p-0 {
     padding: 0px;
+  }
+
+  .md\:pt-8 {
+    padding-top: 2rem;
   }
 
   .md\:text-left {
