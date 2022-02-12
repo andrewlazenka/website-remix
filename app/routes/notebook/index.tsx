@@ -75,7 +75,7 @@ export default function NotebookPage() {
                 textColour="text-gray-900 dark:text-gray-50"
                 key={entry.slug}
               >
-                <article className="my-4 flex items-center justify-between rounded-xl border-solid border-gray-50 p-6 transition-all duration-300 ease-in-out hover:translate-y-[-4px] hover:border-orange-500 hover:drop-shadow-xl dark:border-gray-900 dark:hover:border-orange-500">
+                <article className="my-4 flex items-center justify-between rounded-xl border-solid border-2 border-gray-100 p-6 transition-all duration-300 ease-in-out hover:translate-y-[-4px] hover:border-orange-500 hover:drop-shadow-xl dark:border-gray-900 dark:hover:border-orange-500">
                   <div>
                     <p className="m-0">
                       {format(new Date(entry.date_published), 'MMMM dd, yyyy')}{' '}

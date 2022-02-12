@@ -14,7 +14,7 @@ const HeroBanner = ({ slim = false, ...props }) => {
     <animated.div
       style={fade}
       className={clsx(
-        'relative mx-auto mb-24 w-10/12 rounded-md bg-blue-500 bg-pattern-wavey px-12 text-gray-50 transition-colors duration-300 ease-in-out  dark:bg-white dark:text-gray-900',
+        'relative mx-auto mb-24 w-10/12 rounded-xl bg-blue-500 bg-pattern-wavey px-12 text-gray-50 transition-colors duration-300 ease-in-out  dark:bg-white dark:text-gray-900',
         { 'pb-24 pt-32': slim === false }
       )}
       {...props}
