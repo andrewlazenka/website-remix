@@ -20,6 +20,7 @@ export const InternalLink = ({
       'cursor-pointer text-base transition-colors duration-300 ease-in-out',
       className
     )}
+    prefetch="intent"
     {...props}
   />
 )

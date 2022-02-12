@@ -23,9 +23,9 @@ const MobileMenu = () => {
   const { socialLinks } = useLinksData()
   return (
     <div className="flex flex-col items-center">
-      {menuItems.map(({ name, to }, index) => (
+      {menuItems.map(({ name, ...linkProps }, index) => (
         <div className="flex py-6 items-center" key={`${name}-${index}`}>
-          <InternalLink to={to}>
+          <InternalLink {...linkProps}>
             <h3 className="font-normal">{name}</h3>
           </InternalLink>
         </div>
@@ -34,7 +34,7 @@ const MobileMenu = () => {
       <div className="flex w-4/5 items-center justify-around py-6">
         <SocialLinks
           {...socialLinks}
-          iconColour="text-gray-900 dark:text-gray-50 dark:hover:text-orange-500"
+          iconColour="text-gray-900 dark:text-gray-50 hover:text-orange-500 dark:hover:text-orange-500"
         />
       </div>
     </div>
