@@ -14,9 +14,9 @@ function Footer() {
   return (
     <div className="pt-12">
       <div className="left-0 bottom-0 w-full rotate-180 overflow-hidden">
-        <ScifiWave className="fill-blue-500 dark:fill-gray-900" />
+        <ScifiWave className="fill-blue-500 dark:fill-white" />
       </div>
-      <footer className="flex min-h-[250px] w-full items-center bg-blue-500 dark:bg-gray-900 transition-all duration-300 ease-in-out">
+      <footer className="flex min-h-[250px] w-full items-center bg-blue-500 dark:bg-white transition-all duration-300 ease-in-out">
         <div className="mx-auto flex w-3/4 max-w-5xl flex-col justify-between px-5 md:flex-row">
           <div>
             <div className="flex justify-center pb-6 md:p-0">
@@ -33,9 +33,12 @@ function Footer() {
             </div>
           </div>
           <div className="mx-auto flex w-full justify-between pb-6 sm:w-3/4 md:m-0 md:w-1/2 md:p-0">
-            <SocialLinks {...socialLinks} />
+            <SocialLinks
+              {...socialLinks}
+              iconColour="text-gray-900 hover:text-orange-500 dark:hover:text-orange-500"
+            />
           </div>
-          <div className="block text-center text-xs opacity-50 md:hidden">
+          <div className="block text-center text-xs dark:text-gray-900 opacity-50 md:hidden">
             {copyright}
           </div>
         </div>
