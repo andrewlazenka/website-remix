@@ -1,5 +1,4 @@
 import React from 'react'
-import { useLoaderData } from 'remix'
 import clsx from 'classnames'
 
 import HamburgerMenu from '~/components/HamburgerMenu'
@@ -10,10 +9,10 @@ import { InternalLink } from '~/components/Links'
 import useLinksData from '~/hooks/useLinkData'
 
 const menuItems = [
-  // {
-  //   name: 'Journey',
-  //   to: '/journey',
-  // },
+  {
+    name: 'Home',
+    to: '/',
+  },
   {
     name: 'Notebook',
     to: '/notebook',
@@ -63,7 +62,7 @@ function Header({
           <div className="flex items-center px-4 py-7">
             <ModeToggle className={modeToggleClassName} />
           </div>
-          <div className="flex cursor-default items-center px-4 py-7 sm:hidden">
+          <div className="flex cursor-default items-center px-4 py-7">
             <HamburgerMenu
               active={menuModalOpen}
               onClick={() => setMenuModalOpen(!menuModalOpen)}

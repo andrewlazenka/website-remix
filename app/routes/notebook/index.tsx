@@ -1,8 +1,12 @@
 import React from 'react'
 import { format } from 'date-fns'
 import { MetaFunction, useLoaderData } from 'remix'
+import { useSpring, animated } from 'react-spring'
 
-import { getAllNotebookEntry, getPublishedNotebookEntry } from '~/queries/notebook'
+import {
+  getAllNotebookEntry,
+  getPublishedNotebookEntry,
+} from '~/queries/notebook'
 
 import Badge from '~/components/Badge'
 import Header from '~/components/Header'
@@ -31,9 +35,9 @@ export const loader: LoaderFunction = async ({ request }) => {
   let notebookEntries: NotebookEntry[] = []
 
   if (session.get('userId')) {
-    notebookEntries = await getAllNotebookEntry() || []
+    notebookEntries = (await getAllNotebookEntry()) || []
   } else {
-    notebookEntries = await getPublishedNotebookEntry() as NotebookEntry[]
+    notebookEntries = (await getPublishedNotebookEntry()) as NotebookEntry[]
   }
 
   return { notebookEntries }
@@ -47,30 +51,50 @@ export const meta: MetaFunction = () => {
 
 export default function NotebookPage() {
   const { notebookEntries } = useLoaderData<LoaderResponse>()
+  const fade = useSpring({
+    to: { opacity: 1 },
+    from: { opacity: 0 },
+    config: {
+      duration: 750,
+    },
+  })
 
   return (
     <Theme>
       <Header />
-      <Layout>
-        <h1>Notebook</h1>
-        {notebookEntries.length > 0 ? (
-          notebookEntries.map((entry) => (
-            <InternalLink to={`/notebook/${entry.slug}`} textColour="text-gray-900 dark:text-gray-50" key={entry.slug} >
-              <article className="flex justify-between items-center p-6 my-4 border-solid border-gray-50 dark:border-gray-900 hover:border-orange-500 dark:hover:border-orange-500 rounded-xl transition-all duration-300 ease-in-out hover:translate-y-[-4px] hover:drop-shadow-xl">
-                <div>
-                  <p className="m-0">{format(new Date(entry.date_published), 'MMMM dd, yyyy')} • {entry.read_time} min read</p>
-                  <h3>{entry.title}</h3>
-                </div>
-                <div>
-                  {!entry.is_published && <Badge style={{ background: blueVioletGradient }}>Draft</Badge>}
-                </div>
-              </article>
-            </InternalLink>
-          ))
-        ) : (
-          <h3>Notebook is empty</h3>
-        )}
-      </Layout>
+      <animated.div style={fade}>
+        <Layout>
+          <h1>Notebook</h1>
+          {notebookEntries.length > 0 ? (
+            notebookEntries.map((entry) => (
+              <InternalLink
+                to={`/notebook/${entry.slug}`}
+                textColour="text-gray-900 dark:text-gray-50"
+                key={entry.slug}
+              >
+                <article className="my-4 flex items-center justify-between rounded-xl border-solid border-gray-50 p-6 transition-all duration-300 ease-in-out hover:translate-y-[-4px] hover:border-orange-500 hover:drop-shadow-xl dark:border-gray-900 dark:hover:border-orange-500">
+                  <div>
+                    <p className="m-0">
+                      {format(new Date(entry.date_published), 'MMMM dd, yyyy')}{' '}
+                      • {entry.read_time} min read
+                    </p>
+                    <h3>{entry.title}</h3>
+                  </div>
+                  <div>
+                    {!entry.is_published && (
+                      <Badge style={{ background: blueVioletGradient }}>
+                        Draft
+                      </Badge>
+                    )}
+                  </div>
+                </article>
+              </InternalLink>
+            ))
+          ) : (
+            <h3>Notebook is empty</h3>
+          )}
+        </Layout>
+      </animated.div>
       <Footer />
     </Theme>
   )

@@ -1,6 +1,7 @@
 import React from 'react'
 import { format } from 'date-fns'
 import { json, MetaFunction, useLoaderData } from 'remix'
+import { useSpring, animated } from 'react-spring'
 
 import { getNotebookEntryBySlug } from '~/queries/notebook'
 
@@ -51,6 +52,13 @@ export const meta: MetaFunction = ({ data }: { data: LoaderResponse }) => {
 
 function NotebookEntry() {
   const { notebookEntry } = useLoaderData<LoaderResponse>()
+  const fade = useSpring({
+    to: { opacity: 1 },
+    from: { opacity: 0 },
+    config: {
+      duration: 750
+    },
+  })
 
   const { content, date_published, read_time, read_time_minutes, tags, title } = notebookEntry
 
@@ -60,26 +68,29 @@ function NotebookEntry() {
     <Theme>
       <Header />
       <Layout>
-        <h1>{title}</h1>
-        {tags && (
-          <div className="flex flex-wrap">
-            {tags.map((t) => (
-              <Badge
-                key={t}
-                style={{
-                  background: blueVioletGradient,
-                }}
-              >
-                {t}
-              </Badge>
-            ))}
-          </div>
-        )}
-        <h4 className="py-4 font-medium">{publishedDate} • {read_time_minutes || read_time} min read</h4>
-        <article
-          className="prose lg:prose-xl dark:prose-invert pt-6"
-          dangerouslySetInnerHTML={{ __html: content }}
-        />
+        <animated.div style={fade}>
+          <h1>{title}</h1>
+          {tags && (
+            <div className="flex flex-wrap">
+              {tags.map((t) => (
+                <Badge
+                  key={t}
+                  style={{
+                    background: blueVioletGradient,
+                  }}
+                >
+                  {t}
+                </Badge>
+              ))}
+            </div>
+          )}
+          <h4 className="py-4 font-medium">{publishedDate} • {read_time_minutes || read_time} min read</h4>
+          <hr />
+          <article
+            className="prose lg:prose-xl dark:prose-invert pt-6"
+            dangerouslySetInnerHTML={{ __html: content }}
+          />
+        </animated.div>
       </Layout>
       <Footer />
     </Theme>

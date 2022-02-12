@@ -818,10 +818,6 @@
   background-image: linear-gradient(to bottom, var(--tw-gradient-stops));
 }
 
-.bg-pattern-wavey {
-  background-image: url('/assets/svg/patterns/wavey.svg');
-}
-
 .from-gray-50 {
   --tw-gradient-from: #f9fafb;
   --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgb(249 250 251 / 0));
@@ -982,16 +978,16 @@
   font-weight: 400;
 }
 
-.font-bold {
-  font-weight: 700;
+.font-medium {
+  font-weight: 500;
 }
 
 .font-semibold {
   font-weight: 600;
 }
 
-.font-medium {
-  font-weight: 500;
+.font-bold {
+  font-weight: 700;
 }
 
 .uppercase {
@@ -1316,10 +1312,6 @@
 }
 
 @media (min-width: 640px) {
-  .sm\:hidden {
-    display: none;
-  }
-
   .sm\:h-\[200px\] {
     height: 200px;
   }

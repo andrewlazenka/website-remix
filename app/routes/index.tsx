@@ -7,6 +7,7 @@ import {
   useLocation,
 } from 'remix'
 import { isBefore } from 'date-fns'
+import { animated, useSpring } from 'react-spring'
 
 import Footer from '~/components/Footer'
 import Header from '~/components/Header'
@@ -76,24 +77,31 @@ function useResetPassword() {
 
 export default function Home() {
   const { journey } = useLoaderData<{ journey: JourneyMeta[] }>()
+  const fade = useSpring({
+    to: { opacity: 1 },
+    from: { opacity: 0 },
+    config: {
+      duration: 750
+    },
+  })
   useResetPassword()
 
   return (
     <Theme>
       <HeroBanner>
-        <div className="mx-auto my-0 w-3/4 max-w-4xl py-16 sm:py-24">
-          <h1 className="z-0 m-0 text-center text-5xl font-bold text-gray-50">
+        <animated.div style={fade} className="mx-auto my-0 w-3/4 max-w-4xl py-16 sm:py-24">
+          <h1 className="z-0 m-0 text-center text-5xl font-semibold text-gray-50">
             Hey! I'm Andrew{' '}
             <span className="inline-block hover:animate-wave">👋🏻</span>
           </h1>
-        </div>
-        <div className="absolute bottom-0 flex w-full justify-center">
+        </animated.div>
+        <animated.div style={fade} className="absolute bottom-0 flex w-full justify-center">
           <img
             src="/assets/png/AndrewCandid.png"
             alt="Candid headshot of Andrew"
             className="h-[475px] w-[475px]"
           />
-        </div>
+        </animated.div>
         <div className="absolute inset-x-0 bottom-0 block h-16 w-full overflow-hidden">
           <WaveDivider className="absolute left-[-3px] right-[-3px] w-[106%] min-w-[600px] fill-grayLight transition-colors duration-300 ease-in-out dark:fill-grayDark" />
         </div>
@@ -101,7 +109,7 @@ export default function Home() {
       <Header />
       <main className="mx-auto my-0 w-3/4 max-w-5xl py-12 px-6">
         <section className="py-8">
-          <h2 id="journey" className="text-center text-4xl">
+          <h2 id="journey" className="text-center text-4xl font-semibold">
             My Journey
           </h2>
           {journey.sort(sortFilterWork).map((entry: JourneyMeta) => {
@@ -118,7 +126,7 @@ export default function Home() {
           })}
         </section>
         <section className="py-16 text-lg">
-          <h2 className="py-8 text-4xl" id="about">
+          <h2 className="py-8 text-4xl font-bold" id="about">
             Welcome to my corner of the metaverse!
           </h2>
           I'm a software engineer devoting my efforts to building scalable,
