@@ -81,7 +81,7 @@ export default function Home() {
     to: { opacity: 1 },
     from: { opacity: 0 },
     config: {
-      duration: 750
+      duration: 750,
     },
   })
   useResetPassword()
@@ -90,10 +90,12 @@ export default function Home() {
     <Theme>
       <Header />
       <HeroBanner slim>
-        <animated.div style={fade} className="mx-auto my-0 w-3/4 max-w-4xl pt-16 pb-8">
+        <animated.div
+          style={fade}
+          className="mx-auto my-0 w-3/4 max-w-4xl pt-16 pb-8"
+        >
           <h1 className="z-0 m-0 text-center text-5xl font-semibold text-gray-50 dark:text-gray-900">
-            Hey! I'm Andrew{' '}
-            <EmojiWiggle>👋🏻</EmojiWiggle>
+            Hey! I'm Andrew <EmojiWiggle>👋🏻</EmojiWiggle>
           </h1>
         </animated.div>
         <animated.div style={fade} className="flex w-full justify-center">
@@ -106,21 +108,25 @@ export default function Home() {
       </HeroBanner>
       <main className="mx-auto my-0 w-3/4 max-w-5xl md:p-6">
         <section>
-          <h2 id="journey" className="text-center text-4xl font-semibold py-8">
+          <h2 id="journey" className="py-8 text-center text-4xl font-semibold">
             My Journey
           </h2>
-          {journey.sort(sortFilterWork).map((entry: JourneyMeta) => {
-            const startDate = new Date(entry.start_date)
-            const jobEnd = entry.is_active
-              ? 'Present'
-              : `${startDate.getMonth()} ${startDate.getFullYear()}`
-            return (
-              <WorkExperience
-                key={`${entry.company} - ${entry.position} - ${jobEnd}`}
-                {...entry}
-              />
-            )
-          })}
+          {journey
+            .filter(({ is_active }) => Boolean(is_active))
+            .sort(sortFilterWork)
+            .map((entry: JourneyMeta) => {
+              const startDate = new Date(entry.start_date)
+              const jobEnd =
+                entry.end_date === null
+                  ? 'Present'
+                  : `${startDate.getMonth()} ${startDate.getFullYear()}`
+              return (
+                <WorkExperience
+                  key={`${entry.company} - ${entry.position} - ${jobEnd}`}
+                  {...entry}
+                />
+              )
+            })}
         </section>
         <section className="py-16 text-lg">
           <h2 className="py-8 text-4xl font-bold" id="about">

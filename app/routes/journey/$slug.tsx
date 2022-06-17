@@ -22,10 +22,14 @@ const blueVioletGradient =
 
 export const loader: LoaderFunction = async ({ params }) => {
   if (!params.slug) {
-    return json('Journey not found', { status: 404 })
+    throw new Response('Journey not found', { status: 404 })
   }
 
   const journey = await getJourneyBySlug(params.slug)
+
+  if (!journey) {
+    throw new Response('Journey not found', { status: 404 })
+  }
 
   return { journey }
 }

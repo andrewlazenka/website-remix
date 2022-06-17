@@ -32,7 +32,7 @@ const MobileMenu = () => {
         </div>
       ))}
       <div className="h-[32px]" />
-      <div className="flex w-4/5 items-center justify-around py-6">
+      <div className="flex w-4/5 max-w-6xl items-center justify-around py-6">
         <SocialLinks
           {...socialLinks}
           iconColour="text-gray-900 dark:text-gray-50 hover:text-orange-500 dark:hover:text-orange-500"
@@ -73,7 +73,7 @@ function Header({
         ['bg-opacity-70 backdrop-blur-md']: !disableTransparency,
       })}
     >
-      <nav className="mx-auto flex w-11/12 max-w-5xl justify-between sm:flex-row">
+      <nav className="mx-auto flex w-10/12 max-w-6xl justify-between sm:flex-row">
         {backLinkTo ? (
           <InternalLink
             to={backLinkTo}
@@ -88,7 +88,7 @@ function Header({
           <div className="flex items-center p-6">
             <ModeToggle className={modeToggleClassName} />
           </div>
-          <div className="flex cursor-default items-center py-8 px-6">
+          <div className="flex cursor-default items-center p-6">
             <HamburgerMenu
               active={menuModalOpen}
               onClick={() => setMenuModalOpen(!menuModalOpen)}

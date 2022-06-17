@@ -542,12 +542,12 @@
   margin-right: 0.5rem;
 }
 
-.mb-24 {
-  margin-bottom: 6rem;
+.mb-16 {
+  margin-bottom: 4rem;
 }
 
-.mt-16 {
-  margin-top: 4rem;
+.mt-8 {
+  margin-top: 2rem;
 }
 
 .mt-6 {
@@ -638,10 +638,6 @@
   width: 80%;
 }
 
-.w-11\/12 {
-  width: 91.666667%;
-}
-
 .w-10\/12 {
   width: 83.333333%;
 }
@@ -660,6 +656,10 @@
 
 .max-w-5xl {
   max-width: 64rem;
+}
+
+.max-w-6xl {
+  max-width: 72rem;
 }
 
 .max-w-3xl {
@@ -870,11 +870,6 @@
 .py-8 {
   padding-top: 2rem;
   padding-bottom: 2rem;
-}
-
-.px-6 {
-  padding-left: 1.5rem;
-  padding-right: 1.5rem;
 }
 
 .px-4 {
@@ -1390,11 +1385,6 @@
 
   .md\:p-6 {
     padding: 1.5rem;
-  }
-
-  .md\:px-12 {
-    padding-left: 3rem;
-    padding-right: 3rem;
   }
 
   .md\:text-left {

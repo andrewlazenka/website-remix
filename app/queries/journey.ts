@@ -9,6 +9,8 @@ export async function getJourneyMeta() {
     'position',
     'image_url',
     'is_active',
+    'is_published',
+    'slug'
   ].join(', ')
 
   const { data } = await supabase.from<JourneyMeta>('journey').select(cols)
@@ -29,6 +31,12 @@ export async function getJourneyBySlug(slug: string) {
   const { data } = await supabase
     .from<JourneyMeta>('journey')
     .select(cols)
-    .eq('slug', slug)
-  if (data) return data[0]
+    .match({
+      slug,
+      is_active: true
+    })
+
+  if (data?.length === 0) return null
+
+  return data[0]
 }

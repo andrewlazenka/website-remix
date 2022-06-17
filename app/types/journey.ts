@@ -7,6 +7,7 @@ export type Journey = {
   languages: string[]
   technologies: string[]
   is_active: boolean
+  is_published: boolean
   content: string
   slug: string
 }
