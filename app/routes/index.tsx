@@ -133,9 +133,7 @@ export default function Home() {
             Welcome to my corner of the metaverse!
           </h2>
           I'm a software engineer devoting my efforts to building scalable,
-          resilient, highly available systems. I've got it pretty good working
-          at <ExternalLink to="https://lunchbox.io">Lunchbox</ExternalLink>{' '}
-          being able to combine my love for food & code ❤️
+          resilient, highly available systems.
           <br />
           <br />
           In 2020, about a month after the world shutdown, I completed my
