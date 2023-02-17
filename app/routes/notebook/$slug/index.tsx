@@ -1,7 +1,6 @@
 import React from 'react'
 import { format } from 'date-fns'
 import { json, MetaFunction, useLoaderData } from 'remix'
-import { useSpring, animated } from 'react-spring'
 
 import { getNotebookEntryBySlug } from '~/queries/notebook'
 
@@ -53,13 +52,6 @@ export const meta: MetaFunction = ({ data }: { data: LoaderResponse }) => {
 
 function NotebookEntry() {
   const { notebookEntry } = useLoaderData<LoaderResponse>()
-  const fade = useSpring({
-    to: { opacity: 1 },
-    from: { opacity: 0 },
-    config: {
-      duration: 750,
-    },
-  })
 
   const { content, date_published, read_time, read_time_minutes, tags, title } =
     notebookEntry
@@ -85,12 +77,10 @@ function NotebookEntry() {
         </div>
       </HeroBanner>
       <Layout>
-        <animated.div style={fade}>
-          <article
-            className="prose pt-6 dark:prose-invert lg:prose-xl"
-            dangerouslySetInnerHTML={{ __html: content }}
-          />
-        </animated.div>
+		  <article
+			className="prose pt-6 dark:prose-invert lg:prose-xl"
+			dangerouslySetInnerHTML={{ __html: content }}
+		  />
       </Layout>
       <Footer />
     </Theme>

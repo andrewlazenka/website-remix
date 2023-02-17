@@ -1,7 +1,6 @@
 import React from 'react'
 import { format } from 'date-fns'
 import { MetaFunction, useLoaderData } from 'remix'
-import { useSpring, animated } from 'react-spring'
 
 import {
   getAllNotebookEntry,
@@ -47,13 +46,6 @@ export const meta: MetaFunction = () => {
 
 export default function NotebookPage() {
   const { notebookEntries } = useLoaderData<LoaderResponse>()
-  const fade = useSpring({
-    to: { opacity: 1 },
-    from: { opacity: 0 },
-    config: {
-      duration: 750,
-    },
-  })
 
   return (
     <Theme>
@@ -66,32 +58,30 @@ export default function NotebookPage() {
           Here's where my thoughts go! Software, crypto, productivity, and more.
         </h3>
       </HeroBanner>
-      <animated.div style={fade}>
-        <Layout>
-          {notebookEntries.length > 0 ? (
-            notebookEntries.map((entry) => (
-              <InternalLink
-                to={`/notebook/${entry.slug}`}
-                textColour="text-gray-900 dark:text-gray-50"
-                key={entry.slug}
-              >
-                <article className="my-4 flex items-center justify-between rounded-xl border-solid border-2 border-gray-100 p-6 transition-all duration-300 ease-in-out hover:translate-y-[-4px] hover:border-orange-500 hover:drop-shadow-xl dark:border-gray-900 dark:hover:border-orange-500">
-                  <div>
-                    <p className="m-0">
-                      {format(new Date(entry.date_published), 'MMMM dd, yyyy')}{' '}
-                      • {entry.read_time} min read
-                    </p>
-                    <h3 className="font-semibold">{entry.title}</h3>
-                  </div>
-                  <div>{!entry.is_published && <Badge>Draft</Badge>}</div>
-                </article>
-              </InternalLink>
-            ))
-          ) : (
-            <h3>Notebook is empty</h3>
-          )}
-        </Layout>
-      </animated.div>
+		<Layout>
+		  {notebookEntries.length > 0 ? (
+			notebookEntries.map((entry) => (
+			  <InternalLink
+				to={`/notebook/${entry.slug}`}
+				textColour="text-gray-900 dark:text-gray-50"
+				key={entry.slug}
+			  >
+				<article className="my-4 flex items-center justify-between rounded-xl border-solid border-2 border-gray-100 p-6 transition-all duration-300 ease-in-out hover:translate-y-[-4px] hover:border-orange-500 hover:drop-shadow-xl dark:border-gray-900 dark:hover:border-orange-500">
+				  <div>
+					<p className="m-0">
+					  {format(new Date(entry.date_published), 'MMMM dd, yyyy')}{' '}
+					  • {entry.read_time} min read
+					</p>
+					<h3 className="font-semibold">{entry.title}</h3>
+				  </div>
+				  <div>{!entry.is_published && <Badge>Draft</Badge>}</div>
+				</article>
+			  </InternalLink>
+			))
+		  ) : (
+			<h3>Notebook is empty</h3>
+		  )}
+		</Layout>
       <Footer />
     </Theme>
   )
