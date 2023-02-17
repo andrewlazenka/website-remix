@@ -10,7 +10,8 @@ export async function getJourneyMeta() {
     'image_url',
     'is_active',
     'is_published',
-    'slug'
+    'slug',
+	'type'
   ].join(', ')
 
   const { data } = await supabase.from<JourneyMeta>('journey').select(cols)

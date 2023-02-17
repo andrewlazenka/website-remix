@@ -26,6 +26,7 @@ export const loader: LoaderFunction = async () => {
     journey,
   }
 }
+
 function sortFilterWork(ex1: JourneyMeta, ex2: JourneyMeta) {
   const date1 = ex1.end_date ? new Date(ex1.end_date) : new Date()
   const date2 = ex2.end_date ? new Date(ex2.end_date) : new Date()
@@ -84,31 +85,64 @@ function About() {
 			  </ExternalLink>{' '}
 			  🤘🏻
 			</section>
-			<section>
-			  <h2 id="journey" className="py-8 text-center text-4xl font-semibold">
-				Experience
-			  </h2>
-			  {journey
-				.filter(({ is_active }) => Boolean(is_active))
-				.sort(sortFilterWork)
-				.map((entry: JourneyMeta) => {
-				  const startDate = new Date(entry.start_date)
-				  const jobEnd =
-					entry.end_date === null
-					  ? 'Present'
-					  : `${startDate.getMonth()} ${startDate.getFullYear()}`
-				  return (
-					<WorkExperience
-					  key={`${entry.company} - ${entry.position} - ${jobEnd}`}
-					  {...entry}
-					/>
-				  )
-				})}
-			</section>
+			<Experience experience={journey.filter(({ type }) => type === 'work' )} />
+			<Education education={journey.filter(({ type }) => type === 'school' )} />
 		  </main>
 	  </Layout>
 	</Theme>
   )
+}
+
+function Experience({ experience }: { experience: JourneyMeta[] }) {
+	return (
+		<section>
+		  <h2 id="journey" className="py-8 text-center text-4xl font-semibold">
+			Experience
+		  </h2>
+		  {experience
+			.filter(({ is_active }) => Boolean(is_active))
+			.sort(sortFilterWork)
+			.map((entry: JourneyMeta) => {
+			  const startDate = new Date(entry.start_date)
+			  const jobEnd =
+				entry.end_date === null
+				  ? 'Present'
+				  : `${startDate.getMonth()} ${startDate.getFullYear()}`
+			  return (
+				<WorkExperience
+				  key={`${entry.company} - ${entry.position} - ${jobEnd}`}
+				  {...entry}
+				/>
+			  )
+			})}
+		</section>
+	)
+}
+
+function Education({ education }: { education: JourneyMeta[] }) {
+	return (
+		<section>
+		  <h2 id="journey" className="py-8 text-center text-4xl font-semibold">
+			Education
+		  </h2>
+		  {education
+			.filter(({ is_active }) => Boolean(is_active))
+			.sort(sortFilterWork)
+			.map((entry: JourneyMeta) => {
+			  const startDate = new Date(entry.start_date)
+			  const jobEnd =
+				entry.end_date === null
+				  ? 'Present'
+				  : `${startDate.getMonth()} ${startDate.getFullYear()}`
+			  return (
+				<WorkExperience
+				  key={`${entry.company} - ${entry.position} - ${jobEnd}`}
+				  {...entry}
+				/>
+			  )
+			})}
+		</section>
+	)
 }
 
 export default About

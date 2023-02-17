@@ -10,6 +10,7 @@ export type Journey = {
   is_published: boolean
   content: string
   slug: string
+  type: string
 }
 
 export type JourneyMeta = Omit<Journey, 'content'>
