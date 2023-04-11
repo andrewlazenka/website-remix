@@ -1,7 +1,7 @@
 import React from 'react'
 import { format } from 'date-fns'
-import type { MetaFunction } from '@remix-run/node'
-import { useLoaderData } from '@remix-run/react'
+import { type LoaderFunction, type MetaFunction } from "@remix-run/node";
+import { useLoaderData } from "@remix-run/react";
 
 import {
   getAllNotebookEntry,
@@ -18,7 +18,6 @@ import { InternalLink } from '~/components/Links'
 import Theme from '~/components/Theme'
 import { getSession } from '~/session'
 
-import type { LoaderFunction } from 'remix'
 import type { NotebookEntry } from '~/types/notebook'
 
 type LoaderResponse = {
