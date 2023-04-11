@@ -1,6 +1,8 @@
 import React from 'react'
 import { format } from 'date-fns'
-import { json, MetaFunction, useLoaderData } from 'remix'
+import type { MetaFunction } from '@remix-run/node'
+import { json } from '@remix-run/node'
+import { useLoaderData } from '@remix-run/react'
 
 import { getNotebookEntryBySlug } from '~/queries/notebook'
 
@@ -77,10 +79,10 @@ function NotebookEntry() {
         </div>
       </HeroBanner>
       <Layout>
-		  <article
-			className="prose pt-6 dark:prose-invert lg:prose-xl"
-			dangerouslySetInnerHTML={{ __html: content }}
-		  />
+        <article
+          className="prose pt-6 dark:prose-invert lg:prose-xl"
+          dangerouslySetInnerHTML={{ __html: content }}
+        />
       </Layout>
       <Footer />
     </Theme>

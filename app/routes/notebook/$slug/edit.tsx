@@ -1,5 +1,7 @@
 import React from 'react'
-import { ActionFunction, Form, LoaderFunction, redirect, useLoaderData } from 'remix'
+import type { ActionFunction, LoaderFunction } from '@remix-run/node'
+import { redirect } from '@remix-run/node'
+import { Form, useLoaderData } from '@remix-run/react'
 import { format, parseISO } from 'date-fns'
 import { useEditor, EditorContent } from '@tiptap/react'
 import Document from '@tiptap/extension-document'
@@ -41,18 +43,22 @@ export const action: ActionFunction = async ({ request }) => {
   const formData = await request.formData()
   const id = Number(formData.get('id'))
   const title = String(formData.get('title'))
-  const date_published = parseISO(`${String(formData.get('date_published'))}T04:00:00.000Z`)
+  const date_published = parseISO(
+    `${String(formData.get('date_published'))}T04:00:00.000Z`
+  )
   const content = String(formData.get('content'))
 
-  const result = await updateNotebookEntry({
-    id,
-    title,
-    date_published,
-    content
-  },
-  {
-    auth: remixSession.get('refresh_token')
-  })
+  const result = await updateNotebookEntry(
+    {
+      id,
+      title,
+      date_published,
+      content,
+    },
+    {
+      auth: remixSession.get('refresh_token'),
+    }
+  )
 
   if (result.status !== 200) {
     throw new Response(result.statusText, { status: result.status })
@@ -78,8 +84,8 @@ const NotebookEdit = () => {
     editorProps: {
       attributes: {
         class: 'prose lg:prose-xl',
-      }
-    }
+      },
+    },
   })
 
   const initialDate = format(new Date(date_published), 'yyyy-MM-dd')
