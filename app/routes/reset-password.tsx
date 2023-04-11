@@ -1,6 +1,6 @@
 import React from 'react'
-import { redirect, useLoaderData } from 'remix'
-import type { ActionFunction, LoaderFunction } from 'remix'
+import { type ActionFunction, type LoaderFunction, redirect } from "@remix-run/node";
+import { useLoaderData } from "@remix-run/react";
 import { resetPassword } from '~/queries/auth'
 
 type LoaderData = {

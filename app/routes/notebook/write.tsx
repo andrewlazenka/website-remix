@@ -1,5 +1,7 @@
 import React from 'react'
-import { ActionFunction, Form, LoaderFunction, redirect } from 'remix'
+import type { ActionFunction, LoaderFunction } from '@remix-run/node'
+import { redirect } from '@remix-run/node'
+import { Form } from '@remix-run/react'
 import { format, parseISO } from 'date-fns'
 import { useEditor, EditorContent } from '@tiptap/react'
 import Document from '@tiptap/extension-document'
@@ -11,29 +13,36 @@ import { getSession } from '~/session'
 import { createNotebookEntry } from '~/queries/notebook'
 
 const stripHtml = /<[^>]*>?/gm
-const stripNewline = "\\n"
+const stripNewline = '\\n'
 
 export const action: ActionFunction = async ({ request }) => {
   const remixSession = await getSession(request.headers.get('Cookie'))
   const formData = await request.formData()
   const title = String(formData.get('title'))
-  const date_published = parseISO(`${String(formData.get('date_published'))}T04:00:00.000Z`)
+  const date_published = parseISO(
+    `${String(formData.get('date_published'))}T04:00:00.000Z`
+  )
   const content = String(formData.get('content'))
 
-  const word_count = content.replace(stripHtml, '').replace(stripNewline, " ").split(" ").length
+  const word_count = content
+    .replace(stripHtml, '')
+    .replace(stripNewline, ' ')
+    .split(' ').length
   const read_time_minutes = Math.ceil(word_count / 200)
 
-  const result = await createNotebookEntry({
-    title,
-    date_published,
-    content,
-    word_count,
-    read_time_minutes,
-    is_published: false,
-  },
-  {
-    auth: remixSession.get('refresh_token')
-  })
+  const result = await createNotebookEntry(
+    {
+      title,
+      date_published,
+      content,
+      word_count,
+      read_time_minutes,
+      is_published: false,
+    },
+    {
+      auth: remixSession.get('refresh_token'),
+    }
+  )
 
   if (result.status !== 201) {
     throw new Response(result.statusText, { status: result.status })
@@ -95,7 +104,9 @@ const NotebookWrite = () => {
           </section>
           <input type="hidden" name="content" value={editor?.getHTML()} />
           <div className="flex w-full justify-around">
-            <button className="my-4" type="submit">Publish</button>
+            <button className="my-4" type="submit">
+              Publish
+            </button>
           </div>
         </Form>
       </div>

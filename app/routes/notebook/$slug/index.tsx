@@ -1,6 +1,7 @@
 import React from 'react'
 import { format } from 'date-fns'
-import { json, MetaFunction, useLoaderData } from 'remix'
+import { type LoaderFunction, type MetaFunction, json } from "@remix-run/node";
+import { useLoaderData } from "@remix-run/react";
 
 import { getNotebookEntryBySlug } from '~/queries/notebook'
 
@@ -11,7 +12,6 @@ import Layout from '~/components/Layout'
 import Theme from '~/components/Theme'
 import { getSession } from '~/session'
 
-import type { LoaderFunction } from 'remix'
 import type { NotebookEntry } from '~/types/notebook'
 import HeroBanner from '~/components/HeroBanner'
 
@@ -77,10 +77,10 @@ function NotebookEntry() {
         </div>
       </HeroBanner>
       <Layout>
-		  <article
-			className="prose pt-6 dark:prose-invert lg:prose-xl"
-			dangerouslySetInnerHTML={{ __html: content }}
-		  />
+        <article
+          className="prose pt-6 dark:prose-invert lg:prose-xl"
+          dangerouslySetInnerHTML={{ __html: content }}
+        />
       </Layout>
       <Footer />
     </Theme>

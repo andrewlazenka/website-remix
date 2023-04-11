@@ -1,11 +1,28 @@
 {
   "files": [],
-  "exclude": ["node_modules"],
   "extends": "./config/tsconfig.json",
-  "references": [
-    { "path": "app" },
-    { "path": "content" },
-    { "path": "styles" },
-    { "path": "types" }
-  ]
+  "compilerOptions": {
+    "module": "commonjs",
+    "target": "ESNEXT",
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "lib": ["ES2021", "DOM", "DOM.Iterable"],
+    "incremental": true,
+    "isolatedModules": true,
+    "importsNotUsedAsValues": "error",
+    "noEmit": true,
+    "allowJs": true,
+    "jsx": "react-jsx",
+    "strict": true,
+    "skipLibCheck": true,
+    "resolveJsonModule": true,
+    "noUncheckedIndexedAccess": true,
+    "forceConsistentCasingInFileNames": true,
+    "baseUrl": ".",
+    "paths": {
+      "~/*": ["./app/*"]
+    }
+  },
+  "include": ["remix.env.d.ts", "**/*.ts", "**/*.tsx"],
+  "exclude": ["node_modules"]
 }

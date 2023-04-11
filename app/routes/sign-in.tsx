@@ -1,10 +1,8 @@
 import React from 'react'
-import { redirect } from 'remix'
+import { type ActionFunction, redirect } from "@remix-run/node";
 
 import { signIn } from '~/queries/auth'
 import { getSession, commitSession } from '~/session'
-
-import type { ActionFunction } from 'remix'
 
 export const action: ActionFunction = async ({ request }) => {
   const remixSession = await getSession(request.headers.get('Cookie'))

@@ -1,4 +1,4 @@
-import { useMatches } from 'remix'
+import { useMatches } from "@remix-run/react";
 import type { SocialLinks as TSocialLinks } from '~/types/links'
 
 function useLinksData(): TSocialLinks {
