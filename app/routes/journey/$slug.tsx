@@ -1,17 +1,17 @@
 import React from 'react'
 import { format } from 'date-fns'
-import { json, useLoaderData } from 'remix'
+import { type LoaderFunction, json } from "@remix-run/node";
+import { useLoaderData } from "@remix-run/react";
+
 import { marked } from 'marked'
 
 import { getJourneyBySlug } from '~/queries/journey'
-
 import Header from '~/components/Header'
 import Footer from '~/components/Footer'
 import Layout from '~/components/Layout'
 import Badge from '~/components/Badge'
-import Theme from '~/components/Theme'
 
-import type { LoaderFunction } from 'remix'
+import Theme from '~/components/Theme'
 import type { Journey } from '~/types/journey'
 
 // https://www.conic.style/
