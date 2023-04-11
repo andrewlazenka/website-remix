@@ -1,5 +1,6 @@
 import React from 'react'
-import { LoaderFunction, useLoaderData } from 'remix'
+import type { LoaderFunction } from '@remix-run/node'
+import { useLoaderData } from '@remix-run/react'
 
 import ModeToggle from '~/components/ModeToggle'
 import { InternalLink, ExternalLink } from '~/components/Links'
@@ -43,13 +44,13 @@ function Links() {
   return (
     <div className="relative h-[100vh] w-full">
       <main className="relative m-auto max-w-screen-md">
-        <div className="absolute top-0 left-0 z-10 flex w-full flex-row-reverse">
+        <div className="absolute left-0 top-0 z-10 flex w-full flex-row-reverse">
           <div className="m-auto flex w-4/5 max-w-[525px] justify-end py-9 text-gray-50">
             <ModeToggle />
           </div>
         </div>
         <div
-          className="flex justify-center pt-16 pb-4"
+          className="flex justify-center pb-4 pt-16"
           style={imageAnimation}
           ref={imageRef}
         >
