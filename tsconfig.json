@@ -3,9 +3,26 @@
   "exclude": ["node_modules"],
   "extends": "./config/tsconfig.json",
   "references": [
-    { "path": "app" },
-    { "path": "content" },
-    { "path": "styles" },
-    { "path": "types" }
-  ]
+    {
+      "path": "app"
+    },
+    {
+      "path": "content"
+    },
+    {
+      "path": "styles"
+    },
+    {
+      "path": "types"
+    }
+  ],
+  "compilerOptions": {
+    "baseUrl": ".",
+    "forceConsistentCasingInFileNames": true,
+    "jsx": "react-jsx"
+  },
+  "paths": {
+    "~/*": ["./app/*"]
+  },
+  "include": ["remix.env.d.ts", "**/*.ts", "**/*.tsx"]
 }
