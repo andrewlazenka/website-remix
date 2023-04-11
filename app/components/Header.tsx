@@ -7,7 +7,7 @@ import ModeToggle from '~/components/ModeToggle'
 import SocialLinks from '~/components/SocialLinks'
 import { InternalLink } from '~/components/Links'
 import useLinksData from '~/hooks/useLinkData'
-import { useLocation } from 'remix'
+import { useLocation } from "@remix-run/react";
 
 const menuItems = [
   {

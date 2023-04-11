@@ -1,14 +1,6 @@
 import React from 'react'
-import {
-  Links,
-  LiveReload,
-  Meta,
-  Outlet,
-  Scripts,
-  ScrollRestoration,
-  useCatch,
-} from 'remix'
-import type { LinksFunction, LoaderFunction } from 'remix'
+import { type LinksFunction, type LoaderFunction } from "@remix-run/node";
+import { Links, LiveReload, Meta, Outlet, Scripts, ScrollRestoration, useCatch } from "@remix-run/react";
 
 import { getLinks } from '~/queries/links'
 import { formatLinks } from '~/util/links'

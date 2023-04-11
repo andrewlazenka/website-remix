@@ -1,9 +1,6 @@
 import React from 'react'
-import {
-  MetaFunction,
-  useNavigate,
-  useLocation,
-} from 'remix'
+import type { MetaFunction } from '@remix-run/node'
+import { useNavigate, useLocation } from '@remix-run/react'
 import { animated, useSpring } from 'react-spring'
 
 import EmojiWiggle from '~/components/EmojiWiggle'
@@ -68,7 +65,7 @@ export default function Home() {
       <HeroBanner slim>
         <animated.div
           style={fade}
-          className="mx-auto my-0 w-3/4 max-w-4xl pt-16 pb-8"
+          className="mx-auto my-0 w-3/4 max-w-4xl pb-8 pt-16"
         >
           <h1 className="z-0 m-0 text-center text-5xl font-semibold text-gray-50 dark:text-gray-900">
             Hey! I'm Andrew <EmojiWiggle>👋🏻</EmojiWiggle>

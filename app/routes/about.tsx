@@ -1,6 +1,6 @@
 import React from "react"
-import { useLoaderData } from "remix"
-import type { MetaFunction, LoaderFunction } from 'remix'
+import { type LoaderFunction, type MetaFunction } from "@remix-run/node";
+import { useLoaderData } from "@remix-run/react";
 import { isBefore } from 'date-fns'
 
 import Header from '~/components/Header'

@@ -1,4 +1,4 @@
-import { createCookieSessionStorage } from 'remix'
+import { createCookieSessionStorage } from "@remix-run/node";
 
 const sixHoursMs = 1000 * 60 * 60 * 6
 
