@@ -28,8 +28,9 @@ function Uses() {
           </h2>
           <ul className="m-0 py-0">
             <li>2x LG 27GN800-B 1440p 144hz IPS Monitors</li>
-            <li>Logitech MX Keys</li>
             <li>Logitech MX Master 3</li>
+            <li>Logitech MX Keys</li>
+            <li>Ducky Zero DK2108SZ Mechanical Keyboard</li>
             <li>Logitech BRIO 4K Webcam</li>
             <li>Yamaha HS-7 Speakers</li>
             <li>CalDigit TS4</li>
