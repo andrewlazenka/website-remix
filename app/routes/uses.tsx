@@ -45,7 +45,7 @@ function Uses() {
 
         <section className="py-8 text-lg">
           <h2 className="py-8 text-4xl font-bold" id="about">
-            Laptop
+            Laptops
           </h2>
           <ul className="m-0 py-0">
             <li>2020 M1 Macbook Pro 13" (Personal)</li>
