@@ -110,7 +110,7 @@ function Uses() {
           </h2>
           <ul className="m-0 py-0">
             <li>Neovim</li>
-            <li>OneDarker Theme</li>
+            <li>Catppuccin Mocha Theme</li>
             <li>JetBrains Mono Nerd Font</li>
           </ul>
         </section>
