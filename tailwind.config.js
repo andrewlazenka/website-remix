@@ -46,7 +46,13 @@ module.exports = {
       },
     },
   },
-  plugins: [require('@tailwindcss/typography')],
+  plugins: [
+    require('@tailwindcss/typography'),
+    require('@catppuccin/tailwindcss')({
+      prefix: 'ctp',
+      defaultFlavour: 'mocha',
+    }),
+  ],
   corePlugins: {
     preflight: false,
   },
