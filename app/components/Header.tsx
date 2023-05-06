@@ -7,7 +7,7 @@ import ModeToggle from '~/components/ModeToggle'
 import SocialLinks from '~/components/SocialLinks'
 import { InternalLink } from '~/components/Links'
 import useLinksData from '~/hooks/useLinkData'
-import { useLocation } from "@remix-run/react";
+import { useLocation } from '@remix-run/react'
 
 const menuItems = [
   {
@@ -15,8 +15,8 @@ const menuItems = [
     to: '/',
   },
   {
-	name: '🙋🏻‍♂️ About',
-	to: '/about',
+    name: '🙋🏻‍♂️ About',
+    to: '/about',
   },
   {
     name: '📝 Notebook',
@@ -73,7 +73,7 @@ function Header({
 
   return (
     <div
-      className={clsx('sticky top-0 left-0 z-10 w-full', {
+      className={clsx('sticky left-0 top-0 z-10 w-full', {
         ['bg-opacity-70 backdrop-blur-md']: !disableTransparency,
       })}
     >
