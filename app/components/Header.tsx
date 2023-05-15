@@ -7,7 +7,7 @@ import ModeToggle from '~/components/ModeToggle'
 import SocialLinks from '~/components/SocialLinks'
 import { InternalLink } from '~/components/Links'
 import useLinksData from '~/hooks/useLinkData'
-import { useLocation } from "@remix-run/react";
+import { useLocation } from '@remix-run/react'
 
 const menuItems = [
   {
@@ -15,8 +15,8 @@ const menuItems = [
     to: '/',
   },
   {
-	name: '🙋🏻‍♂️ About',
-	to: '/about',
+    name: '🙋🏻‍♂️ About',
+    to: '/about',
   },
   {
     name: '📝 Notebook',
@@ -36,10 +36,10 @@ const MobileMenu = () => {
         </div>
       ))}
       <div className="h-[32px]" />
-      <div className="flex w-4/5 max-w-6xl items-center justify-around py-6">
+      <div className="flex w-2/5 max-w-6xl items-center justify-around py-6">
         <SocialLinks
           {...socialLinks}
-          iconColour="text-gray-900 dark:text-gray-50 hover:text-orange-500 dark:hover:text-orange-500"
+          iconColour="text-gray-900 dark:text-gray-50 hover:text-ctp-mauve dark:hover:text-ctp-mauve"
         />
       </div>
     </div>
@@ -73,7 +73,7 @@ function Header({
 
   return (
     <div
-      className={clsx('sticky top-0 left-0 z-10 w-full', {
+      className={clsx('sticky left-0 top-0 z-10 w-full', {
         ['bg-opacity-70 backdrop-blur-md']: !disableTransparency,
       })}
     >

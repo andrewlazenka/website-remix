@@ -1,7 +1,7 @@
 import React from 'react'
 import { format } from 'date-fns'
-import { type LoaderFunction, type MetaFunction, json } from "@remix-run/node";
-import { useLoaderData } from "@remix-run/react";
+import { type LoaderFunction, type MetaFunction, json } from '@remix-run/node'
+import { useLoaderData } from '@remix-run/react'
 
 import { getNotebookEntryBySlug } from '~/queries/notebook'
 
@@ -63,7 +63,7 @@ function NotebookEntry() {
       <Header />
       <HeroBanner>
         <div className="text-center">
-          <h4 className="py-4 font-normal">
+          <h4 className="py-4 font-normal text-ctp-subtext1">
             {publishedDate} • {read_time_minutes || read_time} min read
           </h4>
           <h1>{title}</h1>

@@ -1,6 +1,14 @@
 import React from 'react'
-import { type LinksFunction, type LoaderFunction } from "@remix-run/node";
-import { Links, LiveReload, Meta, Outlet, Scripts, ScrollRestoration, useCatch } from "@remix-run/react";
+import { type LinksFunction, type LoaderFunction } from '@remix-run/node'
+import {
+  Links,
+  LiveReload,
+  Meta,
+  Outlet,
+  Scripts,
+  ScrollRestoration,
+  useCatch,
+} from '@remix-run/react'
 
 import { getLinks } from '~/queries/links'
 import { formatLinks } from '~/util/links'
@@ -140,7 +148,7 @@ function Document({
           }}
         />
       </head>
-      <body className="bg-blue-500 bg-pattern-triangles bg-cover transition-colors duration-300 ease-in-out dark:bg-gray-900 selection:bg-orange-500">
+      <body className="cpt-latte dark:ctp-mocha bg-pattern-triangles bg-cover transition-colors duration-300 ease-in-out selection:bg-ctp-sapphire">
         {children}
         <ScrollRestoration />
         <Scripts />

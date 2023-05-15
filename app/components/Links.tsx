@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link, useLocation } from "@remix-run/react";
+import { Link, useLocation } from '@remix-run/react'
 import clsx from 'classnames'
 
 interface LinkProps {
@@ -16,7 +16,7 @@ export const InternalLink = ({
 }: LinkProps) => (
   <Link
     className={clsx(
-      textColour || 'hover:text-orange-500',
+      textColour || 'hover:text-ctp-mauve',
       'cursor-pointer text-base transition-colors duration-300 ease-in-out',
       className
     )}
@@ -33,8 +33,8 @@ export const ExternalLink = ({
 }: LinkProps) => (
   <a
     className={clsx(
-      textColour || 'hover:text-orange-500',
-      'cursor-pointer transition-colors duration-300 ease-in-out underline',
+      textColour || 'hover:text-ctp-mauve',
+      'cursor-pointer underline transition-colors duration-300 ease-in-out',
       className
     )}
     href={to}

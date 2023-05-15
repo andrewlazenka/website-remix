@@ -36,7 +36,7 @@ function ModeToggle(props: ModeToggleProps) {
   return (
     <span className="relative z-50 h-6 w-6 leading-[0px]">
       <ToggleIcon
-        className="absolute cursor-pointer transition duration-300 ease-in-out hover:text-orange-500"
+        className="absolute cursor-pointer transition duration-300 ease-in-out hover:text-ctp-mauve"
         onClick={changeTheme}
       />
     </span>

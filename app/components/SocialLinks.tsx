@@ -41,38 +41,38 @@ const SocialLinks = ({
   const iconStyle = clsx(
     'transition-colors duration-300 ease-in-out h-6 w-6',
     iconClassName,
-    iconColour,
+    iconColour
   )
   const linkStyle = clsx(
     'h-6 w-6 p-2 hvr-float-shadow',
     linkClassName,
-    'text-gray-50 hover:text-orange-500' || linkColour,
+    'text-gray-50 hover:text-ctp-mauve' || linkColour
   )
 
   return (
     <>
       {github && (
-        <ExternalLink className={linkStyle} to={github}>
+        <ExternalLink className={linkStyle} to={github} title="GitHub">
           <GitHubLogo className={iconStyle} />
         </ExternalLink>
       )}
       {tiktok && (
-        <ExternalLink className={linkStyle} to={tiktok}>
+        <ExternalLink className={linkStyle} to={tiktok} title="TikTok">
           <TikTokLogo className={clsx(iconStyle, 'h-[1.6rem]')} />
         </ExternalLink>
       )}
       {twitter && (
-        <ExternalLink className={linkStyle} to={twitter}>
+        <ExternalLink className={linkStyle} to={twitter} title="Twitter">
           <TwitterLogo className={iconStyle} />
         </ExternalLink>
       )}
       {instagram && (
-        <ExternalLink className={linkStyle} to={instagram}>
+        <ExternalLink className={linkStyle} to={instagram} title="Instagram">
           <InstaLogo className={iconStyle} />
         </ExternalLink>
       )}
       {linkedin && (
-        <ExternalLink className={linkStyle} to={linkedin}>
+        <ExternalLink className={linkStyle} to={linkedin} title="LinkedIn">
           <LinkedInLogo className={iconStyle} />
         </ExternalLink>
       )}
@@ -80,12 +80,13 @@ const SocialLinks = ({
         <ExternalLink
           className={linkStyle}
           to={typeof email === 'string' ? `mailto:${email}` : ''}
+          title="Email"
         >
           <EmailLogo className={iconStyle} />
         </ExternalLink>
       )}
       {resume && (
-        <ExternalLink className={linkStyle} to={resume}>
+        <ExternalLink className={linkStyle} to={resume} title="Resume">
           <ResumeLogo className={iconStyle} />
         </ExternalLink>
       )}

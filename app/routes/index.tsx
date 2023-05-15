@@ -65,11 +65,20 @@ export default function Home() {
       <HeroBanner slim>
         <animated.div
           style={fade}
-          className="mx-auto my-0 w-3/4 max-w-4xl pb-8 pt-16"
+          className="mx-auto my-0 flex w-3/4 max-w-4xl flex-row justify-center pb-8 pt-16"
         >
-          <h1 className="z-0 m-0 text-center text-5xl font-semibold text-gray-50 dark:text-gray-900">
-            Hey! I'm Andrew <EmojiWiggle>👋🏻</EmojiWiggle>
+          <h1
+            style={{
+              backgroundImage:
+                'linear-gradient(to right,var(--tw-gradient-stops))',
+              color: 'transparent',
+              backgroundClip: 'text',
+            }}
+            className="z-0 m-0 from-ctp-sapphire to-ctp-lavender pb-2 text-5xl font-semibold"
+          >
+            Hey! I'm Andrew{' '}
           </h1>
+          <EmojiWiggle className="pl-2 text-5xl">👋🏻</EmojiWiggle>
         </animated.div>
         <animated.div style={fade} className="flex w-full justify-center">
           <img
