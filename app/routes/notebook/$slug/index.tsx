@@ -66,7 +66,7 @@ function NotebookEntry() {
           <h4 className="py-4 font-normal text-ctp-subtext1">
             {publishedDate} • {read_time_minutes || read_time} min read
           </h4>
-          <h1>{title}</h1>
+          <h1 className="px-4">{title}</h1>
           {tags && (
             <div className="flex flex-wrap justify-center">
               {tags.map((t) => (
