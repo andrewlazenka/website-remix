@@ -36,10 +36,10 @@ const MobileMenu = () => {
         </div>
       ))}
       <div className="h-[32px]" />
-      <div className="flex w-4/5 max-w-6xl items-center justify-around py-6">
+      <div className="flex w-2/5 max-w-6xl items-center justify-around py-6">
         <SocialLinks
           {...socialLinks}
-          iconColour="text-gray-900 dark:text-gray-50 hover:text-orange-500 dark:hover:text-orange-500"
+          iconColour="text-gray-900 dark:text-gray-50 hover:text-ctp-mauve dark:hover:text-ctp-mauve"
         />
       </div>
     </div>
