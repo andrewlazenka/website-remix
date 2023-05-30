@@ -19,6 +19,10 @@ const menuItems = [
     to: '/about',
   },
   {
+    name: '🧰 Uses',
+    to: '/about',
+  },
+  {
     name: '📝 Notebook',
     to: '/notebook',
   },
