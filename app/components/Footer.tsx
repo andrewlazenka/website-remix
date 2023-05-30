@@ -13,14 +13,14 @@ function Footer() {
 
   return (
     <div className="pt-12">
-      <div className="bottom-0 left-0 mb-[-1px] w-full rotate-180 overflow-hidden from-ctp-lavender to-ctp-sapphire">
+      <div className="bottom-0 left-0 mb-[-1px] w-full rotate-180 overflow-hidden">
         <ScifiWave />
       </div>
       <footer
         style={{
           backgroundImage: 'linear-gradient(to right,var(--tw-gradient-stops))',
         }}
-        className="flex min-h-[250px] w-full items-center from-ctp-lavender to-ctp-sapphire transition-all duration-300 ease-in-out"
+        className="flex min-h-[250px] w-full items-center from-ctp-mauve to-ctp-sapphire transition-all duration-300 ease-in-out"
       >
         <div className="mx-auto flex w-3/4 max-w-5xl flex-col justify-between px-5 md:flex-row">
           <div>

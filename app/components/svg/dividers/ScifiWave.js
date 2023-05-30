@@ -9,7 +9,7 @@ const SvgScifiWave = (props) => (
   >
     <defs>
       <linearGradient id="grad" x1="100%" x2="0%">
-        <stop offset="0%" stopColor="rgb(var(--ctp-lavender))" />
+        <stop offset="0%" stopColor="rgb(var(--ctp-mauve))" />
         <stop offset="100%" stopColor="rgb(var(--ctp-sapphire))" />
       </linearGradient>
     </defs>

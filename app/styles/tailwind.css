@@ -1920,6 +1920,11 @@
   --tw-gradient-to-position:  ;
 }
 
+:is(.dark .dark\:to-ctp-mauve) {
+  --tw-gradient-to: rgb(var(--ctp-mauve)) var(--tw-gradient-to-position);
+  --tw-gradient-to-position:  ;
+}
+
 :is(.dark .dark\:fill-white) {
   fill: #fff;
 }
