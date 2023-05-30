@@ -1,5 +1,5 @@
 import React from 'react'
-import { type MetaFunction } from '@remix-run/node'
+import type { MetaFunction } from '@remix-run/node'
 
 import Header from '~/components/Header'
 import HeroBanner from '~/components/HeroBanner'
@@ -16,36 +16,40 @@ function Uses() {
     <Theme>
       <Header />
       <HeroBanner>
-        <h1 className="py-8 text-center font-bold">
+        <h1 className="py-6 text-center font-bold">
           <EmojiWiggle>🧰</EmojiWiggle> Uses
         </h1>
         <h3 className="text-center font-normal">Updated April 28th, 2023</h3>
       </HeroBanner>
       <Layout>
-        <section className="py-8 text-lg">
-          <h2 className="py-8 text-4xl font-bold" id="about">
+        <section className="py-6 text-lg">
+          <h2 className="py-6 text-4xl font-bold" id="about">
             Desk
           </h2>
           <ul className="m-0 py-0">
             <li>2x LG 27GN800-B 1440p 144hz IPS Monitors</li>
+            <li>VIVO Vertical Dual Monitor Mount</li>
+            <li>Quntis Monitor Lamp</li>
             <li>Logitech MX Master 3</li>
             <li>Logitech MX Keys</li>
             <li>Ducky Zero DK2108SZ Mechanical Keyboard</li>
-            <li>Logitech BRIO 4K Webcam</li>
-            <li>Yamaha HS-7 Speakers</li>
+            <li>FireBee Extended Felt Desk Pad</li>
             <li>CalDigit TS4</li>
+            <li>Logitech BRIO 4K Webcam</li>
             <li>Shure MV-7 Microphone</li>
             <li>Elgato Wave Mic Arm</li>
+            <li>Yamaha HS-7 Speakers</li>
+            <li>AKG K240 Headphones</li>
             <li>Native Instruments Komplete Audio 2 Interface</li>
+            <li>Haworth Fern Chair</li>
             <li>Ikea 6' Countertop</li>
             <li>Fully Jarvis Standing Desk Legs</li>
-            <li>FireBee Extended Felt Desk Pad</li>
-            <li>VIVO Vertical Dual Monitor Mount</li>
+            <li>IFCASE Under Desk Laptop Mount</li>
           </ul>
         </section>
 
-        <section className="py-8 text-lg">
-          <h2 className="py-8 text-4xl font-bold" id="about">
+        <section className="py-6 text-lg">
+          <h2 className="py-6 text-4xl font-bold" id="about">
             Laptops
           </h2>
           <ul className="m-0 py-0">
@@ -54,8 +58,8 @@ function Uses() {
           </ul>
         </section>
 
-        <section className="py-8 text-lg">
-          <h2 className="py-8 text-4xl font-bold" id="about">
+        <section className="py-6 text-lg">
+          <h2 className="py-6 text-4xl font-bold" id="about">
             PC Specs
           </h2>
           <ul className="m-0 py-0">
@@ -72,19 +76,20 @@ function Uses() {
           </ul>
         </section>
 
-        <section className="py-8 text-lg">
-          <h2 className="py-8 text-4xl font-bold" id="about">
+        <section className="py-6 text-lg">
+          <h2 className="py-6 text-4xl font-bold" id="about">
             Accessories
           </h2>
           <ul className="m-0 py-0">
-            <li>2018 Kindle Paperwhite</li>
-            <li>Apple AirPods Pro</li>
             <li>Apple iPad Pro 10.8"</li>
+            <li>Apple AirPods Pro</li>
+            <li>Apple Pencil (Gen 2)</li>
+            <li>2018 Kindle Paperwhite</li>
           </ul>
         </section>
 
-        <section className="py-8 text-lg">
-          <h2 className="py-8 text-4xl font-bold" id="about">
+        <section className="py-6 text-lg">
+          <h2 className="py-6 text-4xl font-bold" id="about">
             Apps
           </h2>
           <ul className="m-0 py-0">
@@ -104,8 +109,8 @@ function Uses() {
           </ul>
         </section>
 
-        <section className="py-8 text-lg">
-          <h2 className="py-8 text-4xl font-bold" id="about">
+        <section className="py-6 text-lg">
+          <h2 className="py-6 text-4xl font-bold" id="about">
             Editor
           </h2>
           <ul className="m-0 py-0">
@@ -115,18 +120,17 @@ function Uses() {
           </ul>
         </section>
 
-        <section className="py-8 text-lg">
-          <h2 className="py-8 text-4xl font-bold" id="about">
+        <section className="py-6 text-lg">
+          <h2 className="py-6 text-4xl font-bold" id="about">
             Software & Tools
           </h2>
           <ul className="m-0 py-0">
-            <li>Homebrew</li>
+            <li>brew</li>
+            <li>oh-my-zsh</li>
             <li>tmux</li>
             <li>ripgrep</li>
-            <li>Docker</li>
-            <li>Starship</li>
+            <li>starship</li>
             <li>gh</li>
-            <li>oh-my-zsh</li>
           </ul>
         </section>
       </Layout>
