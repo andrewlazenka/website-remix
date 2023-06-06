@@ -20,7 +20,7 @@ const menuItems = [
   },
   {
     name: '🧰 Uses',
-    to: '/about',
+    to: '/uses',
   },
   {
     name: '📝 Notebook',
