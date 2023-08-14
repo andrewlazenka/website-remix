@@ -31,6 +31,7 @@ function Uses() {
             <li>VIVO Vertical Dual Monitor Mount</li>
             <li>Quntis Monitor Lamp</li>
             <li>Logitech MX Master 3</li>
+            <li>Epomaker TH80 SE</li>
             <li>Logitech MX Keys</li>
             <li>Ducky Zero DK2108SZ Mechanical Keyboard</li>
             <li>FireBee Extended Felt Desk Pad</li>
