@@ -19,7 +19,7 @@ function Uses() {
         <h1 className="py-6 text-center font-bold">
           <EmojiWiggle>🧰</EmojiWiggle> Uses
         </h1>
-        <h3 className="text-center font-normal">Updated April 28th, 2023</h3>
+        <h3 className="text-center font-normal">Updated August 14th, 2023</h3>
       </HeroBanner>
       <Layout>
         <section className="py-6 text-lg">
