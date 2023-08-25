@@ -9,10 +9,10 @@ import Layout from '~/components/Layout'
 import { ExternalLink } from '~/components/Links'
 
 export const meta: MetaFunction = () => ({
-  title: `What I'm up to now - Andrew Lazenka`,
+  title: `Now - Andrew Lazenka`,
 })
 
-function About() {
+function Now() {
   return (
     <Theme>
       <Header />
@@ -24,9 +24,7 @@ function About() {
       </HeroBanner>
       <Layout>
         <section className="py-8 text-lg">
-          <h2 className="py-8 text-4xl font-bold" id="about">
-            Billing @ GitHub
-          </h2>
+          <h2 className="py-8 text-4xl font-bold">Billing @ GitHub</h2>
           In August 2022, I started working at{' '}
           <ExternalLink to="https://github.com">GitHub</ExternalLink>. It's a
           humbling experience being the small fish in a big pond, but that just
@@ -42,9 +40,7 @@ function About() {
         </section>
 
         <section className="py-8 text-lg">
-          <h2 className="py-8 text-4xl font-bold" id="about">
-            The Merging of Two Lives
-          </h2>
+          <h2 className="py-8 text-4xl font-bold">The Merging of Two Lives</h2>
           November 2022 I asked the love of my life is she would marry me.
           <br />
           <br />
@@ -59,9 +55,7 @@ function About() {
         </section>
 
         <section className="py-8 text-lg">
-          <h2 className="py-8 text-4xl font-bold" id="about">
-            Live Music is Back!
-          </h2>
+          <h2 className="py-8 text-4xl font-bold">Live Music is Back!</h2>
           For the first time since March 2020, my band{' '}
           <ExternalLink to="https://prettyyoungthangband.com">
             Pretty Young Thang
@@ -76,9 +70,7 @@ function About() {
         </section>
 
         <section className="py-8 text-lg">
-          <h2 className="py-8 text-4xl font-bold" id="about">
-            Riding the Wave of AI
-          </h2>
+          <h2 className="py-8 text-4xl font-bold">Riding the Wave of AI</h2>
           It's been said that AI will have as great, if not greater, an impact
           than the invention of the Internet.
           <br />
@@ -100,9 +92,7 @@ function About() {
         </section>
 
         <section className="py-8 text-lg">
-          <h2 className="py-8 text-4xl font-bold" id="about">
-            Currently Reading
-          </h2>
+          <h2 className="py-8 text-4xl font-bold">Currently Reading</h2>
           <ul className="m-0 py-0">
             <li>
               <ExternalLink to="https://www.goodreads.com/book/show/23848190-extreme-ownership">
