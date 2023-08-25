@@ -19,6 +19,10 @@ const menuItems = [
     to: '/about',
   },
   {
+    name: '🕒 Now',
+    to: '/now',
+  },
+  {
     name: '🧰 Uses',
     to: '/uses',
   },
