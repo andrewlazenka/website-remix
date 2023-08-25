@@ -20,14 +20,14 @@ function About() {
         <h1 className="py-8 text-center font-bold">
           <EmojiWiggle>🕒</EmojiWiggle> What I'm Doing Now
         </h1>
-        <h3 className="text-center font-normal">Updated April 28th, 2023</h3>
+        <h3 className="text-center font-normal">Updated August 25th, 2023</h3>
       </HeroBanner>
       <Layout>
         <section className="py-8 text-lg">
           <h2 className="py-8 text-4xl font-bold" id="about">
             Billing @ GitHub
           </h2>
-          It's been an awesome 8 months thus far working at{' '}
+          In August 2022, I started working at{' '}
           <ExternalLink to="https://github.com">GitHub</ExternalLink>. It's a
           humbling experience being the small fish in a big pond, but that just
           means there are so many opportunities for growth.
@@ -51,14 +51,11 @@ function About() {
           Unfortunately for her, she said yes.
           <br />
           <br />
-          Having lived separately our entire relationship, we're finally making
-          plans to move in together. I've been splitting my time at her place in
-          Toronto and commutting back home for work during the day.
-          <br />
-          <br />
-          Having set ourselves a 4 year goal to become homeowners, we'll be
-          joining forces in Markham in the coming weeks, slowly savings our
-          pennies to have a place we can call our own.
+          Having lived separately our entire relationship, we finally made
+          arrangements to move in together at the end of May 2023. Our current
+          place is extremely affordable, but comes at the cost of a longer
+          commute for my fiance. Our plan is to save like crazy, get married
+          fall 2024, and eventually buy a place we can call home.
         </section>
 
         <section className="py-8 text-lg">
@@ -69,7 +66,9 @@ function About() {
           <ExternalLink to="https://prettyyoungthangband.com">
             Pretty Young Thang
           </ExternalLink>{' '}
-          will play our first show on June 8th at The Piston in Toronto.
+          played our first show on June 8th at The Piston in Toronto. We were
+          lucky enough to find ourselves on another bill in August which was
+          equally as fun.
           <br />
           <br />
           It's been a great time getting the boys back in the room together.

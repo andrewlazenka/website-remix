@@ -1,7 +1,7 @@
 import React from 'react'
 import { format } from 'date-fns'
-import { type LoaderFunction, type MetaFunction } from "@remix-run/node";
-import { useLoaderData } from "@remix-run/react";
+import { type LoaderFunction, type MetaFunction } from '@remix-run/node'
+import { useLoaderData } from '@remix-run/react'
 
 import {
   getAllNotebookEntry,
@@ -54,7 +54,7 @@ export default function NotebookPage() {
         <h1 className="py-8 text-center font-bold">
           <EmojiWiggle>📝</EmojiWiggle> Notebook
         </h1>
-        <h3 className="text-center font-normal">
+        <h3 className="text-center font-normal text-ctp-subtext1">
           Here's where my thoughts go! Software, crypto, productivity, and more.
         </h3>
       </HeroBanner>
@@ -66,9 +66,9 @@ export default function NotebookPage() {
               textColour="text-gray-900 dark:text-gray-50"
               key={entry.slug}
             >
-              <article className="my-4 flex items-center justify-between rounded-xl border-2 border-solid border-gray-100 p-6 transition-all duration-300 ease-in-out hover:translate-y-[-4px] hover:border-orange-500 hover:drop-shadow-xl dark:border-gray-900 dark:hover:border-orange-500">
+              <article className="my-4 flex items-center justify-between rounded-xl border-2 border-solid border-gray-100 p-6 transition-all duration-300 ease-in-out hover:translate-y-[-4px] hover:border-ctp-sapphire hover:drop-shadow-xl dark:border-gray-900 dark:hover:border-ctp-mauve">
                 <div>
-                  <p className="m-0">
+                  <p className="m-0 text-ctp-subtext1">
                     {format(new Date(entry.date_published), 'MMMM dd, yyyy')} •{' '}
                     {entry.read_time} min read
                   </p>
