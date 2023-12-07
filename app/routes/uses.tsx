@@ -23,7 +23,7 @@ function Uses() {
       </HeroBanner>
       <Layout>
         <section className="py-6 text-lg">
-          <h2 className="py-6 text-4xl font-bold" id="about">
+          <h2 className="py-6 text-4xl font-bold" id="desk">
             Desk
           </h2>
           <ul className="m-0 py-0">
@@ -50,7 +50,7 @@ function Uses() {
         </section>
 
         <section className="py-6 text-lg">
-          <h2 className="py-6 text-4xl font-bold" id="about">
+          <h2 className="py-6 text-4xl font-bold" id="laptops">
             Laptops
           </h2>
           <ul className="m-0 py-0">
@@ -60,7 +60,7 @@ function Uses() {
         </section>
 
         <section className="py-6 text-lg">
-          <h2 className="py-6 text-4xl font-bold" id="about">
+          <h2 className="py-6 text-4xl font-bold" id="pc-specs">
             PC Specs
           </h2>
           <ul className="m-0 py-0">
@@ -78,7 +78,7 @@ function Uses() {
         </section>
 
         <section className="py-6 text-lg">
-          <h2 className="py-6 text-4xl font-bold" id="about">
+          <h2 className="py-6 text-4xl font-bold" id="accessories">
             Accessories
           </h2>
           <ul className="m-0 py-0">
@@ -90,7 +90,7 @@ function Uses() {
         </section>
 
         <section className="py-6 text-lg">
-          <h2 className="py-6 text-4xl font-bold" id="about">
+          <h2 className="py-6 text-4xl font-bold" id="apps">
             Apps
           </h2>
           <ul className="m-0 py-0">
@@ -111,7 +111,7 @@ function Uses() {
         </section>
 
         <section className="py-6 text-lg">
-          <h2 className="py-6 text-4xl font-bold" id="about">
+          <h2 className="py-6 text-4xl font-bold" id="editor">
             Editor
           </h2>
           <ul className="m-0 py-0">
@@ -122,7 +122,7 @@ function Uses() {
         </section>
 
         <section className="py-6 text-lg">
-          <h2 className="py-6 text-4xl font-bold" id="about">
+          <h2 className="py-6 text-4xl font-bold" id="software-and-tools">
             Software & Tools
           </h2>
           <ul className="m-0 py-0">
