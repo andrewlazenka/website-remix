@@ -116,4 +116,4 @@ function Now() {
   )
 }
 
-export default About
+export default Now
