@@ -35,7 +35,8 @@
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-intersection-observer": "^8.32.5",
-    "react-spring": "^9.4.2"
+    "react-spring": "^9.4.2",
+    "remix-sitemap": "^3.2.0"
   },
   "devDependencies": {
     "@catppuccin/tailwindcss": "^0.1.1",
