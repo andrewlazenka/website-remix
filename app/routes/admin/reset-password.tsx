@@ -1,6 +1,10 @@
 import React from 'react'
-import { type ActionFunction, type LoaderFunction, redirect } from "@remix-run/node";
-import { useLoaderData } from "@remix-run/react";
+import {
+  type ActionFunction,
+  type LoaderFunction,
+  redirect,
+} from '@remix-run/node'
+import { useLoaderData } from '@remix-run/react'
 import { resetPassword } from '~/queries/auth'
 
 type LoaderData = {
@@ -50,7 +54,7 @@ export const action: ActionFunction = async ({ request }) => {
     return redirect('/')
   }
 
-  return redirect('/sign-in')
+  return redirect('/admin/sign-in')
 }
 
 function ResetPassword() {
@@ -59,7 +63,7 @@ function ResetPassword() {
   return (
     <main>
       <h1>Reset Password</h1>
-      <form method="post" action="/reset-password">
+      <form method="post" action="/admin/reset-password">
         <label>
           Password
           <input type="password" name="password" />

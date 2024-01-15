@@ -1,5 +1,5 @@
 import React from 'react'
-import { type ActionFunction, redirect } from "@remix-run/node";
+import { type ActionFunction, redirect } from '@remix-run/node'
 
 import { signIn } from '~/queries/auth'
 import { getSession, commitSession } from '~/session'
@@ -34,7 +34,7 @@ const SignIn = () => {
   return (
     <main>
       <h1>Sign In</h1>
-      <form method="post" action="/sign-in">
+      <form method="post" action="/admin/sign-in">
         <label>
           Email
           <input type="text" name="email" />

@@ -22,7 +22,7 @@ export const loader: LoaderFunction = async ({ request, params }) => {
   const session = await getSession(request.headers.get('Cookie'))
 
   if (!session.get('userId')) {
-    return redirect('/sign-in')
+    return redirect('/admin/sign-in')
   }
 
   if (!params.slug) {

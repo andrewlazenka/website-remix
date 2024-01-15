@@ -25,7 +25,7 @@ function getResetPasswordRoute(location: Location) {
       entryPayload[pair[0]] = pair[1]
     })
     if (entryPayload?.type === 'recovery') {
-      return `/reset-password/?token=${entryPayload.access_token}`
+      return `/admin/reset-password/?token=${entryPayload.access_token}`
     }
   }
   let path = location.pathname.replace(/\//, '')
