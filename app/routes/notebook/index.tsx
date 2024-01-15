@@ -18,6 +18,7 @@ import { InternalLink } from '~/components/Links'
 import Theme from '~/components/Theme'
 import { getSession } from '~/session'
 
+import type { SitemapFunction } from 'remix-sitemap'
 import type { NotebookEntry } from '~/types/notebook'
 
 type LoaderResponse = {
@@ -42,6 +43,16 @@ export const meta: MetaFunction = () => {
   return {
     title: `Notebook - Andrew Lazenka`,
   }
+}
+
+export const sitemap: SitemapFunction = async ({ config, request }) => {
+  const publishedEntries =
+    (await getPublishedNotebookEntry()) as NotebookEntry[]
+
+  return publishedEntries.map((entry) => ({
+    loc: `/notebook/${entry.slug}`,
+    lastmod: entry.date_published,
+  }))
 }
 
 export default function NotebookPage() {
