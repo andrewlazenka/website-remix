@@ -1,7 +1,7 @@
 import React from 'react'
 import { format } from 'date-fns'
-import { type LoaderFunction, json } from "@remix-run/cloudflare";
-import { useLoaderData } from "@remix-run/react";
+import type { LoaderFunction } from '@remix-run/cloudflare'
+import { useLoaderData } from '@remix-run/react'
 
 import { marked } from 'marked'
 

@@ -45,15 +45,15 @@ export const meta: MetaFunction = () => [
   },
 ]
 
-export const sitemap: SitemapFunction = async ({ config, request }) => {
-  const publishedEntries =
-    (await getPublishedNotebookEntry()) as NotebookEntry[]
-
-  return publishedEntries.map((entry) => ({
-    loc: `/notebook/${entry.slug}`,
-    lastmod: entry.date_published,
-  }))
-}
+// export const sitemap: SitemapFunction = async ({ config, request }) => {
+//   const publishedEntries =
+//     (await getPublishedNotebookEntry()) as NotebookEntry[]
+//
+//   return publishedEntries.map((entry) => ({
+//     loc: `/notebook/${entry.slug}`,
+//     lastmod: entry.date_published,
+//   }))
+// }
 
 export default function NotebookPage() {
   const { notebookEntries } = useLoaderData<LoaderResponse>()

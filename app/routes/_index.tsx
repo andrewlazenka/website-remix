@@ -1,6 +1,5 @@
 import React from 'react'
 import type { MetaFunction } from '@remix-run/cloudflare'
-import { useNavigate, useLocation } from '@remix-run/react'
 import { animated, useSpring } from 'react-spring'
 
 import EmojiWiggle from '~/components/EmojiWiggle'
@@ -8,46 +7,12 @@ import Footer from '~/components/Footer'
 import Header from '~/components/Header'
 import HeroBanner from '~/components/HeroBanner'
 import Theme from '~/components/Theme'
-import type { Location } from 'history'
 
 export let meta: MetaFunction = () => [
   {
     title: 'Andrew Lazenka',
   },
 ]
-
-function getResetPasswordRoute(location: Location) {
-  if (location.hash && location.hash.substr(0, 1) === '#') {
-    const tokens = location.hash.substr(1).split('&')
-    const entryPayload: { [key: string]: string } = {}
-    tokens.map((token) => {
-      const pair = (token + '=').split('=')
-      entryPayload[pair[0]] = pair[1]
-    })
-    if (entryPayload?.type === 'recovery') {
-      return `/admin/reset-password/?token=${entryPayload.access_token}`
-    }
-  }
-  let path = location.pathname.replace(/\//, '')
-  // remove querystring from path
-  if (path.indexOf('?') > -1) {
-    path = path.substr(0, path.indexOf('?'))
-  }
-  return path
-}
-
-function useResetPassword() {
-  const location = useLocation()
-  const navigate = useNavigate()
-
-  React.useEffect(() => {
-    const path = getResetPasswordRoute(location)
-
-    if (path) {
-      navigate(path, { replace: true })
-    }
-  }, [])
-}
 
 export default function Home() {
   const fade = useSpring({
@@ -57,7 +22,6 @@ export default function Home() {
       duration: 750,
     },
   })
-  useResetPassword()
 
   return (
     <Theme>
