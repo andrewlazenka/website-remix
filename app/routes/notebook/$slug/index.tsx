@@ -1,6 +1,10 @@
 import React from 'react'
 import { format } from 'date-fns'
-import { type LoaderFunction, type MetaFunction, json } from '@remix-run/node'
+import {
+  type LoaderFunction,
+  type MetaFunction,
+  json,
+} from '@remix-run/cloudflare'
 import { useLoaderData } from '@remix-run/react'
 
 import { getNotebookEntryBySlug } from '~/queries/notebook'
@@ -37,17 +41,21 @@ export const loader: LoaderFunction = async ({ request, params }) => {
   return { notebookEntry }
 }
 
-export const meta: MetaFunction = ({ data }: { data: LoaderResponse }) => {
-  if (!data?.notebookEntry) {
-    return {
-      title: 'Page Not Found - Andrew Lazena',
-    }
+export const meta: MetaFunction = (loader) => {
+  if (!loader.data?.notebookEntry) {
+    return [
+      {
+        title: 'Page Not Found - Andrew Lazena',
+      },
+    ]
   }
 
-  const { title } = data.notebookEntry
-  return {
-    title: `${title} - Andrew Lazenka`,
-  }
+  const { title } = loader.data.notebookEntry
+  return [
+    {
+      title: `${title} - Andrew Lazenka`,
+    },
+  ]
 }
 
 function NotebookEntry() {

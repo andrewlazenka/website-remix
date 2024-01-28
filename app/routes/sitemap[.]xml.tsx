@@ -1,7 +1,7 @@
-import { routes } from '@remix-run/dev/server-build'
+// import { routes } from '@remix-run/dev/server-build'
 import { createSitemapGenerator } from 'remix-sitemap'
 
-import { type LoaderFunction } from '@remix-run/node'
+import { type LoaderFunction } from '@remix-run/cloudflare'
 
 export const { experimental_sitemap, robots } = createSitemapGenerator({
   siteUrl: 'https://andrewlazenka.com',
@@ -9,6 +9,9 @@ export const { experimental_sitemap, robots } = createSitemapGenerator({
 })
 
 export const loader: LoaderFunction = async ({ request }) => {
+  // NOTE: importing routes from package causes build error with new vite support
+  const routes = []
+
   // remove admin routes from sitemap
   Object.keys(routes).forEach((r) => {
     if (r.includes('admin')) {

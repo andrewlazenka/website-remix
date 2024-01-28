@@ -1,6 +1,6 @@
 import React from 'react'
 import { format } from 'date-fns'
-import { type LoaderFunction, type MetaFunction } from '@remix-run/node'
+import type { LoaderFunction, MetaFunction } from '@remix-run/cloudflare'
 import { useLoaderData } from '@remix-run/react'
 
 import {
@@ -39,11 +39,11 @@ export const loader: LoaderFunction = async ({ request }) => {
   return { notebookEntries }
 }
 
-export const meta: MetaFunction = () => {
-  return {
+export const meta: MetaFunction = () => [
+  {
     title: `Notebook - Andrew Lazenka`,
-  }
-}
+  },
+]
 
 export const sitemap: SitemapFunction = async ({ config, request }) => {
   const publishedEntries =

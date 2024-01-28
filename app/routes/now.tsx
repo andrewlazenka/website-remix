@@ -1,5 +1,5 @@
 import React from 'react'
-import { type MetaFunction } from '@remix-run/node'
+import { type MetaFunction } from '@remix-run/cloudflare'
 
 import Header from '~/components/Header'
 import HeroBanner from '~/components/HeroBanner'
@@ -8,9 +8,11 @@ import EmojiWiggle from '~/components/EmojiWiggle'
 import Layout from '~/components/Layout'
 import { ExternalLink } from '~/components/Links'
 
-export const meta: MetaFunction = () => ({
-  title: `Now - Andrew Lazenka`,
-})
+export const meta: MetaFunction = () => [
+  {
+    title: `Now - Andrew Lazenka`,
+  },
+]
 
 function Now() {
   return (

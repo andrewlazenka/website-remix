@@ -1,5 +1,5 @@
 import React from 'react'
-import { type LoaderFunction, type MetaFunction } from '@remix-run/node'
+import { type LoaderFunction, type MetaFunction } from '@remix-run/cloudflare'
 import { useLoaderData } from '@remix-run/react'
 import { isBefore } from 'date-fns'
 
@@ -16,9 +16,11 @@ import { getJourneyMeta } from '~/queries/journey'
 
 import type { JourneyMeta } from '~/types/journey'
 
-export const meta: MetaFunction = () => ({
-  title: `About - Andrew Lazenka`,
-})
+export const meta: MetaFunction = () => [
+  {
+    title: `About - Andrew Lazenka`,
+  },
+]
 
 export const loader: LoaderFunction = async () => {
   const journey = (await getJourneyMeta()) || []

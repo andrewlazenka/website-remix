@@ -3,7 +3,7 @@ import {
   type ActionFunction,
   type LoaderFunction,
   redirect,
-} from '@remix-run/node'
+} from '@remix-run/cloudflare'
 import { useLoaderData } from '@remix-run/react'
 import { resetPassword } from '~/queries/auth'
 

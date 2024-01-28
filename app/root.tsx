@@ -1,5 +1,4 @@
 import React from 'react'
-import { type LinksFunction, type LoaderFunction } from '@remix-run/node'
 import {
   Links,
   LiveReload,
@@ -7,20 +6,19 @@ import {
   Outlet,
   Scripts,
   ScrollRestoration,
-  useCatch,
+  useRouteError,
+  isRouteErrorResponse,
 } from '@remix-run/react'
+import type { LinksFunction, LoaderFunction } from '@remix-run/cloudflare'
 
 import { getLinks } from '~/queries/links'
 import { formatLinks } from '~/util/links'
 
-import hamburgerMenuStyles from '~/styles/hamburger-menu.css'
-import globalStyles from '~/styles/global.css'
-import tailwindStyles from '~/styles/tailwind.css'
+import '~/styles/hamburger-menu.css'
+import '~/styles/global.css'
+import '~/tailwind.css'
 
 export let links: LinksFunction = () => [
-  { rel: 'stylesheet', href: tailwindStyles },
-  { rel: 'stylesheet', href: globalStyles },
-  { rel: 'stylesheet', href: hamburgerMenuStyles },
   { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
   { rel: 'preconnect', href: 'https://fonts.gstatic.com' },
   {
@@ -40,75 +38,10 @@ export const loader: LoaderFunction = async () => {
 
 export default function App() {
   return (
-    <Document>
-      <Outlet />
-    </Document>
-  )
-}
-
-export function ErrorBoundary({ error }: { error: Error }) {
-  console.error(error)
-  return (
-    <Document title="Error!">
-      <div>
-        <h1>There was an error</h1>
-        <p>{error.message}</p>
-        <hr />
-        <p>
-          Hey, developer, you should replace this with what you want your users
-          to see.
-        </p>
-      </div>
-    </Document>
-  )
-}
-
-export function CatchBoundary() {
-  let caught = useCatch()
-
-  let message
-  switch (caught.status) {
-    case 401:
-      message = (
-        <p>
-          Oops! Looks like you tried to visit a page that you do not have access
-          to.
-        </p>
-      )
-      break
-    case 404:
-      message = (
-        <p>Oops! Looks like you tried to visit a page that does not exist.</p>
-      )
-      break
-
-    default:
-      throw new Error(caught.data || caught.statusText)
-  }
-
-  return (
-    <Document title={`${caught.status} ${caught.statusText}`}>
-      <h1>
-        {caught.status}: {caught.statusText}
-      </h1>
-      {message}
-    </Document>
-  )
-}
-
-function Document({
-  children,
-  title,
-}: {
-  children: React.ReactNode
-  title?: string
-}) {
-  return (
     <html lang="en">
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width,initial-scale=1" />
-        {title ? <title>{title}</title> : null}
         <Meta />
         <Links />
         <script
@@ -149,11 +82,60 @@ function Document({
         />
       </head>
       <body className="cpt-latte dark:ctp-mocha bg-pattern-triangles bg-cover transition-colors duration-300 ease-in-out selection:bg-ctp-sapphire">
-        {children}
+        <Outlet />
         <ScrollRestoration />
         <Scripts />
-        {process.env.NODE_ENV === 'development' && <LiveReload />}
+        <LiveReload />
       </body>
     </html>
+  )
+}
+
+export function ErrorBoundary() {
+  const error = useRouteError()
+
+  if (isRouteErrorResponse(error)) {
+    let message
+    switch (error.status) {
+      case 401:
+        message = (
+          <p>
+            Oops! Looks like you tried to visit a page that you do not have
+            access to.
+          </p>
+        )
+        break
+      case 404:
+        message = (
+          <p>Oops! Looks like you tried to visit a page that does not exist.</p>
+        )
+        break
+
+      default:
+        throw new Error(error.data || error.statusText)
+    }
+
+    return (
+      <div>
+        <h1>
+          {error.status}: {error.statusText}
+        </h1>
+        {message}
+      </div>
+    )
+  }
+
+  return (
+    <div>
+      <div>
+        <h1>There was an error</h1>
+        <p>{error.message}</p>
+        <hr />
+        <p>
+          Hey, developer, you should replace this with what you want your users
+          to see.
+        </p>
+      </div>
+    </div>
   )
 }

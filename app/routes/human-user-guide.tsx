@@ -1,5 +1,5 @@
 import React from 'react'
-import { type MetaFunction } from '@remix-run/node'
+import { type MetaFunction } from '@remix-run/cloudflare'
 
 import Header from '~/components/Header'
 import Footer from '~/components/Footer'
@@ -8,9 +8,11 @@ import Theme from '~/components/Theme'
 import EmojiWiggle from '~/components/EmojiWiggle'
 import Layout from '~/components/Layout'
 
-export const meta: MetaFunction = () => ({
-  title: `Human User Guide - Andrew Lazenka`,
-})
+export const meta: MetaFunction = () => [
+  {
+    title: `Human User Guide - Andrew Lazenka`,
+  },
+]
 
 function HumanUserGuide() {
   return (

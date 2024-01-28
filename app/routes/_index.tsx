@@ -1,5 +1,5 @@
 import React from 'react'
-import type { MetaFunction } from '@remix-run/node'
+import type { MetaFunction } from '@remix-run/cloudflare'
 import { useNavigate, useLocation } from '@remix-run/react'
 import { animated, useSpring } from 'react-spring'
 
@@ -10,11 +10,11 @@ import HeroBanner from '~/components/HeroBanner'
 import Theme from '~/components/Theme'
 import type { Location } from 'history'
 
-export let meta: MetaFunction = () => {
-  return {
+export let meta: MetaFunction = () => [
+  {
     title: 'Andrew Lazenka',
-  }
-}
+  },
+]
 
 function getResetPasswordRoute(location: Location) {
   if (location.hash && location.hash.substr(0, 1) === '#') {

@@ -4,7 +4,7 @@ import clsx from 'classnames'
 import { ExternalLink } from '~/components/Links'
 
 import EmailLogo from '~/components/svg/icons/Email'
-import GitHubLogo from '~/components/svg/icons/Github'
+import GitHubLogo from '~/components/svg/icons/GitHub'
 import InstaLogo from '~/components/svg/icons/Instagram'
 import LinkedInLogo from '~/components/svg/icons/Linkedin'
 import ResumeLogo from '~/components/svg/icons/Resume'

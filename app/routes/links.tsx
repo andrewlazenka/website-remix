@@ -1,5 +1,5 @@
 import React from 'react'
-import type { LoaderFunction } from '@remix-run/node'
+import type { LoaderFunction } from '@remix-run/cloudflare'
 import { useLoaderData } from '@remix-run/react'
 
 import ModeToggle from '~/components/ModeToggle'

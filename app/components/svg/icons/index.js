@@ -1,7 +1,7 @@
 export { default as ArrowRight } from './ArrowRight'
 export { default as Crown } from './Crown'
 export { default as Email } from './Email'
-export { default as Github } from './Github'
+export { default as GitHub } from './GitHub'
 export { default as Instagram } from './Instagram'
 export { default as Linkedin } from './Linkedin'
 export { default as Moon } from './Moon'

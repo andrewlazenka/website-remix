@@ -1,5 +1,5 @@
 import React from 'react'
-import { type ActionFunction, redirect } from '@remix-run/node'
+import { type ActionFunction, redirect } from '@remix-run/cloudflare'
 
 import { signIn } from '~/queries/auth'
 import { getSession, commitSession } from '~/session'

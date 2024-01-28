@@ -1,6 +1,6 @@
 import React from 'react'
-import type { ActionFunction, LoaderFunction } from '@remix-run/node'
-import { redirect } from '@remix-run/node'
+import type { ActionFunction, LoaderFunction } from '@remix-run/cloudflare'
+import { redirect } from '@remix-run/cloudflare'
 import { Form } from '@remix-run/react'
 import { format, parseISO } from 'date-fns'
 import { useEditor, EditorContent } from '@tiptap/react'
