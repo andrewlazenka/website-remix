@@ -3,10 +3,7 @@ import { format } from 'date-fns'
 import type { LoaderFunction, MetaFunction } from '@remix-run/cloudflare'
 import { useLoaderData } from '@remix-run/react'
 
-import {
-  getAllNotebookEntry,
-  getPublishedNotebookEntry,
-} from '~/queries/notebook'
+import { getPublishedNotebookEntry } from '~/queries/notebook'
 
 import Badge from '~/components/Badge'
 import EmojiWiggle from '~/components/EmojiWiggle'
@@ -16,7 +13,6 @@ import Footer from '~/components/Footer'
 import Layout from '~/components/Layout'
 import { InternalLink } from '~/components/Links'
 import Theme from '~/components/Theme'
-import { getSession } from '~/session'
 
 import type { SitemapFunction } from 'remix-sitemap'
 import type { NotebookEntry } from '~/types/notebook'
@@ -25,16 +21,8 @@ type LoaderResponse = {
   notebookEntries: NotebookEntry[]
 }
 
-export const loader: LoaderFunction = async ({ request }) => {
-  const session = await getSession(request.headers.get('Cookie'))
-
-  let notebookEntries: NotebookEntry[] = []
-
-  if (session.get('userId')) {
-    notebookEntries = (await getAllNotebookEntry()) || []
-  } else {
-    notebookEntries = (await getPublishedNotebookEntry()) as NotebookEntry[]
-  }
+export const loader: LoaderFunction = async () => {
+  const notebookEntries = (await getPublishedNotebookEntry()) as NotebookEntry[]
 
   return { notebookEntries }
 }

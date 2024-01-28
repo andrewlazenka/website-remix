@@ -1,4 +1,3 @@
-import kebabCase from 'lodash.kebabcase'
 import supabase from '~/supabase-client'
 
 import type { NotebookEntry } from '~/types/notebook'
@@ -6,59 +5,6 @@ import type { NotebookEntry } from '~/types/notebook'
 const table = 'notebook'
 const stripHtml = /<[^>]*>?/gm
 const stripNewline = '\\n'
-
-export async function createNotebookEntry(
-  {
-    date_published,
-    title,
-    content,
-    is_published = false,
-    word_count,
-    read_time_minutes,
-  }: Pick<
-    NotebookEntry,
-    | 'title'
-    | 'content'
-    | 'date_published'
-    | 'is_published'
-    | 'word_count'
-    | 'read_time_minutes'
-  >,
-  { auth }: { auth: string }
-) {
-  await supabase.auth.setSession(auth)
-  return supabase.from<NotebookEntry>(table).insert({
-    title,
-    slug: kebabCase(title.toLowerCase()),
-    content,
-    date_published,
-    is_published,
-    word_count,
-    read_time_minutes,
-  })
-}
-
-export async function updateNotebookEntry(
-  {
-    id,
-    title,
-    content,
-    date_published,
-  }: Pick<NotebookEntry, 'id' | 'title' | 'content' | 'date_published'>,
-  { auth }: { auth: string }
-) {
-  await supabase.auth.setSession(auth)
-  return supabase
-    .from<NotebookEntry>(table)
-    .update({
-      title,
-      slug: kebabCase(title.toLowerCase()),
-      content,
-      date_published,
-      updated_at: new Date(),
-    })
-    .eq('id', id)
-}
 
 export async function getNotebookEntryById(id: number) {
   const { data } = await supabase
@@ -72,20 +18,11 @@ export async function getNotebookEntryById(id: number) {
   return
 }
 
-export async function getNotebookEntryBySlug(
-  slug: string,
-  isAuthenticated: boolean = false
-) {
-  const match: { slug: string; is_published?: boolean } = { slug }
-
-  if (!isAuthenticated) {
-    match.is_published = true
-  }
-
+export async function getNotebookEntryBySlug(slug: string) {
   const { data } = await supabase
     .from<NotebookEntry>(table)
     .select()
-    .match(match)
+    .match({ slug, is_published: true })
 
   if (data?.length === 0) {
     return

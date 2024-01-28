@@ -14,7 +14,6 @@ import Header from '~/components/Header'
 import Footer from '~/components/Footer'
 import Layout from '~/components/Layout'
 import Theme from '~/components/Theme'
-import { getSession } from '~/session'
 
 import type { NotebookEntry } from '~/types/notebook'
 import HeroBanner from '~/components/HeroBanner'
@@ -28,11 +27,7 @@ export const loader: LoaderFunction = async ({ request, params }) => {
     return json('Notebook entry not found', { status: 404 })
   }
 
-  const session = await getSession(request.headers.get('Cookie'))
-  const notebookEntry = await getNotebookEntryBySlug(
-    params.slug,
-    Boolean(session.get('userId'))
-  )
+  const notebookEntry = await getNotebookEntryBySlug(params.slug)
 
   if (!notebookEntry) {
     throw new Response('Notebook entry not found', { status: 404 })
