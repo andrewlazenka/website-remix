@@ -7,6 +7,7 @@
   "scripts": {
     "build": "remix vite:build",
     "build:svg": "npx @svgr/cli --out-dir ./app/components/svg ./app/assets/svg",
+    "deploy": "wrangler pages deploy ./build/client",
     "dev": "remix vite:dev",
     "lint": "eslint --ignore-path .gitignore --cache --cache-location ./node_modules/.cache/eslint .",
     "start": "wrangler pages dev ./build/client",
