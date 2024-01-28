@@ -11,18 +11,22 @@ This website was created using [Remix](https://remix.run), [TailwindCSS](https:/
 To run this app, make sure project dependencies are installed:
 
 ```sh
-npm install
+pnpm install
 ```
 
 Afterwards, start the development server like so:
 
 ```sh
-npm run dev
+pnpm run dev
 ```
 
 Open up [http://localhost:3000](http://localhost:3000) and you should be ready to go!
 
 ## Deployment
 
-Thanks to the power of [Vercel](https://vercel.com) this website is deployed
-automatically through their GitHub integration 🚀
+The live site is being hosted on [Cloudflare Pages](https://pages.cloudflare.com).
+
+```
+pnpm run build
+pnpm run deploy
+```
