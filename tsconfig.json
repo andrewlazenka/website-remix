@@ -1,12 +1,11 @@
 {
   "files": [],
-  "extends": "./config/tsconfig.json",
   "compilerOptions": {
-    "module": "commonjs",
-    "target": "ESNEXT",
-    "moduleResolution": "node",
+    "module": "ESNEXT",
+    "target": "ES2022",
+    "moduleResolution": "Bundler",
     "esModuleInterop": true,
-    "lib": ["ES2021", "DOM", "DOM.Iterable"],
+    "lib": ["ES2022", "DOM", "DOM.Iterable"],
     "incremental": true,
     "isolatedModules": true,
     "importsNotUsedAsValues": "error",
@@ -20,9 +19,9 @@
     "forceConsistentCasingInFileNames": true,
     "baseUrl": ".",
     "paths": {
-      "~/*": ["./app/*"]
-    }
+      "~/*": ["./app/*"],
+    },
   },
-  "include": ["remix.env.d.ts", "**/*.ts", "**/*.tsx"],
-  "exclude": ["node_modules"]
+  "include": ["env.d.ts", "**/*.ts", "**/*.tsx"],
+  "exclude": ["node_modules"],
 }
