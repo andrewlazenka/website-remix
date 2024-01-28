@@ -22,12 +22,14 @@ type LoaderResponse = {
   notebookEntry: NotebookEntry
 }
 
-export const loader: LoaderFunction = async ({ request, params }) => {
+export const loader: LoaderFunction = async ({ context, params }) => {
   if (!params.slug) {
     return json('Notebook entry not found', { status: 404 })
   }
 
-  const notebookEntry = await getNotebookEntryBySlug(params.slug)
+  const notebookEntry = await getNotebookEntryBySlug(params.slug, {
+    env: context.env,
+  })
 
   if (!notebookEntry) {
     throw new Response('Notebook entry not found', { status: 404 })

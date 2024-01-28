@@ -1,7 +1,7 @@
 import type { JourneyMeta } from '~/types/journey'
-import supabase from '~/supabase-client'
+import { createSupabaseClient } from '~/supabase-client'
 
-export async function getJourneyMeta() {
+export async function getJourneyMeta({ env }: { env: any }) {
   const cols = [
     'company',
     'start_date',
@@ -14,11 +14,12 @@ export async function getJourneyMeta() {
     'type',
   ].join(', ')
 
+  const supabase = createSupabaseClient(env)
   const { data } = await supabase.from<JourneyMeta>('journey').select(cols)
   return data
 }
 
-export async function getJourneyBySlug(slug: string) {
+export async function getJourneyBySlug(slug: string, { env }: { env: any }) {
   const cols = [
     'company',
     'start_date',
@@ -29,6 +30,7 @@ export async function getJourneyBySlug(slug: string) {
     'content',
   ].join(', ')
 
+  const supabase = createSupabaseClient(env)
   const { data } = await supabase
     .from<JourneyMeta>('journey')
     .select(cols)

@@ -1,6 +1,7 @@
 node_modules
 
 .env
+.dev.vars
 
 .cache
 .vercel
@@ -12,4 +13,5 @@ api/_build
 build
 dist
 
+.wrangler
 wrangler.toml

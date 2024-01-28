@@ -1,4 +1,4 @@
-import supabase from '~/supabase-client'
+import { createSupabaseClient } from '~/supabase-client'
 
 import type { NotebookEntry } from '~/types/notebook'
 
@@ -6,7 +6,8 @@ const table = 'notebook'
 const stripHtml = /<[^>]*>?/gm
 const stripNewline = '\\n'
 
-export async function getNotebookEntryById(id: number) {
+export async function getNotebookEntryById(id: number, { env }: { env: any }) {
+  const supabase = createSupabaseClient(env)
   const { data } = await supabase
     .from<NotebookEntry>(table)
     .select()
@@ -18,7 +19,11 @@ export async function getNotebookEntryById(id: number) {
   return
 }
 
-export async function getNotebookEntryBySlug(slug: string) {
+export async function getNotebookEntryBySlug(
+  slug: string,
+  { env }: { env: any }
+) {
+  const supabase = createSupabaseClient(env)
   const { data } = await supabase
     .from<NotebookEntry>(table)
     .select()
@@ -39,7 +44,7 @@ export async function getNotebookEntryBySlug(slug: string) {
   return entry
 }
 
-export async function getAllNotebookEntry() {
+export async function getAllNotebookEntry({ env }: { env: any }) {
   const cols = [
     'id',
     'title',
@@ -50,6 +55,8 @@ export async function getAllNotebookEntry() {
     'read_time_minutes',
     'is_published',
   ].join(',')
+
+  const supabase = createSupabaseClient(env)
   const { data } = await supabase
     .from<NotebookEntry>(table)
     .select(cols)
@@ -68,7 +75,7 @@ export async function getAllNotebookEntry() {
   })
 }
 
-export async function getPublishedNotebookEntry() {
+export async function getPublishedNotebookEntry({ env }: { env: any }) {
   const cols = [
     'id',
     'title',
@@ -79,6 +86,8 @@ export async function getPublishedNotebookEntry() {
     'read_time_minutes',
     'is_published',
   ].join(',')
+
+  const supabase = createSupabaseClient(env)
   const { data } = await supabase
     .from<NotebookEntry>(table)
     .select(cols)

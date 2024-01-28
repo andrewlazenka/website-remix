@@ -20,12 +20,12 @@ const redBlueGradient =
 const blueVioletGradient =
   'conic-gradient(from -90deg at 50% -25%, blue, blueviolet)'
 
-export const loader: LoaderFunction = async ({ params }) => {
+export const loader: LoaderFunction = async ({ context, params }) => {
   if (!params.slug) {
     throw new Response('Journey not found', { status: 404 })
   }
 
-  const journey = await getJourneyBySlug(params.slug)
+  const journey = await getJourneyBySlug(params.slug, { env: context.env })
 
   if (!journey) {
     throw new Response('Journey not found', { status: 404 })

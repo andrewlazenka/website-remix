@@ -21,8 +21,10 @@ type LoaderResponse = {
   notebookEntries: NotebookEntry[]
 }
 
-export const loader: LoaderFunction = async () => {
-  const notebookEntries = (await getPublishedNotebookEntry()) as NotebookEntry[]
+export const loader: LoaderFunction = async ({ context }) => {
+  const notebookEntries = (await getPublishedNotebookEntry({
+    env: context.env,
+  })) as NotebookEntry[]
 
   return { notebookEntries }
 }

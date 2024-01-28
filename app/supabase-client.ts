@@ -1,15 +1,12 @@
 import { createClient } from '@supabase/supabase-js'
-import dotenv from 'dotenv'
 
-dotenv.config()
+export function createSupabaseClient(env: any) {
+  const apiKey = env.SUPABASE_API_KEY
+  const apiUrl = env.SUPABASE_API_URL
 
-const apiKey = process.env.SUPABASE_API_KEY
-const apiUrl = process.env.SUPABASE_API_URL
+  if (!apiKey || !apiUrl) {
+    throw new Error('Supabase not configured')
+  }
 
-if (!apiKey || !apiUrl) {
-  throw new Error('Supabase not configured')
+  return createClient(apiUrl, apiKey)
 }
-
-const supabase = createClient(apiUrl, apiKey)
-
-export default supabase

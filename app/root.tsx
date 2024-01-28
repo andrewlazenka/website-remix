@@ -28,8 +28,8 @@ export let links: LinksFunction = () => [
   },
 ]
 
-export const loader: LoaderFunction = async () => {
-  const links = await getLinks()
+export const loader: LoaderFunction = async ({ context }) => {
+  const links = await getLinks({ env: context.env })
 
   return {
     ...formatLinks(links || []),

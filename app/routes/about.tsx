@@ -1,7 +1,7 @@
 import React from 'react'
-import { type LoaderFunction, type MetaFunction } from '@remix-run/cloudflare'
 import { useLoaderData } from '@remix-run/react'
 import { isBefore } from 'date-fns'
+import type { LoaderFunction, MetaFunction } from '@remix-run/cloudflare'
 
 import Header from '~/components/Header'
 import Footer from '~/components/Footer'
@@ -22,8 +22,8 @@ export const meta: MetaFunction = () => [
   },
 ]
 
-export const loader: LoaderFunction = async () => {
-  const journey = (await getJourneyMeta()) || []
+export const loader: LoaderFunction = async ({ context }) => {
+  const journey = (await getJourneyMeta({ env: context.env })) || []
 
   return {
     journey,

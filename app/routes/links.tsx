@@ -11,8 +11,9 @@ import { getLinks } from '~/queries/links'
 import type { Link } from '~/types/links'
 import { formatLinks } from '~/util/links'
 
-export const loader: LoaderFunction = async () => {
-  const links = await getLinks()
+export const loader: LoaderFunction = async ({ context }) => {
+  const links = await getLinks({ env: context.env })
+
   if (links) {
     return formatLinks(links)
   }
