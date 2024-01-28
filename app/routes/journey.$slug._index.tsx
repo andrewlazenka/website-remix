@@ -48,7 +48,7 @@ export default function JourneyTemplate() {
 
   const startDate = format(new Date(start_date), 'MMMM yyyy')
   const endDate = format(new Date(end_date), 'MMMM yyyy')
-  const __html = marked.parse(content)
+  const __html = marked.parse(content || '')
 
   return (
     <Theme>
