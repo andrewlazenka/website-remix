@@ -45,6 +45,11 @@ export default function App() {
         <Meta />
         <Links />
         <script
+          defer
+          data-domain="andrewlazenka.com"
+          src="https://plausible.io/js/script.js"
+        ></script>
+        <script
           dangerouslySetInnerHTML={{
             __html: `
               (function() {
