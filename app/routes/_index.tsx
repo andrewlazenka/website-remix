@@ -8,7 +8,7 @@ import Header from '~/components/Header'
 import HeroBanner from '~/components/HeroBanner'
 import Theme from '~/components/Theme'
 
-export let meta: MetaFunction = () => [
+export const meta: MetaFunction = () => [
   {
     title: 'Andrew Lazenka',
   },
