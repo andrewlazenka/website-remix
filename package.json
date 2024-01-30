@@ -4,6 +4,7 @@
   "version": "2.0.0",
   "license": "MIT",
   "sideEffects": false,
+  "type": "module",
   "scripts": {
     "build": "remix vite:build",
     "build:svg": "npx @svgr/cli --out-dir ./app/components/svg ./app/assets/svg",
