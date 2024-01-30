@@ -21,7 +21,7 @@ function Uses() {
         <h1 className="py-6 text-center font-bold">
           <EmojiWiggle>🧰</EmojiWiggle> Uses
         </h1>
-        <h3 className="text-center font-normal">Updated August 14th, 2023</h3>
+        <h3 className="text-center font-normal">Updated January 30th, 2024</h3>
       </HeroBanner>
       <Layout>
         <section className="py-6 text-lg">
@@ -97,16 +97,16 @@ function Uses() {
           </h2>
           <ul className="m-0 py-0">
             <li>Firefox</li>
+            <li>Safari</li>
             <li>iTerm2</li>
             <li>Spotify</li>
-            <li>Cron Calendar</li>
-            <li>Notion</li>
+            <li>Rise Calendar</li>
             <li>Obsidian</li>
             <li>Numi</li>
             <li>Zoom</li>
             <li>Discord</li>
             <li>Slack</li>
-            <li>LastPass</li>
+            <li>1Password</li>
             <li>Cold Turkey Blocker</li>
             <li>Rectangle</li>
           </ul>
@@ -118,8 +118,8 @@ function Uses() {
           </h2>
           <ul className="m-0 py-0">
             <li>Neovim</li>
-            <li>Catppuccin Mocha Theme</li>
-            <li>JetBrains Mono Nerd Font</li>
+            <li>Catppuccin Latte Theme</li>
+            <li>Berkeley Mono Nerd Font</li>
           </ul>
         </section>
 
