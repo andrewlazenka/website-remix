@@ -1,5 +1,5 @@
 import React from 'react'
-import { type MetaFunction } from '@remix-run/cloudflare'
+import type { MetaFunction } from '@remix-run/cloudflare'
 
 import Header from '~/components/Header'
 import HeroBanner from '~/components/HeroBanner'
@@ -22,11 +22,11 @@ function Now() {
         <h1 className="py-8 text-center font-bold">
           <EmojiWiggle>🕒</EmojiWiggle> What I'm Doing Now
         </h1>
-        <h3 className="text-center font-normal">Updated August 25th, 2023</h3>
+        <h3 className="text-center font-normal">Updated February 8th, 2024</h3>
       </HeroBanner>
       <Layout>
         <section className="py-8 text-lg">
-          <h2 className="py-8 text-4xl font-bold">Billing @ GitHub</h2>
+          <h2 className="py-8 text-4xl font-bold">GitHub</h2>
           In August 2022, I started working at{' '}
           <ExternalLink to="https://github.com">GitHub</ExternalLink>. It's a
           humbling experience being the small fish in a big pond, but that just
@@ -39,6 +39,11 @@ function Now() {
           in Feburary 2023, and since then I've been investing in React tooling
           for a "something new" project the Billing team has been working hard
           to ship.
+          <br />
+          <br />
+          In September 2023, I transitioned into a newly formed Licensing team -
+          a subset of the Billing domain that needed some extra TLC - with my
+          manager and 3 other teammates.
         </section>
 
         <section className="py-8 text-lg">
@@ -53,7 +58,27 @@ function Now() {
           arrangements to move in together at the end of May 2023. Our current
           place is extremely affordable, but comes at the cost of a longer
           commute for my fiance. Our plan is to save like crazy, get married
-          fall 2024, and eventually buy a place we can call home.
+          September 2024, and eventually buy a place we can call home.
+        </section>
+
+        <section className="py-8 text-lg">
+          <h2 className="py-8 text-4xl font-bold">Martial Arts</h2>
+          For Christmas 2023, my fiance gifted me 3 classes to a local martial
+          arts training center. Talk about a great gift idea!
+          <br />
+          <br />
+          Since watching the UFC and other promotions, I've had a curiosity to
+          attempt training myself. Something about the discipline, dedication,
+          and self-improvement really struck a chord with me. I decided to start
+          with muay thai as it provides a better full-body work out compared to
+          something like jiu-jitsu (although I will definitely try rolling at
+          some point in the near future).
+          <br />
+          <br />
+          Well, I've since finished those classes and purchased a membership to
+          train twice a week. I'm absolutely hooked! And there is a likely
+          chance I bump that up to an unlimited membership once my body is
+          better conditioned 😅
         </section>
 
         <section className="py-8 text-lg">
@@ -97,18 +122,20 @@ function Now() {
           <h2 className="py-8 text-4xl font-bold">Currently Reading</h2>
           <ul className="m-0 py-0">
             <li>
-              <ExternalLink to="https://www.goodreads.com/book/show/23848190-extreme-ownership">
-                Extreme Ownership by Jocko Willink & Leif Babin
+              <ExternalLink to="https://www.goodreads.com/book/show/171691901">
+                Tidy First?: A Personal Exercise in Empirical Software Design by
+                Kent Beck
               </ExternalLink>
             </li>
             <li>
-              <ExternalLink to="https://www.goodreads.com/book/show/60965426-the-creative-act">
-                The Creative Act by Rick Rubin
+              <ExternalLink to="https://www.goodreads.com/book/show/56913172">
+                The Minimalist Entrepreneur: How Great Founders Do More with
+                Less by Sahil Lavingia
               </ExternalLink>
             </li>
             <li>
-              <ExternalLink to="https://www.goodreads.com/en/book/show/4099">
-                The Pragmatic Programmer by Andy Hunt & Dave Thomas
+              <ExternalLink to="https://www.goodreads.com/book/show/6732019">
+                Rework by Jason Fried & David Heinemeier Hansson
               </ExternalLink>
             </li>
           </ul>
