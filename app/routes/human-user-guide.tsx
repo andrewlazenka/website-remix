@@ -109,7 +109,7 @@ function HumanUserGuide() {
           <li>
             Slow content &gt; "newsfeed" content. Any product or company
             building real-time social networks are investing millions of dollars
-            to <span class="font-bold">buy your attention</span>.
+            to <span className="font-bold">buy your attention</span>.
             <br />
             My preference is to consume slow, quality media to keep my attention
             in my control. Books, web articles, long-form educational YouTube
