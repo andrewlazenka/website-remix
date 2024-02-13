@@ -115,6 +115,7 @@ function HumanUserGuide() {
             in my control. Books, web articles, long-form educational YouTube
             videos, and podcasts.
           </li>
+          <li>Actionable feedback is a gift.</li>
         </ul>
       </Layout>
       <Footer />
