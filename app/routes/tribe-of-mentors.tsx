@@ -67,6 +67,8 @@ function TribeOfMentors() {
             <li>Pieter Levels</li>
             <li>Danny Postma</li>
             <li>Martin Fowler</li>
+            <li>Warren Buffett</li>
+            <li>Charlie Munger</li>
           </ul>
         </section>
       </Layout>
