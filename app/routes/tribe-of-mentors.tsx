@@ -21,7 +21,7 @@ function TribeOfMentors() {
         <h1 className="py-8 text-center font-bold">
           <EmojiWiggle>🤝</EmojiWiggle> Tribe of Mentors
         </h1>
-        <h3 className="text-center font-normal">Updated February 7th, 2024</h3>
+        <h3 className="text-center font-normal">Updated February 13th, 2024</h3>
       </HeroBanner>
       <Layout>
         <section className="py-8 text-lg">
