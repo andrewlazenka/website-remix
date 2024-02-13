@@ -1,5 +1,5 @@
 import React from 'react'
-import { type MetaFunction } from '@remix-run/cloudflare'
+import type { MetaFunction } from '@remix-run/cloudflare'
 
 import Header from '~/components/Header'
 import Footer from '~/components/Footer'
