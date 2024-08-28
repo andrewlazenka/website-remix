@@ -21,7 +21,7 @@ function Uses() {
         <h1 className="py-6 text-center font-bold">
           <EmojiWiggle>🧰</EmojiWiggle> Uses
         </h1>
-        <h3 className="text-center font-normal">Updated January 30th, 2024</h3>
+        <h3 className="text-center font-normal">Updated August 28th, 2024</h3>
       </HeroBanner>
       <Layout>
         <section className="py-6 text-lg">
@@ -29,21 +29,22 @@ function Uses() {
             Desk
           </h2>
           <ul className="m-0 py-0">
-            <li>2x LG 27GN800-B 1440p 144hz IPS Monitors</li>
+            <li>LG 27GR93U 4K 144hz IPS Monitor</li>
+            <li>LG 27GN800-B 1440p 144hz IPS Monitor</li>
             <li>VIVO Vertical Dual Monitor Mount</li>
             <li>Quntis Monitor Lamp</li>
             <li>Logitech MX Master 3</li>
             <li>Epomaker TH80 SE</li>
-            <li>Logitech MX Keys</li>
-            <li>Ducky Zero DK2108SZ Mechanical Keyboard</li>
             <li>FireBee Extended Felt Desk Pad</li>
             <li>CalDigit TS4</li>
             <li>Logitech BRIO 4K Webcam</li>
+            <li>Neewer GL25B Key Light</li>
             <li>Shure MV-7 Microphone</li>
-            <li>Elgato Wave Mic Arm</li>
+            <li>Elgato Wave Mic Arm LP</li>
             <li>Yamaha HS-7 Speakers</li>
             <li>AKG K240 Headphones</li>
-            <li>Native Instruments Komplete Audio 2 Interface</li>
+            <li>Sennheiser IE200 IEMs</li>
+            <li>Audient EVO 4 Interface</li>
             <li>Haworth Fern Chair</li>
             <li>Ikea 6' Countertop</li>
             <li>Fully Jarvis Standing Desk Legs</li>
@@ -87,7 +88,7 @@ function Uses() {
             <li>Apple iPad Pro 10.8"</li>
             <li>Apple AirPods Pro</li>
             <li>Apple Pencil (Gen 2)</li>
-            <li>2018 Kindle Paperwhite</li>
+            <li>2023 Kindle Paperwhite 16GB</li>
           </ul>
         </section>
 
@@ -99,6 +100,7 @@ function Uses() {
             <li>Firefox</li>
             <li>Safari</li>
             <li>iTerm2</li>
+            <li>Ghostty</li>
             <li>Spotify</li>
             <li>Rise Calendar</li>
             <li>Obsidian</li>
