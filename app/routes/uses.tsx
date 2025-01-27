@@ -35,6 +35,7 @@ function Uses() {
             <li>Quntis Monitor Lamp</li>
             <li>Logitech MX Master 3</li>
             <li>Epomaker TH80 SE</li>
+            <li>MoErgo Glove80 (Cherry Blossom) Keyboard</li>
             <li>FireBee Extended Felt Desk Pad</li>
             <li>CalDigit TS4</li>
             <li>Logitech BRIO 4K Webcam</li>
